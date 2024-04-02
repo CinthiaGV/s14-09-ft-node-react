@@ -4,15 +4,76 @@ import { signToken } from "../auth.js";
 import { encryptPassword, verifyPassword } from "./model.js";
 
 export const signup = async (req, res, next) => {
-  res.json({
-    result: "ok sign up",
-  });
+  const { body = {} } = req;
+  const { userData } = body;
+  try {
+    const password = await encryptPassword(userData.password);
+
+    console.log(userData);
+    const user = await prisma.user.create({
+      data: {
+        ...userData,
+        password,
+      },
+    });
+
+    res.status(201);
+    res.json({
+      data: user,
+    });
+  } catch (error) {
+    next({
+      message: "No se pudo crear el Usuario",
+      status: 400,
+      error,
+    });
+  }
 };
 
 export const signin = async (req, res, next) => {
-  res.json({
-    result: "ok sign up",
-  });
+  const { body = {} } = req;
+  const { email, password } = body;
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (user === null) {
+      return next({
+        message: "Invalid email or password",
+        status: 401,
+      });
+    }
+
+    const passwordMatch = await verifyPassword(password, user.password);
+
+    if (!passwordMatch) {
+      return next({
+        message: "Invalid email or password",
+        status: 401,
+      });
+    }
+
+    const token = signToken({
+      id: user.id,
+      email: user.email,
+    });
+
+    res.json({
+      data: {
+        ...user,
+        password: undefined,
+      },
+      meta: {
+        token,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const id = async (req, res, next) => {
