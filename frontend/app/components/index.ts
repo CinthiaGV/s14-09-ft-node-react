@@ -1,3 +1,3 @@
 //auth
-export * from "./auth/login/Login";
+export * from "./auth/loginw/Login";
 

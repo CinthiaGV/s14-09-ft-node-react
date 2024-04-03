@@ -1,5 +1,5 @@
 import Btn from "../components/Button/Btn";
-import Login from "../components/auth/login/Login";
+import Login from "../components/auth/loginw/Login";
 
 
 
