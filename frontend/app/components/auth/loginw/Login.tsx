@@ -3,14 +3,12 @@
 import {
   Checkbox,
   Input,
-  Link,
-  useDisclosure
+  Link
 } from "@nextui-org/react";
 import { LockIcon } from "./LockIcon";
 import { MailIcon } from "./MailIcon";
 
 export default function Login() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <div>
