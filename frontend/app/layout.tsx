@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "./providers";
 import * as React from "react";
 import "./globals.css";
 import SessionAuthProvider from "../context/SessionAuthProvider";
@@ -17,10 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className='dark'>
+    <body>
+      <Providers>
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <SessionAuthProvider>{children}</SessionAuthProvider>
-      </body>
-    </html>
+      </main>
+      </Providers>
+    </body>
+  </html>
   );
 }
