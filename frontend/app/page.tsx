@@ -1,8 +1,10 @@
+"use client";
+import ButtonAuth from "@/components/ButtonAuth";
 
 export default function Home() {
   return (
-    <div>
-      Home works!
-    </div>
-  );
-}
+     <>
+      <h1>Home</h1>
+      <ButtonAuth></ButtonAuth>
+    </>
+
