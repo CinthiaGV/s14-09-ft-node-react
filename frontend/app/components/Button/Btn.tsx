@@ -1,11 +1,13 @@
 "use client";
 
+
+import React from 'react';
 import { BtnProps } from "../../models/button";
 import ModalBtn from "../modal/ModalBtn";
 
-export default function Btn({ target, actionTarget, children, className }: BtnProps) {
+export default function Btn({ target, actionTarget, children, className, onClick }: BtnProps & { onClick: () => void }) {
   return (
-    <div className={className}>
+    <div className={className} onClick={onClick}>
       {actionTarget === "openModal" && (
         <ModalBtn target={target}>{children}</ModalBtn>
       )}

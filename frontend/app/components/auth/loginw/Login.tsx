@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Checkbox,
   Input,
@@ -12,24 +11,30 @@ export default function Login() {
 
   return (
     <div>
-      <Input
-        autoFocus
-        endContent={
-          <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-        }
-        label="Email"
-        placeholder="Enter your email"
-        variant="bordered"
-      />
-      <Input
-        endContent={
-          <LockIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-        }
-        label="Password"
-        placeholder="Enter your password"
-        type="password"
-        variant="bordered"
-      />
+      <div className="mb-4">
+        <label className="block mb-1" htmlFor="email">Email</label>
+        <Input
+          id="email"
+          autoFocus
+          endContent={
+            <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+          }
+          placeholder="Enter your email"
+          variant="bordered"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1" htmlFor="password">Password</label>
+        <Input
+          id="password"
+          endContent={
+            <LockIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+          }
+          placeholder="Enter your password"
+          type="password"
+          variant="bordered"
+        />
+      </div>
       <div className="flex py-2 px-1 justify-between">
         <Checkbox
           classNames={{
@@ -45,3 +50,4 @@ export default function Login() {
     </div>
   );
 }
+
