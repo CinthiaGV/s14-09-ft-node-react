@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
   providers: [
@@ -38,19 +39,30 @@ const handler = NextAuth({
       //     return user;
       //   },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      // authorization: {
+      //   params: {
+      //     prompt: "consent",
+      //     access_type: "offline",
+      //     response_type: "code",
+      //   },
+      // },
+    }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      return { ...token, ...user };
-    },
-    async session({ session, token }) {
-      session.user = token as any;
-      return session;
-    },
-  },
-  //   pages: {
-  //     signIn: "/login",
+  // callbacks: {
+  //   async jwt({ token, user }) {
+  //     return { ...token, ...user };
   //   },
+  //   async session({ session, token }) {
+  //     session.user = token as any;
+  //     return session;
+  //   },
+  // },
+  // pages: {
+  //   signIn: "/loginw",
+  // },
 });
 
 export { handler as GET, handler as POST };
