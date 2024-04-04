@@ -1,4 +1,6 @@
 
+"use client"
+
 import React, { useState } from 'react';
 import Btn from '../components/Button/Btn';
 import Login from "../components/auth/loginw/Login";
