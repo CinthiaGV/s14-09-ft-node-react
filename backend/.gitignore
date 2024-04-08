@@ -1,4 +1,5 @@
-/node_modules
-/dist
-/postgres
+node_modules/
+Thumbs.db
+.DS_Store
 .env
+prisma/migrations
