@@ -26,4 +26,4 @@ Para empezar con GameMate localmente, sigue estos pasos:
 2. Navega hasta el directorio del proyecto.
 3. Instala las dependencias usando `npm install`.
 4. Configura las variables de entorno para la configuración de Firebase.
-5. Ejecuta la aplicación usando `npm start`.
+5. Ejecuta la aplicación usando `npm start`
