@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Providers } from "./providers";
 import * as React from "react";
 import "./globals.css";
-import SessionAuthProvider from "../context/SessionAuthProvider";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +21,7 @@ export default function RootLayout({
     <body>
       <Providers>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <SessionAuthProvider>{children}</SessionAuthProvider>
+        {children}
       </main>
       </Providers>
     </body>

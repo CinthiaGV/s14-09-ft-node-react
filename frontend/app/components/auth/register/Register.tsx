@@ -1,6 +1,6 @@
 // components/RegisterForm.js
 
-import Button from './Button';
+/*import Button from './Button';
 import CheckboxField from './CheckboxField';
 import InputField from './InputField';
 import Link from './Link';
@@ -29,4 +29,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default RegisterForm;*/
