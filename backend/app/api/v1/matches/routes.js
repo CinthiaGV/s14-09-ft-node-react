@@ -11,6 +11,7 @@ export const router = Router();
 
 router.route("/myMatchesSent").get(auth, controller.myMatchesSent);
 router.route("/myMatchesReceived").get(auth, controller.myMatchesReceived);
+router.route("/myMatchesAccepted").get(auth, controller.myMatchesAccepted);
 router.route("/add").post(auth, controller.add);
 
 router.param("id", controller.id);

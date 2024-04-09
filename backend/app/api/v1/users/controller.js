@@ -11,16 +11,19 @@ export const signup = async (req, res, next) => {
     const passwordMinLength = 10;
 
     if (!emailRegex.test(userData.email)) {
-      return res.status(400).json({ error: "El correo electrónico no es válido" });
+      return res
+        .status(400)
+        .json({ error: "El correo electrónico no es válido" });
     }
 
     if (userData.password.length < passwordMinLength) {
-      return res.status(400).json({ error: "La contraseña debe tener al menos 10 caracteres" });
+      return res
+        .status(400)
+        .json({ error: "La contraseña debe tener al menos 10 caracteres" });
     }
 
     const password = await encryptPassword(userData.password);
 
-    console.log(userData);
     const user = await prisma.user.create({
       data: {
         ...userData,
@@ -28,9 +31,11 @@ export const signup = async (req, res, next) => {
       },
     });
 
+    user.password = undefined;
+
     res.status(201);
     res.json({
-      data: user,
+      user,
     });
   } catch (error) {
     next({
@@ -82,11 +87,11 @@ export const signin = async (req, res, next) => {
       email: user.email,
     });
 
+    user.password = undefined;
+
     res.json({
-      data: {
-        ...user,
-        password: undefined,
-      },
+      ...user,
+
       meta: {
         token,
       },

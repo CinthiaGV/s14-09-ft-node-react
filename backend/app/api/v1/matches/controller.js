@@ -180,3 +180,35 @@ export const remove = async (req, res, next) => {
     next(error);
   }
 };
+
+export const myMatchesAccepted = async (req, res, next) => {
+  const { decoded = {} } = req;
+  const { id } = decoded;
+
+  try {
+    const result = await prisma.match.findMany({
+      where: {
+        OR: [
+          {
+            userEmisorId: id,
+            status: true,
+          },
+          {
+            userReceptorId: id,
+            status: true,
+          },
+        ],
+      },
+      include: {
+        userEmisor: true,
+        userReceptor: true,
+      },
+    });
+
+    res.json({
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
