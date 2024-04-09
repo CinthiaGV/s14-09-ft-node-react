@@ -7,6 +7,17 @@ export const signup = async (req, res, next) => {
   const { body = {} } = req;
   const { userData } = body;
   try {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordMinLength = 10;
+
+    if (!emailRegex.test(userData.email)) {
+      return res.status(400).json({ error: "El correo electrónico no es válido" });
+    }
+
+    if (userData.password.length < passwordMinLength) {
+      return res.status(400).json({ error: "La contraseña debe tener al menos 10 caracteres" });
+    }
+
     const password = await encryptPassword(userData.password);
 
     console.log(userData);
@@ -23,7 +34,7 @@ export const signup = async (req, res, next) => {
     });
   } catch (error) {
     next({
-      message: "No se pudo crear el Usuario",
+      message: error.message,
       status: 400,
       error,
     });
@@ -35,6 +46,15 @@ export const signin = async (req, res, next) => {
   const { email, password } = body;
 
   try {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      return next({
+        message: "El correo electrónico no es válido",
+        status: 400,
+      });
+    }
+
     const user = await prisma.user.findUnique({
       where: {
         email,
@@ -43,7 +63,7 @@ export const signin = async (req, res, next) => {
 
     if (user === null) {
       return next({
-        message: "Invalid email or password",
+        message: "Correo electrónico o contraseña incorrectos",
         status: 401,
       });
     }
@@ -52,7 +72,7 @@ export const signin = async (req, res, next) => {
 
     if (!passwordMatch) {
       return next({
-        message: "Invalid email or password",
+        message: "Correo electrónico o contraseña incorrectos",
         status: 401,
       });
     }

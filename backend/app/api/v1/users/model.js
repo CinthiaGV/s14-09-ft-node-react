@@ -1,13 +1,6 @@
 import { hash, compare } from "bcrypt";
 
-export const fields = [
-  "id",
-  "email",
-  "name",
-  "role",
-  "created_at",
-  "updated_at",
-];
+export const fields = ["id", "email", "name", "role", "created_at", "updated_at"];
 
 export const encryptPassword = async (password) => {
   const saltRounds = 10;
