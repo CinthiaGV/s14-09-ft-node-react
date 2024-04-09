@@ -13,7 +13,7 @@ export default function ButtonAuth() {
   if (session) {
     return (
       <>
-        Signed in as {session.user?.email} <br />
+        Signed in as {session.user.email} <br />
         <button
           onClick={() => signOut()}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

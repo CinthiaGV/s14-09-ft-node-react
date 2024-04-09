@@ -8,24 +8,24 @@ const Dashboard = () => {
     return <p>Loading...</p>;
   }
 
-  const getInfo = async () => {
-    const res = await fetch("/api/info", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${session?.user?.token}`,
-      },
-    });
-    const data = await res.json();
-    console.log(data);
-  };
+  // const getInfo = async () => {
+  //   const res = await fetch("/api/info", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       authorization: `Bearer ${session?.user.data?.token}`,
+  //     },
+  //   });
+  //   const data = await res.json();
+  //   console.log(data);
+  // };
 
   return (
     <div>
       <h1>Dashboard</h1>
       <pre>
-        <code>{JSON.stringify(session, null, 2)}</code>
-        <button onClick={getInfo}>Get Info</button>
+        <code>{JSON.stringify(session?.user, null, 2)}</code>
+        {/* <button onClick={getInfo}>Get Info</button> */}
       </pre>
     </div>
   );

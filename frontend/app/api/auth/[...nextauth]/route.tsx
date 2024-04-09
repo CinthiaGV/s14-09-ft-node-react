@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 
 const handler = NextAuth({
   providers: [
@@ -15,54 +16,49 @@ const handler = NextAuth({
         password: { label: "password", type: "password" },
       },
       async authorize(credentials, req) {
-        const user = { id: 1, name: "Matias", email: "matias@example.com" };
-        if (user) {
-          return user;
-        }
-        return null;
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/signin`,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email: credentials?.email,
+              password: credentials?.password,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const user = await res.json();
+        console.log(user);
+        if (user.error) throw user;
+        return user;
       },
-      //     const res = await fetch(
-      //       `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`,
-      //       {
-      //         method: "POST",
-      //         body: JSON.stringify({
-      //           email: credentials?.email,
-      //           password: credentials?.password,
-      //         }),
-      //         headers: {
-      //           "Content-Type": "application/json",
-      //         },
-      //       }
-      //     );
-      //     const user = await res.json();
-      //     if (user.error) throw user;
-      //     return user;
-      //   },
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      // authorization: {
-      //   params: {
-      //     prompt: "consent",
-      //     access_type: "offline",
-      //     response_type: "code",
-      //   },
-      // },
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
   ],
-  // callbacks: {
-  //   async jwt({ token, user }) {
-  //     return { ...token, ...user };
-  //   },
-  //   async session({ session, token }) {
-  //     session.user = token as any;
-  //     return session;
-  //   },
-  // },
-  // pages: {
-  //   signIn: "/loginw",
-  // },
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+    async session({ session, token }) {
+      session.user = token as any;
+      return session;
+    },
+  },
 });
-
 export { handler as GET, handler as POST };
