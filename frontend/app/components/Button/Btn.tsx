@@ -6,7 +6,7 @@ import ModalBtn from "../modal/ModalBtn";
 
 export default function Btn({ target, actionTarget, children, className, onClick }: BtnProps & { onClick?: () => void }) {
   return (
-    <div className={className} onClick={onClick}>
+    <div className={`polygon bg-yellow btn glitch`} onClick={onClick}>
       {actionTarget === "openModal" && (
         <ModalBtn target={target}>{children}</ModalBtn>
       )}
