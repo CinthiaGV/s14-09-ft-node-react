@@ -15,6 +15,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors:{
+        'yellow':'#D9F04C',
+        'gray':{
+          DEFAULT:'#525252',
+          '60':'#3E3A3A99'
+        },
+        'black':'#232222'
+      },
+      fontWeight:{
+        'semibold':'600'
+      }
     },
     darkMode: "class",
     plugins: [nextui()]
