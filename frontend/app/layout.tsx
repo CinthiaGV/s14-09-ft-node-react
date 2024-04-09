@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import * as React from "react";
+import Header from "./components/header/Header";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className='dark'>
     <body>
       <Providers>
+        <Header/>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {children}
       </main>

@@ -17,7 +17,14 @@ const config: Config = {
       },
       colors:{
         'yellow':'#D9F04C',
-        'gray':'#525252'
+        'gray':{
+          DEFAULT:'#525252',
+          '60':'#3E3A3A99'
+        },
+        'black':'#232222'
+      },
+      fontWeight:{
+        'semibold':'600'
       }
     },
     darkMode: "class",

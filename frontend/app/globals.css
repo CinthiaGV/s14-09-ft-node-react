@@ -18,6 +18,7 @@
 
 body {
   background-color: rgba(35, 34, 34, 1);
+  font-family: Chakra Petch;
 }
 
 @layer utilities {
@@ -29,17 +30,19 @@ body {
 @layer components {
   .polygon {
     clip-path: polygon(
-    0 0,
-    calc(100% - var(--curve-size)) 0,
-    100% var(--curve-size),
-    100% 100%,
-    var(--curve-size) 100%,
-    0 calc(100% - var(--curve-size))
+      var(--curve-size) 0,
+      calc(100% - var(--curve-size)) 0,
+      100% var(--curve-size),
+      calc(100% - var(--curve-size)) 100%,
+      var(--curve-size) 100%,
+      0 calc(100% - var(--curve-size))
   );
 }
+
 .btn {
-  --curve-size: 0.8rem;
+  --curve-size: 0.4rem;
   cursor: pointer;
+  font-size: 1.25rem;
   /* use position: relative; so that BG is only for .btn */
   position: relative;
   isolation: isolate;
@@ -48,6 +51,15 @@ body {
   padding: 0.5em 1.5em;
   transition: color 250ms;
 }
+
+.yellowBtn {
+  @apply btn bg-yellow font-semibold text-black;
+}
+
+.grayBtn {
+  @apply btn bg-gray font-semibold text-white;
+}
+
 
 .glitch::after {
   padding: 10px 50px;
@@ -82,7 +94,7 @@ body {
   animation-timing-function: steps(2, end);
   text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
   background-color: transparent;
-  border: 3px solid rgb(0, 255, 213);
+  /*border: 3px solid rgb(0, 255, 213);*/
 }
 
 .glitch:hover {
@@ -92,7 +104,7 @@ body {
 
 .glitch:hover {
   background-color: transparent;
-  border: 1px solid rgb(0, 255, 213);
+  /*border: 1px solid rgb(0, 255, 213);*/
   box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
 }
 
