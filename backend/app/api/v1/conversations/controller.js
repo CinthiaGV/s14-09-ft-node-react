@@ -1,8 +1,18 @@
 import { prisma } from "../../../database.js";
+import { ConversationSearchSchema, ConversationCreateSchema } from "./model.js";
 
 export const id = async (req, res, next) => {
     const id = req.params.id;
     try {
+        const { success, data, error } = await ConversationSearchSchema.safeParseAsync({ id })
+        if (!success) {
+            return next({
+                message: "Validation error - type" + error.errors[0].message,
+                status: 400,
+                error
+            })
+        }
+
         const result = await prisma.conversation.findUnique({
             where: {
                 id: id,
@@ -24,6 +34,15 @@ export const create = async (req, res, next) => {
     const { usuarioAId, usuarioBId } = req.body;
 
     try {
+        const { success, data, error } = await ConversationCreateSchema.safeParseAsync({ usuarioAId, usuarioBId })
+        if (!success) {
+            return next({
+                message: "Validation error - type" + error.errors[0].message,
+                status: 400,
+                error
+            })
+        }
+
         const userA = await prisma.user.findUnique({
             where: { id: usuarioAId },
         });
@@ -61,6 +80,15 @@ export const read = async (req, res, next) => {
 export const archive = async (req, res, next) => {
     const id = req.params.id;
     try {
+        const { success, data, error } = await ConversationSearchSchema.safeParseAsync({ id })
+        if (!success) {
+            return next({
+                message: "Validation error - type" + error.errors[0].message,
+                status: 400,
+                error
+            })
+        }
+
         const conversation = await prisma.conversation.update({
             where: {
                 id: id,
@@ -79,6 +107,15 @@ export const archive = async (req, res, next) => {
 export const remove = async (req, res, next) => {
     const id = req.params.id;
     try {
+        const { success, data, error } = await ConversationSearchSchema.safeParseAsync({ id })
+        if (!success) {
+            return next({
+                message: "Validation error - type" + error.errors[0].message,
+                status: 400,
+                error
+            })
+        }
+
         const conversation = await prisma.conversation.findUnique({
             where: {
                 id: id,
