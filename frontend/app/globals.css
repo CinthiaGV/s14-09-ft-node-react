@@ -53,11 +53,11 @@ p, span, a {
 }
 
 .yellowBtn {
-  @apply btn bg-yellow font-semibold text-black;
+  @apply btn bg-yellow font-semibold text-black polygon glitch;
 }
 
 .grayBtn {
-  @apply btn bg-gray font-semibold text-white;
+  @apply btn bg-gray font-semibold text-white polygon glitch;
 }
 
 

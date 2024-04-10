@@ -12,10 +12,10 @@ export default function Header() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <Btn actionTarget="execCb" target={()=>signIn()}>
+          <Btn className='grayBtn' actionTarget="execCb" target={()=>signIn()}>
             Inciar sesion
           </Btn>
-          <Btn actionTarget="openModal" target={<FormikRegister />}>
+          <Btn className='yellowBtn' actionTarget="openModal" target={<FormikRegister />}>
             Regístrate
           </Btn>
         </div>

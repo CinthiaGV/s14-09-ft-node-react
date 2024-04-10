@@ -9,7 +9,7 @@ export interface BtnProps {
   actionTarget: "openModal" | "openRoute" | "execCb"
   target?: any
   children: ReactNode
-  className?: ClassName
+  className?: ClassName | 'yellowBtn' | 'grayBtn'
 }
 
 //Modal
