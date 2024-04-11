@@ -56,7 +56,7 @@ const handleLoginButtonClick = () => {
           <h2 className="text-lg font-medium text-gray-500 mt-4">Un espacio donde encontrar el Match Perfecto para jugar a tus partidas.</h2>
           </div>
           <div className="m-10">
-            <Btn actionTarget="execCb" target={handleLoginButtonClick()}>
+            <Btn className='yellowBtn' actionTarget="execCb" target={handleLoginButtonClick}>
               Boton
             </Btn>
           </div>
