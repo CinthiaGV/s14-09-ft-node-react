@@ -24,6 +24,7 @@ const Header: React.FC = () => {
 
   return (
     <>
+    <main className='h-screen'>
       <div
         className={`absolute top-10 left-0`}
         style={{
@@ -33,7 +34,7 @@ const Header: React.FC = () => {
       >
         <Image
           src="/Image2.png"
-          width={403}
+          width={355}
           height={376}
           alt="Imagen Inferior"
           className=""
@@ -48,28 +49,32 @@ const Header: React.FC = () => {
       >
         <Image
           src="/Image3.png"
-          width={302}
-          height={404}
+          width={250}
+          height={379}
           alt="Imagen Inferior"
           className=""
         />
       </div>
-      <main className="text-center relative top-40 mt-20  h-screen">
-        <div className=" ">
-          <h1 className="text-8xl font-bold text-white">NOA</h1>
-          <h1 className="text-8xl font-bold text-white">CONEXION MATCHING</h1>
+      <div className="text-center relative top-40 mt-10 ">
+        <div>
+          <h1 className="text-7xl font-bold text-white">NOA</h1>
+          <h1 className="text-7xl font-bold text-white">CONEXION MATCHING</h1>
           <h2 className="text-lg font-medium text-gray-500 mt-4">
             Un espacio donde encontrar el Match Perfecto para jugar a tus
             partidas.
           </h2>
         </div>
-        <div className="mt-1">
+        <div className="mt-1 mb-10">
           <Btn actionTarget="openModal" target={<Login />}>
             Boton
           </Btn>
         </div>
-      </main>
-      <div className="bottom-0 left-0 right-0 text-center ">
+      </div>
+      <div className="left-0 right-0 text-center mt-48"
+      style={{
+        transition: 'transform 2s ease',
+        transform: moved ? 'translateY(0%)' : 'translateY(130%)',
+      }}>
         <Image
           src="/Image1.png"
           width={194}
@@ -78,6 +83,7 @@ const Header: React.FC = () => {
           className="inline-block"
         />
       </div>
+    </main>
     </>
   );
 };
