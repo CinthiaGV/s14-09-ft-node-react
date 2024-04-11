@@ -1,10 +1,18 @@
-'use client'
+'use client';
+
 import Btn from '../Button/Btn';
-import { Register } from '../auth/register/Register';
+import Login from '../auth/loginw/Login';
+import FormikRegister from '../auth/register/RegisterF';
 import Logo from './Logo';
 import Navbar from './Navbar';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
-import { signIn } from 'next-auth/react';
+function handleButtonLogin() {
+  signIn();
+}
+function handleButtonLogout() {
+  signOut();
+}
 
 export default function Header() {
   return (
@@ -12,11 +20,14 @@ export default function Header() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <Btn className='grayBtn' actionTarget="execCb" target={()=>signIn()}>
+          <Btn actionTarget="openModal" onClick={handleButtonLogin}>
             Inciar sesion
           </Btn>
-          <Btn className='yellowBtn' actionTarget="openModal" target={<Register/>}>
+          <Btn actionTarget="openModal" target={<FormikRegister />}>
             Regístrate
+          </Btn>
+          <Btn actionTarget="openModal" onClick={handleButtonLogout}>
+            Logout
           </Btn>
         </div>
         <Navbar />
