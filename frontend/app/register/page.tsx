@@ -3,7 +3,7 @@ export default function Page() {
   return (
     <div>
       {/*<Btn actionTarget="openModal" target={<RegisterForm/>}>Register</Btn>*/}
-      <p className="text-white">
+      <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cupiditate dolorum dolor commodi earum labore obcaecati itaque aliquid sequi, vel excepturi omnis eaque, eius ipsa ab. Doloremque nesciunt temporibus hic!
         Magnam sapiente reprehenderit rerum maiores nemo? Possimus amet laboriosam suscipit voluptates ratione officiis dignissimos, vero delectus libero, earum molestiae? Sed soluta ex enim accusamus dignissimos voluptas quas doloribus dolore expedita?
         Ratione ipsum aperiam a iusto perspiciatis asperiores distinctio commodi dicta sed non molestias minima, repudiandae blanditiis! Autem neque repudiandae, sit nihil ipsam odio incidunt voluptas facilis doloribus eius consequuntur minus!

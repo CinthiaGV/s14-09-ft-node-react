@@ -11,8 +11,12 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+
         // sans: ['var(--font-chakra_petch)'],
         // mono: ['var(--font-chakra_petch)'],
+        
+        //sans: ['Chakra Petch','Graphik', 'sans-serif'],
+        //serif: ['Merriweather', 'serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
