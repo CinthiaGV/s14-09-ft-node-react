@@ -23,9 +23,9 @@ export default function Header() {
           <Btn actionTarget="openModal" onClick={handleButtonLogin}>
             Inciar sesion
           </Btn>
-          <Btn actionTarget="openModal" target={<FormikRegister />}>
+          {/* <Btn actionTarget="openModal" target={<FormikRegister />}>
             Regístrate
-          </Btn>
+          </Btn> */}
           <Btn actionTarget="openModal" onClick={handleButtonLogout}>
             Logout
           </Btn>
