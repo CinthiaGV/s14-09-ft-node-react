@@ -6,6 +6,7 @@ import { encryptPassword, verifyPassword } from "./model.js";
 export const signup = async (req, res, next) => {
   const { body = {} } = req;
   const { userData } = body;
+  console.log(userData)
   try {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordMinLength = 10;
