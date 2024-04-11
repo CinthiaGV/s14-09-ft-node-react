@@ -1,6 +1,6 @@
 'use client'
 import Btn from '../Button/Btn';
-import FormikRegister from '../auth/register/RegisterF';
+import { Register } from '../auth/register/Register';
 import Logo from './Logo';
 import Navbar from './Navbar';
 
@@ -15,7 +15,7 @@ export default function Header() {
           <Btn className='grayBtn' actionTarget="execCb" target={()=>signIn()}>
             Inciar sesion
           </Btn>
-          <Btn className='yellowBtn' actionTarget="openModal" target={<FormikRegister />}>
+          <Btn className='yellowBtn' actionTarget="openModal" target={<Register/>}>
             Regístrate
           </Btn>
         </div>
