@@ -14,8 +14,12 @@ const Header: React.FC = () => {
   };
 
   return (
-    <>
-    {/*<header className="text-white w-full fixed top-0 left-0 z-10" style={{ backgroundColor: "rgba(62, 58, 58, 0.6)" }}>
+    <div>
+    </div>
+  );
+};
+
+/*<header className="text-white w-full fixed top-0 left-0 z-10" style={{ backgroundColor: "rgba(62, 58, 58, 0.6)" }}>
       <div className="max-w-full mx-auto flex justify-between items-center p-4">
         <div className="text-lg font-bold">Logo</div>
 
@@ -109,9 +113,6 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
-                  </header>*/}
-    </>
-  );
-};
+    </header>*/
 
 export default Header;
