@@ -17,9 +17,6 @@ body {
   font-family: Chakra Petch;
 }
 
-p, span, a {
-  @apply text-white font-sans
-}
 
 @layer utilities {
   .text-balance {
@@ -29,6 +26,7 @@ p, span, a {
 
 @layer components {
   .polygon {
+    --curve-size: 0.4rem;
     clip-path: polygon(
       var(--curve-size) 0,
       calc(100% - var(--curve-size)) 0,
@@ -40,7 +38,6 @@ p, span, a {
 }
 
 .btn {
-  --curve-size: 0.4rem;
   cursor: pointer;
   font-size: 1.25rem;
   /* use position: relative; so that BG is only for .btn */
