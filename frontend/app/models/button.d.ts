@@ -3,12 +3,13 @@ import { ClassName } from "./types"
 
 //types
 type ModalTarget = ReactNode
+type cb = ()=>void
 //Standard
 export interface BtnProps {
-  actionTarget: "openModal" | "openRoute"
-  target: ModalTarget
+  actionTarget: "openModal" | "openRoute" | "execCb"
+  target?: any
   children: ReactNode
-  className?: ClassName
+  className?: ClassName | 'yellowBtn' | 'grayBtn'
 }
 
 //Modal

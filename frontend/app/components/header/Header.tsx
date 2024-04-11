@@ -1,8 +1,10 @@
+'use client'
 import Btn from '../Button/Btn';
-import Login from '../auth/loginw/Login';
 import FormikRegister from '../auth/register/RegisterF';
 import Logo from './Logo';
 import Navbar from './Navbar';
+
+import { signIn } from 'next-auth/react';
 
 export default function Header() {
   return (
@@ -10,10 +12,10 @@ export default function Header() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <Btn actionTarget="openModal" target={<Login />}>
+          <Btn className='grayBtn' actionTarget="execCb" target={()=>signIn()}>
             Inciar sesion
           </Btn>
-          <Btn actionTarget="openModal" target={<FormikRegister />}>
+          <Btn className='yellowBtn' actionTarget="openModal" target={<FormikRegister />}>
             Regístrate
           </Btn>
         </div>

@@ -1,11 +1,12 @@
 "use client";
-
 import React, { useState,useEffect } from "react";
 import Btn from "./components/Button/Btn";
 import Login from "./components/auth/loginw/Login";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from 'next/image'
 import '../public/fonts/chakra-petch.css';
+import { signIn, useSession } from "next-auth/react";
+import React, { useState } from "react";
 
 const Header: React.FC = () => {
   const [moved, setMoved] = useState(false);
@@ -22,11 +23,14 @@ const Header: React.FC = () => {
   return (
     <>
     
-      
-    
-      <header className="text-white w-full fixed top-0 left-0 z-10" style={{ backgroundColor: "rgba(62, 58, 58, 0.6)" }}>
+        {/*<header className="text-white w-full fixed top-0 left-0 z-10" style={{ backgroundColor: "rgba(62, 58, 58, 0.6)" }}>
         <div className="max-w-full mx-auto flex justify-between items-center p-4">
-          <div className="text-lg font-bold">Logo</div>
+          <div className="text-lg font-bold">Logo</div>*/}
+      
+      
+          {/*<header className="text-white w-full fixed top-0 left-0 z-10" style={{ backgroundColor: "rgba(62, 58, 58, 0.6)" }}>
+      <div className="max-w-full mx-auto flex justify-between items-center p-4">
+        <div className="text-lg font-bold">Logo</div>
 
           <div className="justify-items-center relative">
             <div className="text-sm font-bold relative z-10">Home</div>
@@ -168,11 +172,8 @@ const Header: React.FC = () => {
             className="inline-block"
           />
         </div>
-    
 
-
-
-
+                  </header>*/
     </>
   );
 };

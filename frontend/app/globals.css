@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -20,6 +16,10 @@ body {
   background-color: rgba(35, 34, 34, 1);
   font-family: 'Chakra Petch', sans-serif;
   padding: 0px;
+}
+
+p, span, a {
+  @apply text-white font-sans
 }
 
 @layer utilities {
@@ -54,11 +54,11 @@ body {
 }
 
 .yellowBtn {
-  @apply btn bg-yellow font-semibold text-black;
+  @apply btn bg-yellow font-semibold text-black polygon glitch;
 }
 
 .grayBtn {
-  @apply btn bg-gray font-semibold text-white;
+  @apply btn bg-gray font-semibold text-white polygon glitch;
 }
 
 
