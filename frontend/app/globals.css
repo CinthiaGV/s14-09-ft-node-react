@@ -4,13 +4,11 @@
 
 
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --curve-size: 0.4rem;
   }
-} */
+} 
 
 body {
   background-color: rgba(35, 34, 34, 1);
@@ -27,7 +25,6 @@ body {
 
 @layer components {
   .polygon {
-    --curve-size: 0.4rem;
     clip-path: polygon(
       var(--curve-size) 0,
       calc(100% - var(--curve-size)) 0,
