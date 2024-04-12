@@ -48,10 +48,12 @@ export default function Register() {
             />
           </div>
           <div>
-            {formik.touched.username && formik.errors.username ? (
-              <span className="text-red-500">{formik.errors.username}</span>
-            ) : null}
-          </div>
+  {formik.touched.username && formik.errors.username ? (
+    <span className="text-red-500">{formik.errors.username}</span>
+  ) : (
+    <span>&nbsp;</span>
+  )}
+</div>
         </div>
         {/*<div>
           <label htmlFor="email">Email: </label>
