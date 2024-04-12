@@ -38,6 +38,18 @@ body {
   );
 }
 
+.border-polygon {
+  mask: polygon(
+    var(--curve-size) 0,
+    calc(100% - var(--curve-size)) 0,
+    100% var(--curve-size),
+    calc(100% - var(--curve-size)) 100%,
+    var(--curve-size) 100%,
+    0 calc(100% - var(--curve-size))
+  );
+  outline: 2px solid black; /* Cambia el grosor y el color del borde según sea necesario */
+}
+
 .btn {
   cursor: pointer;
   font-size: 1.25rem;
