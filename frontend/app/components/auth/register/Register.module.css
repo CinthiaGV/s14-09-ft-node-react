@@ -1,294 +1,104 @@
-.root {
-  position: relative;
-  width: 628px;
-  height: 718px;
+.form {
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: #3e3a3a99;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
+  gap: 0.6rem;
+  /*padding: 30px;*/
+  width: 25rem;
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
 }
-.bc {
-  position: absolute;
-  left: 40px;
-  top: 260px;
-  width: 547.8673px;
-  height: 64px;
-  overflow: visible;
-}
-.icon {
-  width: 100%;
-  height: 100%;
-}
-.bc2 {
-  position: absolute;
-  left: 40px;
-  top: 393px;
-  width: 547.8673px;
-  height: 64px;
-  overflow: visible;
-}
-.icon2 {
-  width: 100%;
-  height: 100%;
-}
-.bc3 {
-  position: absolute;
-  left: 40px;
-  top: 127px;
-  width: 547.8673px;
-  height: 64px;
-  overflow: visible;
-}
-.icon3 {
-  width: 100%;
-  height: 100%;
-}
-.visibility {
-  position: absolute;
-  left: 544px;
-  top: 413px;
-  width: 24px;
-  height: 24px;
-  overflow: visible;
-}
-.icon4 {
-  width: 100%;
-  height: 100%;
-}
-.nombreDeUsuario {
-  color: #fff;
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: 500;
-  font-family: Chakra Petch, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: 0.02em;
-  position: absolute;
-  left: 40px;
-  top: 98px;
-  width: min-content;
-  height: min-content;
-  white-space: nowrap;
-  flex-direction: column;
-}
-.correo {
-  color: #fff;
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: 500;
-  font-family: Chakra Petch, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: 0.02em;
-  position: absolute;
-  left: 40px;
-  top: 231px;
-  width: min-content;
-  height: min-content;
-  white-space: nowrap;
-  flex-direction: column;
-}
-.contrasena {
-  color: #fff;
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: 500;
-  font-family: Chakra Petch, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: 0.02em;
-  position: absolute;
-  left: 40px;
-  top: 364px;
-  width: min-content;
-  height: min-content;
-  white-space: nowrap;
-  flex-direction: column;
-}
-.OlvidasteTuContrasena {
-  color: #fff;
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: 500;
-  font-family: Chakra Petch, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: 0.02em;
-  position: absolute;
-  left: 40px;
-  top: 496px;
-  width: min-content;
-  height: min-content;
-  white-space: nowrap;
-  flex-direction: column;
-}
-.oRegistrateCon {
-  color: #fff;
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: 500;
-  font-family: Chakra Petch, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: 0.02em;
-  position: absolute;
-  left: calc(50% - 0.5px);
-  top: 605px;
-  width: min-content;
-  height: min-content;
-  text-align: center;
-  align-items: center;
-  white-space: nowrap;
-  flex-direction: column;
-  transform: translateX(-50%);
-}
-.bc4 {
-  position: absolute;
-  left: 215px;
-  top: 537px;
-  width: 197px;
-  height: 48px;
-  overflow: visible;
-}
-.icon5 {
-  width: 100%;
-  height: 100%;
-}
-.label {
-  color: #232222;
-  font-size: 20px;
+
+/*::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}*/
+
+/*.form button {
+  align-self: flex-end;
+}*/
+
+/*.flex-column > label {
+  color: #21b6b6;
   font-weight: 600;
-  font-family: Chakra Petch, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  position: absolute;
-  left: calc(50% - 0.5px);
-  top: 548px;
-  width: min-content;
-  height: min-content;
-  white-space: nowrap;
-  flex-direction: column;
-  transform: translateX(-50%);
-}
-.line20 {
-  position: absolute;
-  left: 40px;
-  top: 615px;
-  width: 196px;
-  max-width: 100%;
-  height: 0;
-  max-height: 100%;
-  border-bottom: solid 1px #fff;
-}
-.line22 {
-  position: absolute;
-  left: 50%;
-  top: 77px;
-  width: 628px;
-  max-width: 100%;
-  height: 0;
-  max-height: 100%;
-  border-bottom: solid 1px #fff;
-  transform: translateX(-50%);
-}
-.line21 {
-  position: relative;
-  left: 391px;
-  top: 615px;
-  width: 197px;
-  max-width: 100%;
-  height: 1px;
-  max-height: 100%;
-}
-.line21::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: 0 0;
-  transform: translateY(1px) rotate(0deg);
-  width: 197px;
-  height: 0;
-  border-bottom: solid 1px #fff;
-}
-.registrarme {
-  color: #fff;
-  font-size: 32px;
-  line-height: 120%;
-  font-weight: bold;
-  font-family: Chakra Petch, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: 0.02em;
-  position: absolute;
-  left: 50%;
-  top: 20px;
-  width: min-content;
-  height: min-content;
-  text-align: center;
+}*/
+
+.inputForm {
+  border: 1rem solid #ecedec;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
   align-items: center;
-  white-space: nowrap;
-  flex-direction: column;
-  transform: translateX(-50%);
+  padding-left: 10px;
+  transition: 0.2s ease-in-out;
 }
-.close {
-  position: absolute;
-  left: 40px;
-  top: 27px;
-  width: 24px;
-  height: 24px;
-  overflow: visible;
-}
-.icon6 {
+
+.input {
+  background-color: transparent;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
   width: 100%;
   height: 100%;
 }
-.account_circle {
-  position: absolute;
-  left: 60px;
-  top: 147px;
-  width: 24px;
-  height: 24px;
-  overflow: visible;
-}
-.icon7 {
+
+/*.input:focus {
+  outline: none;
+}*/
+
+/*.inputForm:focus-within {
+  border: 1.5px solid #ffffff;
+}*/
+
+/*.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}*/
+
+/*.flex-row > div > label {
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+}*/
+
+/*.span {
+  font-size: 14px;
+  margin-left: 5px;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}*/
+
+.button-submit {
+  margin: 20px 0 10px 0;
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 50px;
   width: 100%;
-  height: 100%;
+  cursor: pointer;
 }
-.mail {
-  position: absolute;
-  left: 60px;
-  top: 280px;
-  width: 24px;
-  height: 24px;
-  overflow: visible;
-}
-.icon8 {
+
+.btn {
+  margin-top: 10px;
   width: 100%;
-  height: 100%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+  border: 1px solid #ededef;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
-.lock {
-  position: absolute;
-  left: 60px;
-  top: 413px;
-  width: 24px;
-  height: 24px;
-  overflow: visible;
+
+.btn:hover {
+  border: 1px solid #2d79f3;
+  ;
 }
-.icon9 {
-  width: 100%;
-  height: 100%;
-}
-.rectangle277 {
-  position: absolute;
-  left: 270px;
-  top: 666px;
-  width: 32px;
-  height: 32px;
-  background-color: #fff;
- 
-}
-.rectangle276 {
-  position: absolute;
-  left: 326px;
-  top: 666px;
-  width: 32px;
-  height: 32px;
-  background-color: #fff;
-  
-}
+
+    

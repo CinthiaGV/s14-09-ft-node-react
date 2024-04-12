@@ -58,6 +58,11 @@ body {
   @apply btn bg-gray font-semibold text-white polygon glitch;
 }
 
+.glassmorphism {
+  @apply backdrop-filter backdrop-blur-md bg-gray-60 bg-opacity-60;
+}
+
+
 
 .glitch::after {
   padding: 10px 50px;
