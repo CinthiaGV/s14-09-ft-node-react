@@ -41,7 +41,6 @@ export default function Header() {
           <Btn actionTarget="openModal" onClick={handleButtonLogin}>
             Inciar sesion
           </Btn>
-          <Btn actionTarget="openModal">Regístrate</Btn>
         </div>
         <Navbar />
       </div>
