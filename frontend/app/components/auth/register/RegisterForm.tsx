@@ -1,10 +1,12 @@
 'use client';
 import { Button } from '@nextui-org/react';
+import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputField from './InputField';
 
 export default function RegisterForm() {
+  const endpoint = process.env.NEXT_PUBLIC_BACKEND_URL
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -24,8 +26,16 @@ export default function RegisterForm() {
         .max(15, 'Máximo 15 caracteres')
         .min(8, 'Al menos 8 caracteres'),
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      try {
+        const info = {userData: values}
+      const {data}= await axios.post(`${endpoint}/users/signup`||"", info)
+      console.log(data)
+    } catch (error) {
+        console.log('Registro no exitoso', error)
+        
+      }
+      
     },
   });
 
@@ -53,7 +63,7 @@ export default function RegisterForm() {
             <a><span>¿Olvidaste tu contraseña?</span></a>
           </div>
 
-          <Button type='submit' isDisabled={formik.dirty} className="btn yellowBtn glitch w-[8rem] place-self-center">Regístrate</Button>
+          <Button type='submit' className="btn yellowBtn glitch w-[8rem] place-self-center">Regístrate</Button>
         </form>
   );
 }
