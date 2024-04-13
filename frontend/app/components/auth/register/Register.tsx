@@ -4,8 +4,6 @@ import * as Yup from 'yup';
 import InputField from './InputField';
 
 export default function Register() {
-  // Pass the useFormik() hook initial form values and a submit function that will
-  // be called when the form is submitted
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -20,7 +18,6 @@ export default function Register() {
         .required('Debes completar este campo')
         .email('El formato no coincide con un email')
         .max(30, 'Máximo 30 caracteres'),
-
       password: Yup.string()
         .required('Debes completar este campo')
         .max(15, 'Máximo 15 caracteres')
@@ -32,16 +29,16 @@ export default function Register() {
   });
 
   return (
-    <div className="flex flex-col justify-center items-center outline mt-10 w-[500px] glassmorphism text-white">
-      <h2 className="m-5 text-[32px] font-bold">Registrarme</h2>
-      <p>------------------------------------------------------</p>
-      <form onSubmit={formik.handleSubmit}>
-      <InputField label="Username:" id="username" formikProps={{ formik }} />
-      <InputField label="Email:" id="email" formikProps={{ formik }} />
-      <InputField label="Password:" id="password" formikProps={{ formik }} />
-        
-        <button type="submit">Submit</button>
-      </form>
+    <div className="flex justify-center items-center h-screen">
+      <div className="flex flex-col justify-center items-center outline w-[500px] glassmorphism text-white p-10">
+        <h2 className="text-2xl font-bold mb-5">Registrarme</h2>
+        <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
+          <InputField type="text" label="Username:" id="username" formikProps={{ formik }} />
+          <InputField type="email" label="Email:" id="email" formikProps={{ formik }} />
+          <InputField type="password" label="Password:" id="password" formikProps={{ formik }} />
+          <button className="yellowBtn glitch transition duration-300" type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
