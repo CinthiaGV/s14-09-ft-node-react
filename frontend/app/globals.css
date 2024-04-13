@@ -25,10 +25,11 @@ body {
   color:white;
 }
 
+
 input:focus {
   @apply transparency-imposed;
   outline: none;
-  border:1px solid rgb(176, 18, 18);
+  border:1px solid #D9F04C;
 }
 
 /* Para deshabilitar el autofill */
@@ -36,6 +37,7 @@ input {
   /* Otros estilos */
   -webkit-autofill: none;
   -webkit-box-shadow: 0 0 0px 1000px #525252 inset; /* Safari */
+  -webkit-text-fill-color:white;
 }
 
 @layer utilities {
