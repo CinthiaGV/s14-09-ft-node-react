@@ -30,13 +30,14 @@ export default function Register() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="flex flex-col justify-center items-center outline w-[500px] glassmorphism text-white p-10">
-        <h2 className="text-2xl font-bold mb-5">Registrarme</h2>
+      <div className="flex flex-col justify-center items-center text-white">
+        <h2 className="text-2xl font-bold">Registrarme</h2>
+        <hr className="w-full border-b-1 overflow-visible"/>
         <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
           <InputField type="text" label="Username:" id="username" formikProps={{ formik }} />
           <InputField type="email" label="Email:" id="email" formikProps={{ formik }} />
           <InputField type="password" label="Password:" id="password" formikProps={{ formik }} />
-          <button className="yellowBtn glitch transition duration-300" type="submit">Submit</button>
+          <button className="yellowBtn glitch transition duration-300" type="submit">Registrarme</button>
         </form>
       </div>
     </div>
