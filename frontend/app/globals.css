@@ -7,11 +7,12 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --curve-size: 0.4rem;
+    --bgColor: rgba(35, 34, 34, 1)
   }
 } 
 
 body {
-  background-color: rgba(35, 34, 34, 1);
+  background-color: var(--bgColor);
   font-family: 'Chakra Petch', sans-serif;
   padding: 0px;
 }
@@ -21,6 +22,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+input:focus{
+  border:none
 }
 
 @layer components {
@@ -35,7 +40,28 @@ body {
   );
 }
 
-.border-polygon {
+/*.parallelogram-container {
+  position: relative;
+  height: 1.25rem;
+}
+
+.parallelogram {
+  height: 1.25rem;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 25% 100%);
+  background: rgb(23, 150, 208);
+}
+
+.small-parallelogram {
+  position: absolute;
+  background: white;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  clip-path: polygon(2% 2%, 73% 2%, 98% 98%, 27% 98%);
+}*/
+
+/*.border-polygon {
   mask: polygon(
     var(--curve-size) 0,
     calc(100% - var(--curve-size)) 0,
@@ -44,8 +70,8 @@ body {
     var(--curve-size) 100%,
     0 calc(100% - var(--curve-size))
   );
-  outline: 2px solid black; /* Cambia el grosor y el color del borde según sea necesario */
-}
+  outline: 2px solid black; Cambia el grosor y el color del borde según sea necesario
+}*/
 
 .btn {
   cursor: pointer;

@@ -29,7 +29,7 @@ const config: Config = {
           DEFAULT:'#525252',
           '60':'#3E3A3A99'
         },
-        'black':'#232222'
+        'black':'#232222',
       },
       fontWeight:{
         'semibold':'600'
