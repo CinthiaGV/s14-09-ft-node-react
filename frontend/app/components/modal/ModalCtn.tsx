@@ -12,7 +12,7 @@ export default function ModalCtn({isOpen, onOpenChange, content}:ModalCtnProps) 
         onOpenChange={onOpenChange}
         placement="top-center"
         backdrop="blur"
-        className=""
+        className="glassmorphism"
       >
         <ModalContent>
           {(onClose) => (

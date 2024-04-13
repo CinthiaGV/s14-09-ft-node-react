@@ -1,10 +1,7 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import Btn from './components/Button/Btn';
-import Login from './components/auth/loginw/Login';
-import { signIn, signOut, useSession } from 'next-auth/react';
+'use client'
+import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 import '../public/fonts/chakra-petch.css';
 
 const Header: React.FC = () => {
@@ -23,7 +20,6 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <>
     <main className='h-screen'>
       <div
         className={`absolute top-10 left-0`}
@@ -64,27 +60,21 @@ const Header: React.FC = () => {
             partidas.
           </h2>
         </div>
-        <div className="mt-1 mb-10">
-          <Btn actionTarget="openModal" target={<Login />}>
-            Boton
-          </Btn>
+        <div className="left-0 right-0 text-center mt-48"
+          style={{
+            transition: 'transform 2s ease',
+            transform: moved ? 'translateY(0%)' : 'translateY(130%)',
+          }}>
+          <Image
+            src="/Image1.png"
+            width={194}
+            height={183}
+            alt="Imagen Inferior"
+            className="inline-block"
+          />
         </div>
       </div>
-      <div className="left-0 right-0 text-center mt-48"
-      style={{
-        transition: 'transform 2s ease',
-        transform: moved ? 'translateY(0%)' : 'translateY(130%)',
-      }}>
-        <Image
-          src="/Image1.png"
-          width={194}
-          height={183}
-          alt="Imagen Inferior"
-          className="inline-block"
-        />
-      </div>
     </main>
-    </>
   );
 };
 

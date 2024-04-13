@@ -10,7 +10,7 @@ export default function Btn({
   onClick,
 }: BtnProps & { onClick?: () => void }) {
   return (
-    <div className="yellowBtn polygon glitch" onClick={onClick}>
+    <div className="btn yellowBtn polygon glitch" onClick={onClick}>
       {actionTarget === 'openModal' && (
         <ModalBtn onClick={onClick} target={target}>
           {children}
