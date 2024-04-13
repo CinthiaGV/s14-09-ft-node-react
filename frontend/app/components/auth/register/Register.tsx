@@ -1,6 +1,6 @@
 'use client'
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import GoogleIcon from '@mui/icons-material/Google';
+//import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+//import GoogleIcon from '@mui/icons-material/Google';
 import {
   Button,
   Modal,
@@ -18,7 +18,7 @@ export default function Register() {
   
   return (
     <>
-      <Button className='yellowBtn glitch' onPress={onOpen}>Regístrate</Button>
+      <Button size='sm' className='yellowBtn glitch overflow-hidden' onPress={onOpen}>Regístrate</Button>
       <Modal 
         isOpen={isOpen} 
         onOpenChange={onOpenChange}
@@ -26,8 +26,8 @@ export default function Register() {
         backdrop="blur"
         isKeyboardDismissDisabled={true}
         isDismissable={false}
-        className="glassmorphism p-0 m-0"
         size="sm"
+        className="glassmorphism overflow-hidden"
       >
         <ModalContent>
           {(onClose) => (
@@ -38,28 +38,20 @@ export default function Register() {
               <ModalBody>
                 <RegisterForm />
               </ModalBody>
-              <ModalFooter>
-                <div className="separator">
+              <ModalFooter className="flex justify-center">
+              <div className="relative separator">
                   <div></div>
-                  <span>O regístrate con</span>
+                  <span className='inline-block text-nowrap'>O regístrate con</span>
                   <div></div>
                 </div>
-                <div className="flex flex-col items-center gap-2">
+                {/*<div className="flex justify-start">
                   <button>
                     <GoogleIcon />
                   </button>
                   <button>
                     <FacebookRoundedIcon />
                   </button>
-                  <div className="flex gap-2">
-                    <Button color="danger" variant="light" onPress={onClose}>
-                      Close
-                    </Button>
-                    <Button color="primary" onPress={onClose}>
-                      Action
-                    </Button>
-                  </div>
-                </div>
+          </div>*/}
               </ModalFooter>
             </>
           )}

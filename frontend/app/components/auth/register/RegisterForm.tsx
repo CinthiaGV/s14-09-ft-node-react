@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@nextui-org/react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputField from './InputField';
@@ -51,12 +52,8 @@ export default function RegisterForm() {
           <div>
             <a><span>¿Olvidaste tu contraseña?</span></a>
           </div>
-          <button
-            className="btn yellowBtn glitch transition duration-300"
-            type="submit"
-          >
-            Registrarme
-          </button>
+
+          <Button type='submit' isDisabled={formik.dirty} className="btn yellowBtn glitch w-[8rem] place-self-center">Regístrate</Button>
         </form>
   );
 }
