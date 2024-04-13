@@ -15,6 +15,8 @@
     calc(100% - var(--curve-size)) 100%,
     var(--curve-size) 100%,
     0 calc(100% - var(--curve-size));
+    --font-color: #ffffff;
+    --font-color-sub: #ffffff;
   }
 } 
 
@@ -48,6 +50,25 @@ body {
   content: ""; 
   background-color:white; 
 } 
+
+.separator {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.separator > div {
+  width: 6.25rem;
+  height: 1px;
+  border-radius: 5px;
+  background-color: var(--font-color-sub);
+}
+
+.separator > span {
+  color: var(--font-color);
+}
 
 /*.parallelogram-container {
   position: relative;
