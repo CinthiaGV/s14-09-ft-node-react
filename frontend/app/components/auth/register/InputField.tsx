@@ -7,7 +7,6 @@ export default function InputField({ label, id, formikProps }) {
     <div className="relative flex flex-col gap-1">
       <label htmlFor={id}>{label}</label>
       <div className="p-[0.0313rem] polygon bg-white">
-        <div className='polygon bg-black m-1'>
           <div className="polygon glassmorphism">
             <div className="absolute inset-y-1 left-0 pl-3 flex items-center pointer-events-none" >
               <PersonOutlineOutlinedIcon />
@@ -18,14 +17,15 @@ export default function InputField({ label, id, formikProps }) {
               type="text"
               {...formik.getFieldProps(id)}
             />
-          </div>
         </div>
       </div>
+      <div>
       {formik.touched[id] && formik.errors[id] ? (
         <span className="text-red-500">{formik.errors[id]}</span>
       ) : (
         <span>&nbsp;</span>
       )}
+      </div>
     </div>
   );
 }

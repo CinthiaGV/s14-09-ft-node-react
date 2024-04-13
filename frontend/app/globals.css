@@ -7,7 +7,14 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --curve-size: 0.4rem;
-    --bgColor: rgba(35, 34, 34, 1)
+    --bgColor: rgba(35, 34, 34, 1);
+    --custom-shape:
+    var(--curve-size) 0,
+    calc(100% - var(--curve-size)) 0,
+    100% var(--curve-size),
+    calc(100% - var(--curve-size)) 100%,
+    var(--curve-size) 100%,
+    0 calc(100% - var(--curve-size));
   }
 } 
 
@@ -30,15 +37,23 @@ input:focus{
 
 @layer components {
   .polygon {
-    clip-path: polygon(
-      var(--curve-size) 0,
-      calc(100% - var(--curve-size)) 0,
-      100% var(--curve-size),
-      calc(100% - var(--curve-size)) 100%,
-      var(--curve-size) 100%,
-      0 calc(100% - var(--curve-size))
-  );
+    clip-path: polygon(var(--custom-shape));
+    position: relative; 
+    background-color:transparent; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    position: relative; 
 }
+
+.polygon-border { 
+  clip-path: polygon(var(--custom-shape));
+  width: 190px;
+  height: 190px;
+  content: ""; 
+  position: absolute; 
+  background-color:white; 
+} 
 
 /*.parallelogram-container {
   position: relative;
