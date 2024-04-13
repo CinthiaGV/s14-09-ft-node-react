@@ -10,7 +10,7 @@ export interface BtnProps {
   target?: any
   children: ReactNode
   className?: ClassName | 'yellowBtn' | 'grayBtn'
-  onClic?: any
+  onClick?: any
 }
 
 //Modal
