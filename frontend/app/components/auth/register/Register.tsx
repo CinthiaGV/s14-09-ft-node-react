@@ -16,7 +16,7 @@ export default function Register() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
       <>
-        <Button className='yellowBtn glitch' onPress={onOpen}>Iniciar sesión</Button>
+        <Button className='yellowBtn glitch' onPress={onOpen}>Regístrate</Button>
         <Modal
           isOpen={isOpen}
           onOpenChange={onOpenChange}
