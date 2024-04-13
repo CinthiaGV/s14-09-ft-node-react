@@ -52,7 +52,7 @@ export default function RegisterForm() {
             <a><span>¿Olvidaste tu contraseña?</span></a>
           </div>
           <button
-            className="yellowBtn glitch transition duration-300"
+            className="btn yellowBtn glitch transition duration-300"
             type="submit"
           >
             Registrarme

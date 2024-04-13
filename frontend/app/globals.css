@@ -22,6 +22,20 @@ body {
   background-color: var(--bgColor);
   font-family: 'Chakra Petch', sans-serif;
   padding: 0px;
+  color:white;
+}
+
+input:focus {
+  @apply transparency-imposed;
+  outline: none;
+  border:1px solid rgb(176, 18, 18);
+}
+
+/* Para deshabilitar el autofill */
+input {
+  /* Otros estilos */
+  -webkit-autofill: none;
+  -webkit-box-shadow: 0 0 0px 1000px #525252 inset; /* Safari */
 }
 
 @layer utilities {
@@ -43,7 +57,6 @@ body {
   
   .polygon-border { 
     clip-path: polygon(var(--custom-shape));
-    content: ""; 
     background-color:white; 
   } 
   /*boludo*/
@@ -88,6 +101,14 @@ body {
   
   .glassmorphism {
     @apply backdrop-filter backdrop-blur-md bg-gray-60 bg-opacity-60;
+  }
+
+  .transparency-imposed {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Negro con 50% de transparencia */z-index: absolute; /* Asegúrate de que esté por encima de los otros elementos */
   }
   
   

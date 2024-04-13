@@ -21,11 +21,11 @@ export default function InputField({ label, id, type, formikProps }: IInputField
   };
 
   return (
-    <div className="relative flex flex-col gap-1">
+    <div className="relative flex flex-col gap- transparency-imposed1">
       <label htmlFor={id}>{label}</label>
-      <div className="p-[0.0625rem] polygon polygon-border">
-        <div className="polygon glassmorphism">
-          <div className="absolute inset-y-1 left-0 pl-3 flex items-center pointer-events-none">
+      <div className="polygon-border transparency-imposed">
+        <div className="polygon glassmorphism transparency-imposed">
+          <div className="absolute left-0 pl-3 flex items-center pointer-events-none transparency-imposed bg-gray">
             {id === 'username' ? (
               <PersonOutlineOutlinedIcon />
             ) : id === 'email' ? (
@@ -35,7 +35,7 @@ export default function InputField({ label, id, type, formikProps }: IInputField
             ) : null}
           </div>
           <input
-            className="polygon bg-transparent pl-2 py-2 border-none w-64 ml-10"
+            className="polygon pl-2 py-2 focus:border-none w-64 ml-10"
             id={id}
             type={showPassword ? 'text' : type} // Toggle between 'text' and original 'type' for password field
             {...formik.getFieldProps(id)}
