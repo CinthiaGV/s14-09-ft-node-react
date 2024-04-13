@@ -18,7 +18,7 @@ export default function Register() {
   
   return (
     <>
-      <Button size='sm' className='yellowBtn glitch overflow-hidden' onPress={onOpen}>Regístrate</Button>
+      <Button size='sm' className='btn yellowBtn glitch overflow-hidden' onPress={onOpen}>Regístrate</Button>
       <Modal 
         isOpen={isOpen} 
         onOpenChange={onOpenChange}
