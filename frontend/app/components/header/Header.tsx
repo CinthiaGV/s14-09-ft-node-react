@@ -1,11 +1,9 @@
 'use client';
 
+import { signIn, signOut, useSession } from 'next-auth/react';
 import Btn from '../Button/Btn';
-import Login from '../auth/loginw/Login';
-import FormikRegister from '../auth/register/RegisterF';
 import Logo from './Logo';
 import Navbar from './Navbar';
-import { signIn, signOut, useSession } from 'next-auth/react';
 
 function handleButtonLogin() {
   signIn();
