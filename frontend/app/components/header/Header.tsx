@@ -15,9 +15,7 @@ export default function Header() {
           <Btn className='grayBtn' actionTarget="execCb" target={()=>signIn()}>
             Inciar sesion
           </Btn>
-          <Btn className='yellowBtn' actionTarget="openModal" target={<Register/>}>
-            Regístrate
-          </Btn>
+          <Register/>
         </div>
         <Navbar />
       </div>

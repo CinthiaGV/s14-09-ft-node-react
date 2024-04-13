@@ -1,79 +1,65 @@
 'use client';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import GoogleIcon from '@mui/icons-material/Google';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import InputField from './InputField';
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from '@nextui-org/react';
+import RegisterForm from './RegisterForm';
 
 export default function Register() {
-  const formik = useFormik({
-    initialValues: {
-      username: '',
-      email: '',
-      password: '',
-    },
-    validationSchema: Yup.object({
-      username: Yup.string()
-        .required('Debes completar este campo')
-        .max(8, 'Máximo 8 caracteres'),
-      email: Yup.string()
-        .required('Debes completar este campo')
-        .email('El formato no coincide con un email')
-        .max(30, 'Máximo 30 caracteres'),
-      password: Yup.string()
-        .required('Debes completar este campo')
-        .max(15, 'Máximo 15 caracteres')
-        .min(8, 'Al menos 8 caracteres'),
-    }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
-    <div className="flex justify-center items-center h-screen w-[628px]">
-      <div className="flex flex-col justify-center items-center text-white">
-        <h2 className="text-2xl font-bold">Registrarme</h2>
-        <hr className="w-full border-b-1 overflow-visible" />
-        <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
-          <InputField
-            type="text"
-            label="Username:"
-            id="username"
-            formikProps={{ formik }}
-          />
-          <InputField
-            type="email"
-            label="Email:"
-            id="email"
-            formikProps={{ formik }}
-          />
-          <InputField
-            type="password"
-            label="Password:"
-            id="password"
-            formikProps={{ formik }}
-          />
-          <div>
-            <a><span>¿Olvidaste tu contraseña?</span></a>
-          </div>
-          <button
-            className="yellowBtn glitch transition duration-300"
-            type="submit"
-          >
-            Registrarme
-          </button>
-        </form>
-        <div className="separator">
-          <div></div>
-          <span>O regístrate con</span>
-          <div></div>
-        </div>
-        <div className="inline">
-        <button><GoogleIcon/></button>
-        <button><FacebookRoundedIcon/></button>
-        </div>
-      </div>
-    </div>
+      <>
+        <Button className='yellowBtn glitch' onPress={onOpen}>Iniciar sesión</Button>
+        <Modal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          isDismissable={false}
+          isKeyboardDismissDisabled={true}
+        >
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
+                  <div className="flex flex-col justify-center items-center text-white">
+                    <h2 className="text-2xl font-bold">Registrarme</h2>
+                    <hr className="w-full border-b-1" />
+                  </div>
+                </ModalHeader>
+                <ModalBody>
+                  <RegisterForm />
+                </ModalBody>
+                <ModalFooter>
+                  <div className="separator">
+                    <div></div>
+                    <span>O regístrate con</span>
+                    <div></div>
+                  </div>
+                  <div className="inline">
+                    <button>
+                      <GoogleIcon />
+                    </button>
+                    <button>
+                      <FacebookRoundedIcon />
+                    </button>
+                  </div>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                  <Button color="primary" onPress={onClose}>
+                    Action
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      </>
   );
 }
