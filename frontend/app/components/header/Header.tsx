@@ -41,7 +41,7 @@ export default function Header() {
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <Btn actionTarget="openModal" onClick={handleButtonLogin}>
-            Inciar sesion
+            Iniciar sesion
           </Btn>
           <Btn actionTarget="openModal">Regístrate</Btn>
         </div>
