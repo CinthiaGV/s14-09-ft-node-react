@@ -1,30 +1,16 @@
 'use client';
 import { Button } from '@nextui-org/react';
-import axios from 'axios';
 import { useFormik } from 'formik';
+import { registerUser } from '../../../api/actions/auth';
 import InputField from '../InputField';
-import { validationSchema } from './validation';
+import { initialValues, validationSchema } from './validation';
 
 export default function RegisterForm() {
-  const endpoint = process.env.NEXT_PUBLIC_BACKEND_URL
+  
   const formik = useFormik({
-    initialValues: {
-      username: '',
-      email: '',
-      password: '',
-    },
+    initialValues: initialValues,
     validationSchema:validationSchema ,
-    onSubmit: async (values) => {
-      try {
-        const info = {userData: values}
-      const {data}= await axios.post(`${endpoint}/users/signup`||"", info)
-      console.log(data)
-    } catch (error) {
-        console.log('Registro no exitoso', error)
-        
-      }
-      
-    },
+    onSubmit: (values)=> registerUser(values)
   });
 
   return (
@@ -47,10 +33,6 @@ export default function RegisterForm() {
             id="password"
             formikProps={{ formik }}
           />
-          <div>
-            <a><span>¿Olvidaste tu contraseña?</span></a>
-          </div>
-
           <Button type='submit' className="btn yellowBtn glitch w-[8rem] place-self-center">Regístrate</Button>
         </form>
   );
