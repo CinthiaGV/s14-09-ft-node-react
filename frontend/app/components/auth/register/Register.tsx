@@ -1,6 +1,6 @@
-'use client'
-//import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-//import GoogleIcon from '@mui/icons-material/Google';
+'use client';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import GoogleIcon from '@mui/icons-material/Google';
 import {
   Button,
   Modal,
@@ -12,15 +12,22 @@ import {
 } from '@nextui-org/react';
 import RegisterForm from './RegisterForm';
 import RegisterTitle from './RegisterTitle';
+import ThirdPartyTitle from './ThirdPartyTitle';
 
 export default function Register() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  
+
   return (
     <>
-      <Button size='sm' className='btn yellowBtn glitch overflow-hidden' onPress={onOpen}>Regístrate</Button>
-      <Modal 
-        isOpen={isOpen} 
+      <Button
+        size="sm"
+        className="btn yellowBtn glitch overflow-hidden"
+        onPress={onOpen}
+      >
+        Regístrate
+      </Button>
+      <Modal
+        isOpen={isOpen}
         onOpenChange={onOpenChange}
         placement="top-center"
         backdrop="blur"
@@ -33,25 +40,21 @@ export default function Register() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                <RegisterTitle/>
+                <RegisterTitle />
               </ModalHeader>
               <ModalBody>
                 <RegisterForm />
               </ModalBody>
               <ModalFooter className="flex justify-center">
-              <div className="relative separator">
-                  <div></div>
-                  <span className='inline-block text-nowrap'>O regístrate con</span>
-                  <div></div>
-                </div>
-                {/*<div className="flex justify-start">
+                <ThirdPartyTitle>O regístrate con</ThirdPartyTitle>
+                <div className="flex mt-8 gap-5">
                   <button>
                     <GoogleIcon />
                   </button>
                   <button>
                     <FacebookRoundedIcon />
                   </button>
-          </div>*/}
+          </div>
               </ModalFooter>
             </>
           )}
