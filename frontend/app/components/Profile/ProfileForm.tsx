@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Image from 'next/image';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles.css';
@@ -14,6 +13,12 @@ const ProfileForm = () => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState('mobile');
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
+
+  const platforms = [
+    { value: 'mobile', Icon: CellphoneIcon, label: 'Mobile' },
+    { value: 'pc', Icon: ComputerIcon, label: 'PC' },
+    { value: 'console', Icon: ConsoleIcon, label: 'Console' },
+  ];
 
   useEffect(() => {
     console.log(selectedGames);
@@ -94,63 +99,29 @@ const ProfileForm = () => {
           </div>
         </div>
 
-        <div>
+        <div className="mt-10">
           <h5 className="pb-2 text-xl sm:mt-10 mt-2">Plataforma preferida</h5>
-          <div className="flex gap-10 mt-10 ">
-            <label
-              className={`w-fit flex flex-col items-center justify-center text-sm ${
-                selectedPlatform === 'mobile' &&
-                'border-[1px] border-red-700 rounded-md m-[-1px]'
-              }`}
-              htmlFor="mobile"
-            >
-              <input
-                type="radio"
-                name="platform"
-                value="mobile"
-                id="mobile"
-                checked={selectedPlatform === 'mobile'}
-                onChange={(e) => setSelectedPlatform(e.target.value)}
-              />
-              <CellphoneIcon />
-              Mobile
-            </label>
-            <label
-              className={`w-fit flex flex-col items-center justify-center text-sm ${
-                selectedPlatform === 'pc' &&
-                'border-[1px] border-red-700 rounded-md m-[-1px]'
-              }`}
-              htmlFor="pc"
-            >
-              <input
-                type="radio"
-                name="platform"
-                value="pc"
-                id="pc"
-                checked={selectedPlatform === 'pc'}
-                onChange={(e) => setSelectedPlatform(e.target.value)}
-              />
-              <ComputerIcon />
-              PC
-            </label>
-            <label
-              className={`w-fit flex flex-col items-center justify-center text-sm ${
-                selectedPlatform === 'console' &&
-                'border-[1px] border-red-700 rounded-md m-[-1px]'
-              }`}
-              htmlFor="console"
-            >
-              <input
-                type="radio"
-                name="platform"
-                value="console"
-                id="console"
-                checked={selectedPlatform === 'console'}
-                onChange={(e) => setSelectedPlatform(e.target.value)}
-              />
-              <ConsoleIcon />
-              Console
-            </label>
+          <div className="flex gap-10 ">
+            {platforms.map(({ value, Icon, label }) => (
+              <label
+                key={value}
+                className={` w-fit flex flex-col items-center justify-center text-sm ${
+                  selectedPlatform === value ? 'opacity-100' : 'opacity-20'
+                }`}
+                htmlFor={value}
+              >
+                <input
+                  type="radio"
+                  name="platform"
+                  value={value}
+                  id={value}
+                  checked={selectedPlatform === value}
+                  onChange={(e) => setSelectedPlatform(e.target.value)}
+                />
+                <Icon />
+                {label}
+              </label>
+            ))}
           </div>
         </div>
 
@@ -169,7 +140,7 @@ const ProfileForm = () => {
             type="submit"
             className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
-            Guardar cambios
+            Finalizar
           </button>
         </div>
       </form>
