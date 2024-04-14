@@ -12,9 +12,11 @@ import { Children, ReactNode } from 'react';
 
 export default function OpenModal({
   btnTitle,
+  btnColor,
   children,
 }: {
   btnTitle: string;
+  btnColor: 'yellowBtn' | 'grayBtn'
   children: ReactNode;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -23,7 +25,7 @@ export default function OpenModal({
     <>
       <Button
         size="sm"
-        className="btn yellowBtn glitch overflow-hidden"
+        className={`btn ${btnColor} glitch overflow-hidden`}
         onPress={onOpen}
       >
         {btnTitle}
@@ -41,7 +43,7 @@ export default function OpenModal({
         <ModalContent>
           {(onClose) => (
             <>
-              {Children.forEach(children, (child, index) => {
+              {Children.map(children, (child, index) => {
                 if (index === 0)
                   return (
                     <ModalHeader className="flex flex-col gap-1">
