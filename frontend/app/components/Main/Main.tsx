@@ -4,7 +4,8 @@ export default function Main({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between n ">
+    <main className="min-h-screen ">
+      {/* <main className="flex min-h-screen flex-col items-center justify-between "> */}
       {children}
     </main>
   );
