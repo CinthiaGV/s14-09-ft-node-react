@@ -26,11 +26,11 @@ export const GameSelector = ({
     onSelectGame(updatedSelectedGames);
   };
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap gap-2">
       {games.map((game) => (
         <label
           key={game}
-          className="flex items-center m-2 bg-white text-black px-4 py-2 border border-black rounded-3xl cursor-pointer"
+          className="flex items-center my-2 bg-white text-black px-4 py-2 border border-black rounded-3xl cursor-pointer"
         >
           <input
             type="checkbox"
