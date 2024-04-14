@@ -2,8 +2,8 @@
 import { Button } from '@nextui-org/react';
 import axios from 'axios';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import InputField from './InputField';
+import InputField from '../InputField';
+import { validationSchema } from './validation';
 
 export default function RegisterForm() {
   const endpoint = process.env.NEXT_PUBLIC_BACKEND_URL
@@ -13,19 +13,7 @@ export default function RegisterForm() {
       email: '',
       password: '',
     },
-    validationSchema: Yup.object({
-      username: Yup.string()
-        .required('Debes completar este campo')
-        .max(8, 'Máximo 8 caracteres'),
-      email: Yup.string()
-        .required('Debes completar este campo')
-        .email('El formato no coincide con un email')
-        .max(30, 'Máximo 30 caracteres'),
-      password: Yup.string()
-        .required('Debes completar este campo')
-        .max(15, 'Máximo 15 caracteres')
-        .min(8, 'Al menos 8 caracteres'),
-    }),
+    validationSchema:validationSchema ,
     onSubmit: async (values) => {
       try {
         const info = {userData: values}

@@ -1,5 +1,5 @@
 'use client';
-import AuthTitle from './AuthTitle';
+import AuthTitle from '../AuthTitle';
 import OpenModal from './OpenModal';
 import RegisterForm from './RegisterForm';
 import ThirdPartyRegister from './ThirdPartyRegister';

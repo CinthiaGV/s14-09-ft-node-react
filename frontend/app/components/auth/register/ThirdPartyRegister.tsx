@@ -1,5 +1,5 @@
+import ThirdPartyTitle from "../ThirdPartyTitle";
 import ThirdPartyRegisterButtons from "./ThirdPartyRegisterButtons";
-import ThirdPartyTitle from "./ThirdPartyTitle";
 
 export default function ThirdPartyRegister() {
   return (
