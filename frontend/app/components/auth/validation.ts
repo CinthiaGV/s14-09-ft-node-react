@@ -1,7 +1,12 @@
 import * as Yup from 'yup';
 
-export const initialValues = {
+export const initialValuesRegister = {
   username: '',
+  email: '',
+  password: '',
+}
+
+export const initialValuesLogin = {
   email: '',
   password: '',
 }
@@ -17,5 +22,5 @@ export const validationSchema = Yup.object({
   password: Yup.string()
     .required('Debes completar este campo')
     .max(15, 'Máximo 15 caracteres')
-    .min(8, 'Al menos 8 caracteres'),
+    .min(10, 'Al menos 10 caracteres'),
 })
