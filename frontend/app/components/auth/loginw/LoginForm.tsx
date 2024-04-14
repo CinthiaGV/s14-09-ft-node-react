@@ -4,13 +4,13 @@ import { Button } from "@nextui-org/react";
 import { useFormik } from "formik";
 import { LoginUser } from "../../../api/actions/auth";
 import InputField from "../InputField";
-import { initialValuesLogin, validationSchema } from "../validation";
+import { initialValuesLogin, validationSchemaLogin } from "../validation";
 
 export default function LoginForm() {
   
   const formik = useFormik({
     initialValues: initialValuesLogin,
-    validationSchema:validationSchema ,
+    validationSchema:validationSchemaLogin ,
     onSubmit: (values)=> LoginUser(values)
   });
 

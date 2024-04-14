@@ -3,13 +3,13 @@ import { Button } from '@nextui-org/react';
 import { useFormik } from 'formik';
 import { registerUser } from '../../../api/actions/auth';
 import InputField from '../InputField';
-import { initialValuesRegister, validationSchema } from '../validation';
+import { initialValuesRegister, validationSchemaRegister } from '../validation';
 
 export default function RegisterForm() {
   
   const formik = useFormik({
     initialValues: initialValuesRegister,
-    validationSchema:validationSchema ,
+    validationSchema:validationSchemaRegister ,
     onSubmit: (values)=>registerUser(values)
   });
 

@@ -7,7 +7,7 @@ import LoginForm from './LoginForm';
 export default function Login() {
   return (
     <OpenModal btnTitle='Iniciar sesión' btnColor='yellowBtn'>
-      <AuthTitle>Inciar sesión</AuthTitle>
+      <AuthTitle>Iniciar sesión</AuthTitle>
       <LoginForm/>
       <ThirdPartyRegister/>
     </OpenModal>
