@@ -22,7 +22,6 @@
     "parcel": "latest",
     "postcss-cli": "^11.0.0",
     "react": "^18",
-    "react-dom": "^18",
     "react-datepicker": "^6.6.0",
     "react-hook-form": "^7.51.2",
     "react-app-polyfill": "^1.0.5",
