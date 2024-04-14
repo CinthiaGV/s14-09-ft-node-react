@@ -43,7 +43,7 @@ const ProfileForm = () => {
     <div className="px-4 sm:pl-[82px] py-[104px] text-[#FFFFFF]">
       {' '}
       <h4 className=" pb-[41px] text-4xl">Termina de completar tu Perfil</h4>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 sm:w-[50%] ">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 sm:w-[50%] ">
         <div className="border-2 mb-2 sm:mb-10  border-gray-200 rounded-lg w-[80%]">
           <div className="px-6 py-1">
             <label
@@ -70,10 +70,10 @@ const ProfileForm = () => {
           <div className="w-[60%] h-12 border-gray-300 border-2 rounded-md">
             <div className="mt-1 px-2">
               <DatePicker
-                className=" bg-transparent pl-2 pt-2 text-md focus:outline-none "
+                className=" bg-transparent pl-3 pt-2 text-md focus:outline-none "
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
-                placeholderText="MM/DD/YYYY"
+                placeholderText="MM / DD / YYYY"
               />
             </div>
           </div>
@@ -125,9 +125,9 @@ const ProfileForm = () => {
           </div>
         </div>
 
-        <div>
+        <div className="">
           <h4>Agrega los juegos que te gustan</h4>
-          <div className="flex gap-1">
+          <div className="flex gap-1 pt-2">
             <GameSelector
               onSelectGame={setSelectedGames}
               selectedGames={selectedGames}
@@ -138,7 +138,7 @@ const ProfileForm = () => {
         <div>
           <button
             type="submit"
-            className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="inline-flex justify-center rounded-lg border border-white px-36 bg-transparent py-2  text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Finalizar
           </button>
