@@ -8,9 +8,10 @@ import Navbar from './Navbar';
 function handleButtonLogin() {
   signIn();
 }
-function handleButtonLogout() {
-  signOut();
-}
+
+const handleButtonLogout = async () => {
+  await signOut({ callbackUrl: '/' });
+};
 
 export default function Header() {
   const { data: session, status } = useSession();
