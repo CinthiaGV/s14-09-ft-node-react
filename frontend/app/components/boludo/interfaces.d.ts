@@ -20,3 +20,7 @@ export interface IMessages {
 export interface IUserProfile {
   user: User
 }
+
+export interface IMessage {
+  message: Message
+}
