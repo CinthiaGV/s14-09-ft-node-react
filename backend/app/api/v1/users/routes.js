@@ -14,6 +14,10 @@ export const router = Router();
 router.route("/signup").post(controller.signup);
 router.route("/signin").post(controller.signin);
 router.route("/changePassword").put(auth, controller.changePassword);
+router.route("/filter").get(controller.filter);
+router.route("/myProfile").get(auth, controller.myProfile);
+router.route("/updateProfile").put(auth, controller.updateProfile);
+router.route("/updateProfile").patch(auth, controller.updateProfile);
 
 router.route("/getAll").get(controller.all);
 
