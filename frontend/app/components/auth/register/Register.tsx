@@ -6,7 +6,7 @@ import ThirdPartyRegister from './ThirdPartyRegister';
 
 export default function Register() {
   return (
-    <OpenModal btnTitle='Regístrate' btnColor='grayBtn'>
+    <OpenModal btnTitle='Regístrate' btnColor='yellowBtn'>
       <AuthTitle>Regístrate</AuthTitle>
       <RegisterForm/>
       <ThirdPartyRegister/>
