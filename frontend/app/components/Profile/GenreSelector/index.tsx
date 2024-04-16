@@ -21,9 +21,7 @@ export default function GenreSelector({
           <div className="relative">
             <Listbox.Button className="relative w-full cursor-default rounded-md bg-transparent pt-2 pb-3 pl-3 pr-10 text-left text-white h-full focus:outline-none  sm:text-base sm:leading-6">
               <span className="block truncate">
-                {selectedGenre === null
-                  ? 'Seleccion una opción'
-                  : selectedGenre}
+                {selectedGenre === null ? 'Seleccion un género' : selectedGenre}
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"></span>
             </Listbox.Button>

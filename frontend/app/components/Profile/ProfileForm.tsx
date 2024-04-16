@@ -66,34 +66,28 @@ const ProfileForm = () => {
       >
         <label htmlFor="username" className="block sm:text-xs   opacity-90 ">
           Nombre de usuario
-          <div className="polygon border-2 mb-2 sm:mb-10 flex sm:text-base items-center px-4 border-gray-200  w-[80%] mt-2">
-            <AccountCircleIcon />
-            <div className="px-4 py-5 ">
-              <div>
-                <input
-                  type="text"
-                  id="username"
-                  {...register('username', { required: true })}
-                  className="block w-full bg-transparent focus:outline-none sm:text-base"
-                />
-                {errors.username && (
-                  <span className="text-red-500">Este campo es requerido</span>
-                )}
-              </div>
-            </div>
+          <div className="polygon bg-gray mb-2 py-2 sm:mb-10 flex sm:text-base items-center  w-[80%] mt-2">
+            <AccountCircleIcon classNames="pl-2" />
+            <input
+              type="text"
+              id="username"
+              {...register('username', { required: true })}
+              className="polygon pl-2 py-2 focus:border-none block w-full bg-transparent focus:outline-none sm:text-base"
+            />
+            {errors.username && (
+              <span className="text-red-500">Este campo es requerido</span>
+            )}
           </div>
         </label>
 
-        <div className="flex gap-2 items-center w-[100%]   ">
+        <div className="flex gap-2  w-[100%]   ">
           <label htmlFor="date" className="w-[60%] text-xs">
             Fecha
-            <div className="h-12 border-gray-300 border-2 rounded-md text-base mt-2">
-              <div className="mt-1 px-2">
+            <div className="h-12  items-start justify-start rounded-md text-base mt-2">
+              <div className=" mt-1">
                 <DatePicker
                   id="date"
-                  icon={<CalendarIcon />}
-                  showIcon
-                  className=" bg-transparent pl-3 pt-2 text-md focus:outline-none "
+                  className="polygon h-12 bg-gray pl-3 pt-2 text-md focus:outline-none "
                   selected={selectedDate}
                   onChange={(date) => setSelectedDate(date)}
                   placeholderText="mm/dd/aa"
@@ -103,7 +97,7 @@ const ProfileForm = () => {
           </label>
           <label htmlFor="genre" className="w-[40%] text-xs">
             Género
-            <div className="h-12 border-2 border-gray-300 rounded-md w-[100%] mt-2">
+            <div className="bg-gray h-12  rounded-md w-[100%] mt-2">
               <GenreSelector
                 selectedGenre={selectedGenre}
                 setSelectedGenre={setSelectedGenre}
