@@ -1,4 +1,4 @@
-import { prisma, messageSchema } from './model.js';
+import { prisma, messageSchema } from "./model.js";
 
 async function getAllMessagesBetweenUsers(req, res) {
   const { userId1, userId2 } = req.params; // Suponiendo que userId1 y userId2 están en los parámetros de la solicitud
@@ -25,7 +25,7 @@ async function getAllMessagesBetweenUsers(req, res) {
 
     res.json(messages);
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: "Internal server error" });
   }
 }
 
@@ -70,7 +70,7 @@ async function sendMessage(req, res) {
 
     res.json(message);
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: "Internal server error" });
   }
 }
 
@@ -79,8 +79,30 @@ async function getAllMessages(req, res) {
     const messages = await prisma.message.findMany();
     res.json(messages);
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: "Internal server error" });
   }
 }
+
+export const create = async (req, res, next) => {
+  const { body = {}, decoded = {} } = req;
+  const { matchId } = body;
+  const { id: userId } = decoded;
+
+  try {
+    const mensaje = await prisma.message.create({
+      data: {
+        ...body,
+        matchId,
+        userId,
+      },
+    });
+
+    res.json({
+      data: mensaje,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export { getAllMessagesBetweenUsers, sendMessage, getAllMessages };

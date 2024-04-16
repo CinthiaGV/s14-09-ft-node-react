@@ -87,6 +87,12 @@ export const add = async (req, res, next) => {
     const result = await prisma.match.create({
       data: {
         ...data,
+        messages: {
+          create: {
+            text: data.initialMessage,
+            userId: userEmisorId,
+          },
+        },
       },
     });
 
@@ -110,6 +116,11 @@ export const id = async (req, res, next) => {
       include: {
         userEmisor: true,
         userReceptor: true,
+        messages: {
+          orderBy: {
+            createdAt: "asc",
+          },
+        },
       },
     });
 
@@ -202,6 +213,13 @@ export const myMatchesAccepted = async (req, res, next) => {
       include: {
         userEmisor: true,
         userReceptor: true,
+        messages: {
+          orderBy: {
+            createdAt: "desc",
+          },
+
+          take: 1,
+        },
       },
     });
 
