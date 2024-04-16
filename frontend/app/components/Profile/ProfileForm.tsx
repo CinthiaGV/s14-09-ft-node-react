@@ -84,7 +84,7 @@ const ProfileForm = () => {
                 className=" bg-transparent pl-3 pt-2 text-md focus:outline-none "
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
-                placeholderText="MM / DD / YYYY"
+                placeholderText="mm/dd/aa"
               />
             </div>
           </div>
