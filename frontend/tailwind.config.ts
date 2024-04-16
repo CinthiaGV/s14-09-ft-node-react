@@ -15,7 +15,7 @@ const config: Config = {
 
         // sans: ['var(--font-chakra_petch)'],
         // mono: ['var(--font-chakra_petch)'],
-        
+
         //sans: ['Chakra Petch','Graphik', 'sans-serif'],
         //serif: ['Merriweather', 'serif'],
       },

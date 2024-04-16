@@ -1,18 +1,17 @@
 'use client';
 
-import Btn from '../Button/Btn';
-import Login from '../auth/loginw/Login';
-import FormikRegister from '../auth/register/RegisterF';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import Register from '../auth/register/Register';
 import Logo from './Logo';
 import Navbar from './Navbar';
-import { signIn, signOut, useSession } from 'next-auth/react';
 
 function handleButtonLogin() {
   signIn();
 }
-function handleButtonLogout() {
-  signOut();
-}
+
+const handleButtonLogout = async () => {
+  await signOut({ callbackUrl: '/' });
+};
 
 export default function Header() {
   const { data: session, status } = useSession();
@@ -22,13 +21,13 @@ export default function Header() {
 
   if (session) {
     return (
-      <header className="fixed w-full z-20 top-0 start-0 backdrop-filter backdrop-blur-sm bg-opacitclassNamey-10 backdrop-filter backdrop-blur-sm bg-opacity-40">
+      <header className="fixed w-full z-20 top-0 start-0 backdrop-filter backdrop-blur-sm bg-opacitclassNamey-10 glassmorphism">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Logo />
           <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Btn actionTarget="openModal" onClick={handleButtonLogout}>
+            <button className='btn yellowBtn' onClick={handleButtonLogout}>
               Logout
-            </Btn>
+            </button>
           </div>
           <Navbar />
         </div>
@@ -36,14 +35,14 @@ export default function Header() {
     );
   }
   return (
-    <header className="fixed w-full z-20 top-0 start-0 backdrop-filter backdrop-blur-sm bg-opacitclassNamey-10 backdrop-filter backdrop-blur-sm bg-opacity-40">
+    <header className="fixed w-full z-20 top-0 start-0 backdrop-filter backdrop-blur-sm bg-opacitclassNamey-10 glassmorphism">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <Btn actionTarget="openModal" onClick={handleButtonLogin}>
-            Iniciar sesion
-          </Btn>
-          <Btn actionTarget="openModal">Regístrate</Btn>
+          <button className='btn yellowBtn' onClick={handleButtonLogin}>
+            Inciar sesion
+          </button>
+          <Register/>
         </div>
         <Navbar />
       </div>

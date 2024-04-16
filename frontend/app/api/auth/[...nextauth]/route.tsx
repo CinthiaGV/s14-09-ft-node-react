@@ -1,37 +1,55 @@
-import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook";
+import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
+import FacebookProvider from 'next-auth/providers/facebook';
 
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
-      name: "Email",
+      name: 'Email',
       credentials: {
         email: {
-          label: "email",
-          type: "email",
-          placeholder: "jsmith@example.com",
+          label: 'email',
+          type: 'email',
+          placeholder: 'jsmith@example.com',
         },
-        password: { label: "password", type: "password" },
+        password: {
+          label: 'password',
+          type: 'password',
+        },
       },
       async authorize(credentials, req) {
+        if (credentials.email.length < 3) {
+          throw new Error(
+            'El correo electrónico debe tener al menos 3 caracteres.'
+          );
+        }
+        if (credentials.password.length < 10) {
+          throw new Error('La contraseña debe tener al menos 10 caracteres.');
+        }
+        if (!credentials.email || !credentials.password) {
+          throw new Error(
+            'Debe ingresar un correo electrónico y una contraseña.'
+          );
+        }
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/signin`,
           {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify({
               email: credentials?.email,
               password: credentials?.password,
             }),
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           }
         );
         const user = await res.json();
-        console.log(user);
-        if (user.error) throw user;
+        console.log('router user', user);
+        if (user.error) {
+          throw new Error(user.error.message);
+        }
         return user;
       },
     }),
@@ -40,9 +58,9 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
       authorization: {
         params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
         },
       },
     }),
@@ -59,6 +77,10 @@ const handler = NextAuth({
       session.user = token as any;
       return session;
     },
+  },
+  pages: {
+    signIn: '/signin',
+    signOut: '/',
   },
 });
 export { handler as GET, handler as POST };
