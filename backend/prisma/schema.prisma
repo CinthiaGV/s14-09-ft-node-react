@@ -17,10 +17,11 @@ model User {
   lastName         String?
   username         String         @unique
   age              Int?
-  gender           String?
+  gender           EnumGender?
   password         String
   bio              String?
-  image            String?
+  image            Json?
+  hours            EnumHours?
   status           Boolean        @default(false)
   interests        InterestGame[]
   createdAt        DateTime       @default(now())
@@ -74,4 +75,17 @@ model Message {
   userId         String        @db.Uuid
   Conversation   Conversation? @relation(fields: [conversationId], references: [id])
   conversationId String?       @db.Uuid
+}
+
+enum EnumHours {
+  MADRUDAGA
+  DIA
+  TARDE
+  NOCHE
+}
+
+enum EnumGender {
+  MASCULINO
+  FEMENINO
+  OTRO
 }
