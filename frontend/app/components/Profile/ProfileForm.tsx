@@ -4,7 +4,13 @@ import { useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles.css';
-import { CellphoneIcon, ComputerIcon, ConsoleIcon } from '../../assets';
+import {
+  AccountCircleIcon,
+  CalendarIcon,
+  CellphoneIcon,
+  ComputerIcon,
+  ConsoleIcon,
+} from '../../assets';
 
 import { GameSelector } from './GameSelector';
 import GenreSelector from './GenreSelector';
@@ -53,54 +59,62 @@ const ProfileForm = () => {
   return (
     <div className="px-4 sm:pl-[82px] py-[104px] text-[#FFFFFF]">
       {' '}
-      <h4 className=" pb-[41px] text-4xl">Termina de completar tu Perfil</h4>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 sm:w-[50%] ">
-        <div className="border-2 mb-2 sm:mb-10  border-gray-200 rounded-lg w-[80%]">
-          <div className="px-6 py-1">
-            <label
-              htmlFor="username"
-              className="block sm:text-md text-gray-400 opacity-90 "
-            >
-              Nombre completo
-            </label>
-            <div>
-              <input
-                type="text"
-                id="username"
-                {...register('username', { required: true })}
-                className="block w-full bg-transparent focus:outline-none  sm:text-md"
+      <h4 className=" pb-[41px] text-4xl">Completá tu Perfil</h4>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-8 sm:w-[50%] text-white "
+      >
+        <label htmlFor="username" className="block sm:text-xs   opacity-90 ">
+          Nombre de usuario
+          <div className="polygon border-2 mb-2 sm:mb-10 flex sm:text-base items-center px-4 border-gray-200  w-[80%] mt-2">
+            <AccountCircleIcon />
+            <div className="px-4 py-5 ">
+              <div>
+                <input
+                  type="text"
+                  id="username"
+                  {...register('username', { required: true })}
+                  className="block w-full bg-transparent focus:outline-none sm:text-base"
+                />
+                {errors.username && (
+                  <span className="text-red-500">Este campo es requerido</span>
+                )}
+              </div>
+            </div>
+          </div>
+        </label>
+
+        <div className="flex gap-2 items-center w-[100%]   ">
+          <label htmlFor="date" className="w-[60%] text-xs">
+            Fecha
+            <div className="h-12 border-gray-300 border-2 rounded-md text-base mt-2">
+              <div className="mt-1 px-2">
+                <DatePicker
+                  id="date"
+                  icon={<CalendarIcon />}
+                  showIcon
+                  className=" bg-transparent pl-3 pt-2 text-md focus:outline-none "
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  placeholderText="mm/dd/aa"
+                />
+              </div>
+            </div>
+          </label>
+          <label htmlFor="genre" className="w-[40%] text-xs">
+            Género
+            <div className="h-12 border-2 border-gray-300 rounded-md w-[100%] mt-2">
+              <GenreSelector
+                selectedGenre={selectedGenre}
+                setSelectedGenre={setSelectedGenre}
               />
+
               {errors.username && (
                 <span className="text-red-500">Este campo es requerido</span>
               )}
             </div>
-          </div>
+          </label>
         </div>
-
-        <div className="flex flex-col sm:flex-row gap-2   ">
-          <div className="w-[60%] h-12 border-gray-300 border-2 rounded-md">
-            <div className="mt-1 px-2">
-              <DatePicker
-                className=" bg-transparent pl-3 pt-2 text-md focus:outline-none "
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                placeholderText="mm/dd/aa"
-              />
-            </div>
-          </div>
-          <div></div>
-          <div className="  border-2 border-gray-300 rounded-md w-[30%]">
-            <GenreSelector
-              selectedGenre={selectedGenre}
-              setSelectedGenre={setSelectedGenre}
-            />
-
-            {errors.username && (
-              <span className="text-red-500">Este campo es requerido</span>
-            )}
-          </div>
-        </div>
-
         <div className="mt-10">
           <h5 className="pb-2 text-xl sm:mt-10 mt-2">Plataforma preferida</h5>
           <div className="flex gap-10 ">
@@ -143,7 +157,7 @@ const ProfileForm = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="inline-flex justify-center rounded-lg border border-white px-36 bg-transparent py-2  text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="polygon inline-flex justify-center rounded-lg border border-white px-36 bg-transparent py-2  text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Finalizar
           </button>
