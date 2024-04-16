@@ -231,7 +231,7 @@ export const filter = async (req, res, next) => {
             categoryGame: {
               in: listGames,
             },
-            skillLevel: {
+            skill: {
               in: listSkill,
             },
           },
@@ -246,7 +246,7 @@ export const filter = async (req, res, next) => {
         interests: {
           select: {
             categoryGame: true,
-            skillLevel: true,
+            skill: true,
           },
         },
       },
