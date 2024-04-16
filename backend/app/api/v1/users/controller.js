@@ -6,7 +6,7 @@ import { encryptPassword, verifyPassword } from "./model.js";
 export const signup = async (req, res, next) => {
   const { body = {} } = req;
   const { userData } = body;
-  console.log(userData)
+  console.log(userData);
   try {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordMinLength = 10;
@@ -21,6 +21,27 @@ export const signup = async (req, res, next) => {
       return res
         .status(400)
         .json({ error: "La contraseña debe tener al menos 10 caracteres" });
+    }
+
+    // Verifico y devuelvo errores de si existe correo o username
+
+    const userExists = await prisma.user.findFirst({
+      where: {
+        OR: [
+          {
+            email: userData.email,
+          },
+          {
+            username: userData.username,
+          },
+        ],
+      },
+    });
+
+    if (userExists) {
+      return res.status(400).json({
+        error: "El correo electrónico o nombre de usuario ya está en uso",
+      });
     }
 
     const password = await encryptPassword(userData.password);
@@ -181,6 +202,115 @@ export const changePassword = async (req, res, next) => {
 
     res.json({
       data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const filter = async (req, res, next) => {
+  const { gameType, skill, schedule } = req.query;
+  try {
+    const listGames = gameType
+      ? gameType.split("-")
+      : ["Action", "Sport", "Metal"];
+    const listSkill = skill ? skill.split("-").map(Number) : [1, 2, 3, 4, 5];
+    const listSchedule = schedule
+      ? schedule.split("-")
+      : ["mañana", "tarde", "noche"];
+
+    console.log(listGames, listSkill, listSchedule);
+
+    const users = await prisma.user.findMany({
+      where: {
+        schedule: {
+          hasEvery: listSchedule,
+        },
+        interests: {
+          some: {
+            categoryGame: {
+              in: listGames,
+            },
+            skill: {
+              in: listSkill,
+            },
+          },
+        },
+      },
+
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        schedule: true,
+        interests: {
+          select: {
+            categoryGame: true,
+            skill: true,
+          },
+        },
+      },
+    });
+
+    res.json({
+      data: users,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const myProfile = async (req, res, next) => {
+  const { decoded = {} } = req;
+  const { id } = decoded;
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+      include: {
+        interests: true,
+        requestEmisor: true,
+        requestRecepetor: true,
+      },
+    });
+    res.json({
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateProfile = async (req, res, next) => {
+  const { body = {}, decoded = {} } = req;
+  const { id } = decoded;
+
+  const { interests } = body;
+  // ahora elimino la propiedad interests del objeto body
+  delete body.interests;
+  console.log(interests);
+  try {
+    const user = await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        ...body,
+        interests: {
+          deleteMany: {},
+          create: interests,
+        },
+      },
+      include: {
+        interests: true,
+      },
+    });
+
+    user.password = undefined;
+
+    res.json({
+      data: user,
     });
   } catch (error) {
     next(error);
