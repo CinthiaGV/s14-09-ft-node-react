@@ -7,12 +7,15 @@ import './styles.css';
 import { CellphoneIcon, ComputerIcon, ConsoleIcon } from '../../assets';
 
 import { GameSelector } from './GameSelector';
+import GenreSelector from './GenreSelector';
 
 const ProfileForm = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [profilePic, setProfilePic] = useState<string | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState('mobile');
+  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
+
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
 
   const platforms = [
     { value: 'mobile', Icon: CellphoneIcon, label: 'Mobile' },
@@ -37,6 +40,14 @@ const ProfileForm = () => {
 
   const handleProfilePicChange = (e) => {
     setProfilePic(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const handlePlatformChange = (value: string) => {
+    setSelectedPlatforms((prevSelectedPlatforms) =>
+      prevSelectedPlatforms.includes(value)
+        ? prevSelectedPlatforms.filter((platform) => platform !== value)
+        : [...prevSelectedPlatforms, value]
+    );
   };
 
   return (
@@ -78,24 +89,15 @@ const ProfileForm = () => {
             </div>
           </div>
           <div></div>
-          <div className=" py-3  border-2 border-gray-300 rounded-md w-[30%]">
-            <div className=" px-2">
-              <select
-                id="genre"
-                {...register('genre', { required: true })}
-                className="appearance-none block w-full bg-transparent focus:outline-none  sm:text-sm"
-              >
-                <option value="" disabled selected>
-                  Género
-                </option>
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
-                <option value="Otros">Otros</option>
-              </select>
-              {errors.username && (
-                <span className="text-red-500">Este campo es requerido</span>
-              )}
-            </div>
+          <div className="  border-2 border-gray-300 rounded-md w-[30%]">
+            <GenreSelector
+              selectedGenre={selectedGenre}
+              setSelectedGenre={setSelectedGenre}
+            />
+
+            {errors.username && (
+              <span className="text-red-500">Este campo es requerido</span>
+            )}
           </div>
         </div>
 
@@ -105,18 +107,21 @@ const ProfileForm = () => {
             {platforms.map(({ value, Icon, label }) => (
               <label
                 key={value}
-                className={` w-fit flex flex-col items-center justify-center text-sm ${
-                  selectedPlatform === value ? 'opacity-100' : 'opacity-20'
+                className={`w-fit flex flex-col items-center justify-center text-sm ${
+                  selectedPlatforms.includes(value)
+                    ? 'opacity-100'
+                    : 'opacity-20'
                 }`}
                 htmlFor={value}
               >
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="platform"
+                  className="hidden"
                   value={value}
                   id={value}
-                  checked={selectedPlatform === value}
-                  onChange={(e) => setSelectedPlatform(e.target.value)}
+                  checked={selectedPlatforms.includes(value)}
+                  onChange={() => handlePlatformChange(value)}
                 />
                 <Icon />
                 {label}
@@ -135,7 +140,7 @@ const ProfileForm = () => {
           </div>
         </div>
 
-        <div>
+        <div className="flex justify-center">
           <button
             type="submit"
             className="inline-flex justify-center rounded-lg border border-white px-36 bg-transparent py-2  text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
