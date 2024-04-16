@@ -1,5 +1,5 @@
-import Boludo from '../components/boludo/Boludo';
-import data from './../components/boludo/data.json';
+import UserMessages from '../components/userMessages/UserMessages';
+import data from '../components/userMessages/data.json';
 
 export default function Page() {
   return (
@@ -8,9 +8,7 @@ export default function Page() {
         <div className="w-2/3 h-full bg-red-500 flex items-center justify-center">
           <h1 className="text-white">sector Matias</h1>
         </div>
-        <div className="h-full flex items-center justify-center">
-          <Boludo user={data.user} messages={data.messages} />
-        </div>
+          <UserMessages user={data.user} messages={data.messages} />
       </div>
     </div>
   );
