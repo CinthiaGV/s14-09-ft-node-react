@@ -1,11 +1,12 @@
 import { Image } from "@nextui-org/react"
+import clsx from "clsx"
 import { IMessage } from "../interfaces"
 
 
 
 export default function MessageTxt({message}:IMessage){
   return(
-    <div className="msg online">
+    <div className={clsx('msg', 'online')}>
         <Image
           className="msg-profile"
           src={message.sender.profile_picture || `https://picsum.photos/30/30?r=${Math.random()}`}
