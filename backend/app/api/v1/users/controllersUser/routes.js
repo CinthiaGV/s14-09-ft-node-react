@@ -1,9 +1,6 @@
 import { Router } from "express";
 import * as controllerUser from "./controllerUser.js";
-// import { coleccionesPermitidas } from "../helpers/dbValidators.js";
-// import { check } from "express-validator";
 
-// eslint-disable-next-line new-cap
 export const router = Router();
 
 
