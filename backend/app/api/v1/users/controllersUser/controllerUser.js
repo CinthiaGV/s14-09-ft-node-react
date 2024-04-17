@@ -1,8 +1,13 @@
-import { Router } from "express";
+import { request, response, Router } from "express";
+import { multer } from "multer";
+// import {} from "multer-gridfs-storage";
+import { v2 as cloudinary } from 'cloudinary';
+cloudinary.config(process.env.CLOUDINARY_URL);
 import { prisma } from "../../../../database.js";
 
-const router = Router();
+const upload = multer({ dest: 'uploads/' });
 
+const router = Router();
 //Todos los usuarios
 export const getAllUser = async (req, res) => {
   try {
@@ -21,9 +26,7 @@ export const getAllUser = async (req, res) => {
     });
   }
 };
-
 // incluir matches, conversaciones, e intereses
-
 export const getUserById = async (req, res) => {
   try {
     const response = await prisma.user.findUnique({
@@ -45,7 +48,6 @@ export const getUserById = async (req, res) => {
     });
   }
 };
-
 // Get por Username
 export const getUserByUsername = async (req, res) => {
   const { ...username } = req.params;
@@ -63,22 +65,6 @@ export const getUserByUsername = async (req, res) => {
     })
   );
 };
-
-//   try {
-//     const response = await prisma.user.findUnique({
-//       where: {
-//         id: req.params.username
-//       },
-//     })
-//     res.status(200).json({
-//       status: 'success', message: 'Trae el usuario por Username', data: response
-//     })
-//   } catch (error) {
-//     res.status(400).json({
-//       status: 'error', message: 'Existe un problema al obtener el usuario por Username', msg: error.message
-//     })
-//   }
-// }
 
 export const UpdateUser = async (req, res) => {
   const { body } = req;
@@ -107,7 +93,6 @@ export const UpdateUser = async (req, res) => {
     });
   }
 };
-
 // Eliminacion de usuarios
 export const UserDelete = async (req, res) => {
   const { body } = req;
@@ -132,6 +117,28 @@ export const UserDelete = async (req, res) => {
       msg: error.message,
     });
   }
+};
+
+export const updateImageCloudinary = async (res = response , req = request) => {
+
+  try {
+    // Sube la imagen a Cloudinary
+    const result = await cloudinary.uploader.upload(file.path);
+
+      // Actualiza la foto de perfil del usuario en la base de datos
+      const userId = req.body.id ; // Supongamos que recibimos el ID del usuario desde el frontend
+      await prisma.user.update({
+        where: { id: userId },
+        data: {
+          photoUrl: result.secure_url // Guardamos la URL de la imagen en Cloudinary
+        }
+      });
+
+  } catch ( error ) {
+    console.error('Error al procesar la imagen:', error);
+    res.status(500).json({ error: 'Error interno del servidor.' });
+  }
+
 };
 
 export default router;

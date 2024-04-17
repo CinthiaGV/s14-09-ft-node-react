@@ -20,7 +20,7 @@ model User {
   gender           EnumGender?
   password         String
   bio              String?
-  image            Json?
+  image            String?
   hours            EnumHours?
   status           Boolean        @default(false)
   interests        InterestGame[]
