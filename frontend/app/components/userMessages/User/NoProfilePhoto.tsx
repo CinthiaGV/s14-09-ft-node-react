@@ -1,4 +1,4 @@
-import { INoProfilePhoto } from './interfaces';
+import { INoProfilePhoto } from '../interfaces';
 
 export default function NoProfilePhoto({ name }: INoProfilePhoto) {
   return (

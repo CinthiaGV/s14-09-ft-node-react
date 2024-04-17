@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Key, ReactNode } from "react";
-import { IMessages, Message } from "./interfaces";
+import { IMessages, Message } from "../interfaces";
 
 
 export default function Chat({messages}:IMessages){

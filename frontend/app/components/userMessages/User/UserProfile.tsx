@@ -1,5 +1,5 @@
+import { IUserProfile } from '../interfaces';
 import NoProfilePhoto from './NoProfilePhoto';
-import { IUserProfile } from './interfaces';
 
 export default function UserProfile({ user }: IUserProfile ) {
   return (
