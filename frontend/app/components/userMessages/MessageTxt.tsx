@@ -8,7 +8,7 @@ export default function MessageTxt({message}:IMessage){
     <div className="p-4 hover:bg-gray-700 cursor-pointer">
         <Image
           className="w-10 h-10 rounded-full mr-2"
-          src={message.sender.profile_picture || "https://via.placeholder.com/40"}
+          src={message.sender.profile_picture || `https://picsum.photos/30/30?r=${Math.random()}`}
           alt={message.sender.name}
         />
         <div>

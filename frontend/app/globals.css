@@ -47,6 +47,22 @@ input {
 }
 
 @layer components {
+  .avatar-pseudo {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc; /* Color de fondo predeterminado */
+    border-radius: 50%; /* Para hacer un círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .initial {
+    font-size: 36px;
+    color: #fff; /* Color del texto */
+    text-transform: uppercase; /* Convertir la inicial en mayúscula */
+  }
+  
     .polygon {
       clip-path: polygon(var(--custom-shape));
       position: relative; 

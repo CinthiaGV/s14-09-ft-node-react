@@ -1,6 +1,7 @@
 export interface User {
-  name: string;
-  profile_picture?: string | null;
+  name: string
+  profile_picture?: string | null
+  description?:string|null
 }
 
 export interface Message {
@@ -24,3 +25,7 @@ export interface IUserProfile {
 export interface IMessage {
   message: Message
 }
+
+export interface IProfilePhoto extends Pick<User, 'profile_picture'> {}
+
+export interface INoProfilePhoto extends Pick<User, 'name'> {}

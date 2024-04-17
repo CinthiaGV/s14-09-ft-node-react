@@ -1,18 +1,12 @@
-import { Image } from '@nextui-org/react';
+import NoProfilePhoto from './NoProfilePhoto';
 import { IUserProfile } from './interfaces';
 
-export default function UserProfile({ user }: IUserProfile) {
+export default function UserProfile({ user }: IUserProfile ) {
   return (
-    <div className="w-full flex items-center">
-      <Image
-        className="w-10 h-10 rounded-full mr-2"
-        src={user.profile_picture || 'https://via.placeholder.com/40'}
-        alt={user.name}
-      />
-      <div>
-        <div className="font-bold">{user.name}</div>
-        <div className="text-sm">Status...</div>
-      </div>
+    <div className=''>
+      {!user.profile_picture
+      ?<NoProfilePhoto name={user.name}/>
+    :<>fgdfgh</>}
     </div>
   );
 }
