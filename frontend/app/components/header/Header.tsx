@@ -40,9 +40,6 @@ export default function Header() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button className='btn grayBtn' onClick={handleButtonLogin}>
-            Inciar sesion
-          </button>
           <Login/>
           <Register/>
         </div>
