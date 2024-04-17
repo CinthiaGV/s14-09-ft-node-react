@@ -55,9 +55,17 @@ export const signup = async (req, res, next) => {
 
     user.password = undefined;
 
+    const token = signToken({
+      id: user.id,
+      email: user.email,
+    });
+
     res.status(201);
     res.json({
       user,
+      meta: {
+        token,
+      },
     });
   } catch (error) {
     next({
