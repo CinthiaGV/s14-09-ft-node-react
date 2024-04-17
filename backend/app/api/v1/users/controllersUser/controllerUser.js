@@ -1,11 +1,9 @@
-import { request, response, Router } from "express";
-import { multer } from "multer";
+import express , { request, response, Router } from "express";
 // import {} from "multer-gridfs-storage";
 import { v2 as cloudinary } from 'cloudinary';
-cloudinary.config(process.env.CLOUDINARY_URL);
 import { prisma } from "../../../../database.js";
 
-const upload = multer({ dest: 'uploads/' });
+cloudinary.config(process.env.CLOUDINARY_URL);
 
 const router = Router();
 //Todos los usuarios
@@ -121,18 +119,22 @@ export const UserDelete = async (req, res) => {
 
 export const updateImageCloudinary = async (res = response , req = request) => {
 
+  const file = req.file;
+
   try {
     // Sube la imagen a Cloudinary
     const result = await cloudinary.uploader.upload(file.path);
+    console.log(result)
+    res.send('Termina')
 
       // Actualiza la foto de perfil del usuario en la base de datos
-      const userId = req.body.id ; // Supongamos que recibimos el ID del usuario desde el frontend
-      await prisma.user.update({
-        where: { id: userId },
-        data: {
-          photoUrl: result.secure_url // Guardamos la URL de la imagen en Cloudinary
-        }
-      });
+      // const userId = req.body.id ; // Supongamos que recibimos el ID del usuario desde el frontend
+      // await prisma.user.update({
+      //   where: { id: userId },
+      //   data: {
+      //     photoUrl: result.secure_url // Guardamos la URL de la imagen en Cloudinary
+      //   }
+      // });
 
   } catch ( error ) {
     console.error('Error al procesar la imagen:', error);

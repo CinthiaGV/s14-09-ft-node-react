@@ -1,8 +1,10 @@
-import { Router } from "express";
+import  { Router } from "express";
 import * as controllerUser from "./controllerUser.js";
+import multer from "multer";
+
+const uploader = multer({ dest: 'uploads/' });
 
 export const router = Router();
-
 
 router.route("/").get(controllerUser.getAllUser);
 
@@ -14,7 +16,7 @@ router
 .delete(controllerUser.UserDelete);
 
 router.route(
-  '/:upload/:id').put(
-    upload.single('photo'), controllerUser.updateImageCloudinary)
+  '/images/single').post(
+    uploader.single('imagenProfile'), controllerUser.updateImageCloudinary)
 
 router.route("/:username").get(controllerUser.getUserByUsername);
