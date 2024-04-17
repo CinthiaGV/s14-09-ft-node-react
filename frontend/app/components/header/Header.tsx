@@ -1,7 +1,7 @@
 'use client';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
-import Btn from '../Button/Btn';
+import Login from '../auth/loginw/Login';
 import Register from '../auth/register/Register';
 import Logo from './Logo';
 import Navbar from './Navbar';
@@ -9,9 +9,10 @@ import Navbar from './Navbar';
 function handleButtonLogin() {
   signIn();
 }
-function handleButtonLogout() {
-  signOut();
-}
+
+const handleButtonLogout = async () => {
+  await signOut({ callbackUrl: '/' });
+};
 
 export default function Header() {
   const { data: session, status } = useSession();
@@ -25,9 +26,9 @@ export default function Header() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Logo />
           <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Btn actionTarget="openModal" onClick={handleButtonLogout}>
+            <button className='btn yellowBtn' onClick={handleButtonLogout}>
               Logout
-            </Btn>
+            </button>
           </div>
           <Navbar />
         </div>
@@ -39,9 +40,7 @@ export default function Header() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <Btn actionTarget="openModal" onClick={handleButtonLogin}>
-            Inciar sesion
-          </Btn>
+          <Login/>
           <Register/>
         </div>
         <Navbar />
