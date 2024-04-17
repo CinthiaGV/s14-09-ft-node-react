@@ -33,6 +33,13 @@ export const myMatchesReceived = async (req, res, next) => {
       },
       include: {
         userEmisor: true,
+        messages: {
+          orderBy: {
+            createdAt: "desc",
+          },
+
+          take: 1,
+        },
       },
     });
 
