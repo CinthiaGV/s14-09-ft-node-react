@@ -289,14 +289,14 @@ export const myProfile = async (req, res, next) => {
 };
 
 export const updateProfile = async (req, res, next) => {
-  const { body = {}, decoded = {}, files } = req;
+  const { body = {}, decoded = {} } = req;
   const { id } = decoded;
-  let image = null;
 
   const { interests } = body;
+  // convierto en arreglo la propiedad favorite si es que viene
+
   // ahora elimino la propiedad interests del objeto body
   delete body.interests;
-  console.log(interests);
 
   if (interests) {
     body.interests = {
@@ -304,6 +304,34 @@ export const updateProfile = async (req, res, next) => {
       create: interests,
     };
   }
+
+  try {
+    const user = await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        ...body,
+      },
+      include: {
+        interests: true,
+      },
+    });
+
+    user.password = undefined;
+
+    res.json({
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateProfilePhoto = async (req, res, next) => {
+  const { body = {}, decoded = {}, files } = req;
+  const { id } = decoded;
+  let image = null;
 
   try {
     if (files?.length > 0) {

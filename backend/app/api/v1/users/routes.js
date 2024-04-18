@@ -17,17 +17,17 @@ router.route("/signin").post(controller.signin);
 router.route("/changePassword").put(auth, controller.changePassword);
 router.route("/filter").get(controller.filter);
 router.route("/myProfile").get(auth, controller.myProfile);
-router
-  .route("/updateProfile")
-  .put(auth, upload.array("imageProfile"), controller.updateProfile);
-router
-  .route("/updateProfile")
-  .patch(auth, upload.array("imageProfile"), controller.updateProfile);
+router.route("/updateProfile").put(auth, controller.updateProfile);
+router.route("/updateProfile").patch(auth, controller.updateProfile);
 router.route("/list").get(auth, controller.list);
+router
+  .route("/updateProfilePhoto")
+  .put(auth, upload.array("imageProfile"), controller.updateProfilePhoto);
+router
+  .route("/updateProfilePhoto")
+  .patch(auth, upload.array("imageProfile"), controller.updateProfilePhoto);
 
 router.route("/getAll").get(controller.all);
-
-router.param("id", controller.id);
 
 router
   .route("/:id")
