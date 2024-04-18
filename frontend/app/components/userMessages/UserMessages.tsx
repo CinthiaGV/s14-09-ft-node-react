@@ -1,5 +1,5 @@
 'use client'
-
+import React from 'react';
 import Contacts from "./Contacts";
 import UserProfile from "./UserProfile";
 import { Props } from "./interfaces";
