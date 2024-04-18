@@ -328,7 +328,18 @@ export const updateProfile = async (req, res, next) => {
 export const list = async (req, res, next) => {
   try {
     const user = await prisma.user.findMany({
-      include: {
+      select: {
+        id: true,
+        name: true,
+        lastName: true,
+        username: true,
+        email: true,
+        image: true,
+        age: true,
+        gender: true,
+        bio: true,
+        favoritePlatform: true,
+        schedule: true,
         interests: true,
       },
     });
