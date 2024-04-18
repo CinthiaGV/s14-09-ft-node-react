@@ -1,5 +1,6 @@
 import { prisma } from "../../../database.js";
 import { signToken } from "../auth.js";
+import fs from "fs";
 
 import { encryptPassword, verifyPassword } from "./model.js";
 
@@ -287,8 +288,9 @@ export const myProfile = async (req, res, next) => {
 };
 
 export const updateProfile = async (req, res, next) => {
-  const { body = {}, decoded = {} } = req;
+  const { body = {}, decoded = {}, files } = req;
   const { id } = decoded;
+  let image = null;
 
   const { interests } = body;
   // ahora elimino la propiedad interests del objeto body
@@ -301,7 +303,20 @@ export const updateProfile = async (req, res, next) => {
       create: interests,
     };
   }
+
   try {
+    if (files.length > 0) {
+      const promises = files.map((file) => uploadFiles(file.path));
+      image = await Promise.all(promises);
+      files.forEach((file) => {
+        fs.unlinkSync(file.path);
+      });
+    }
+
+    if (image[0].url) {
+      body.image = image[0].url;
+    }
+
     const user = await prisma.user.update({
       where: {
         id,

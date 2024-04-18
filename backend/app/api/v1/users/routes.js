@@ -1,6 +1,7 @@
 import { Router } from "express";
 import * as controller from "./controller.js";
 import { auth } from "../auth.js";
+import { upload } from "../../uploadsFiles/uploads.js";
 
 // eslint-disable-next-line new-cap
 export const router = Router();
@@ -16,8 +17,12 @@ router.route("/signin").post(controller.signin);
 router.route("/changePassword").put(auth, controller.changePassword);
 router.route("/filter").get(controller.filter);
 router.route("/myProfile").get(auth, controller.myProfile);
-router.route("/updateProfile").put(auth, controller.updateProfile);
-router.route("/updateProfile").patch(auth, controller.updateProfile);
+router
+  .route("/updateProfile")
+  .put(auth, upload.array("imageProfile"), controller.updateProfile);
+router
+  .route("/updateProfile")
+  .patch(auth, upload.array("imageProfile"), controller.updateProfile);
 router.route("/list").get(auth, controller.list);
 
 router.route("/getAll").get(controller.all);
