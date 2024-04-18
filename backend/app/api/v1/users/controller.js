@@ -217,23 +217,15 @@ export const changePassword = async (req, res, next) => {
 };
 
 export const filter = async (req, res, next) => {
-  const { gameType, skill, schedule } = req.query;
+  const { gameType, skill } = req.query;
   try {
     const listGames = gameType
       ? gameType.split("-")
       : ["Action", "Sport", "Metal"];
     const listSkill = skill ? skill.split("-").map(Number) : [1, 2, 3, 4, 5];
-    const listSchedule = schedule
-      ? schedule.split("-")
-      : ["mañana", "tarde", "noche"];
-
-    console.log(listGames, listSkill, listSchedule);
 
     const users = await prisma.user.findMany({
       where: {
-        schedule: {
-          hasEvery: listSchedule,
-        },
         interests: {
           some: {
             categoryGame: {
