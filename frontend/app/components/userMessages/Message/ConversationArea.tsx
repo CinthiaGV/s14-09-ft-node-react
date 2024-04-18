@@ -1,6 +1,6 @@
 import { Key, ReactNode } from "react";
 import { IMessages, Message } from "../interfaces";
-import MessageTxt from "./MessageTxt";
+import MessageTxt from "./Msg";
 
 
 

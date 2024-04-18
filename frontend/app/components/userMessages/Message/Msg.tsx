@@ -1,13 +1,13 @@
 
 import { Image } from "@nextui-org/react";
 import { IMessage } from "../interfaces";
-
-export default function MessageTxt({ message }: IMessage) {
+import clsx from 'clsx'
+export default function Msg({ message }: IMessage) {
   const status = message.sender.status
   console.log('status',status)
   console.log('message', message)
   return (
-    <div className={`msg ${status}`}>
+    <div className={clsx('msg', message.sender.status==='online'?'online':'')}>
       <Image
         className="msg-profile"
         src={message.sender.profile_picture || `https://picsum.photos/30/30?r=${Math.random()}`}
