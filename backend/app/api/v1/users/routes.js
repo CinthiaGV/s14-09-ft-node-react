@@ -29,9 +29,4 @@ router
 
 router.route("/getAll").get(controller.all);
 
-router
-  .route("/:id")
-  .get(controller.read)
-  .put(controller.update)
-  .patch(controller.update)
-  .delete(controller.remove);
+router.route("/:id").get(controller.read);

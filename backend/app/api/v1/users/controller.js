@@ -161,10 +161,34 @@ export const all = (req, res) => {
   });
 };
 
-export const read = (req, res, next) => {
-  res.json({
-    data: req.result,
-  });
+export const read = async (req, res, next) => {
+  const { params = {} } = req;
+  const { id } = params;
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+      include: {
+        interests: true,
+      },
+    });
+
+    if (!user) {
+      return next({
+        message: "User not found",
+        status: 404,
+      });
+    }
+    user.password = undefined;
+
+    res.json({
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 export const update = (req, res) => {
   res.json({
