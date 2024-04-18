@@ -1,0 +1,34 @@
+/* styles/FilterModal.css */
+
+/* Estilos para opacar la pantalla de fondo */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white; /* Fondo blanco */
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001; /* Asegura que esté por encima del fondo opaco */
+}
+
+/* Estilos para el texto dentro del modal */
+.modal-content p {
+  color: #333; /* Color de texto */
+}
+
+/* Estilos para el formulario (si es necesario) */
+.modal-content form {
+  /* Agrega estilos adicionales según tus necesidades */
+}

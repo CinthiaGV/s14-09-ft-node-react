@@ -3,11 +3,13 @@ import { FaMobileAlt } from 'react-icons/fa';
 import { RiComputerLine } from 'react-icons/ri';
 import { GiConsoleController } from 'react-icons/gi';
 import { useEffect, useState } from 'react';
+import { Filter } from '../components/Filter/Filter';
 
 const FilterUser = () => {
   const [inputValue, setInputValue] = useState('');
   const [tarjetas, setTarjetas] = useState([]);
   const [indice, setIndice] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   // const [username, setUsername] = useState('');
   // const [age, setAge] = useState('');
   // const [bio, Setbio] = useState('');
@@ -38,6 +40,11 @@ const FilterUser = () => {
   //     return cards;
   //   };
   // });
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
   useEffect(() => {
     //simulando un fetch
     const datosDePrueba = [
@@ -69,6 +76,11 @@ const FilterUser = () => {
       <div className="h-screen w-screen bg-[#232222] flex">
         <div className="w-2/3 h-fullflex items-center justify-center">
           <div className="relative w-full h-full flex flex-col pt-32 pb-8 pr-16 pl-32">
+            <Filter
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              toggleModal={toggleModal}
+            />
             <div className="absolute bottom-80 text-2xl">
               <button
                 className="bg-[#36343b] h-16 w-16"
