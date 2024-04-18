@@ -133,13 +133,17 @@ input {
   }
 
   .avatar-pseudo {
-    width: 100px;
-    height: 100px;
-    background-color: #ccc; /* Color de fondo predeterminado */
-    border-radius: 50%; /* Para hacer un círculo */
+    width: 125px;
+    height: 115px;
+    background-color: #36343b;
+    /* Para hacer un círculo */
+    border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* text-emphasis-color: ; */
+    font-weight: bold;
+    font-size: 40px;
   }
 
   .initial {
