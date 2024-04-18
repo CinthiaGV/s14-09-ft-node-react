@@ -1,15 +1,15 @@
-import { Key, ReactNode } from "react";
-import { IMessages, Message } from "../interfaces";
-import MessageTxt from "./Msg";
+import { Key, ReactNode } from 'react';
+import { Conversation, IConversationArea } from '../interfaces';
+import LastConversation from './LastConversation';
 
-
-
-export default function ConversationArea({messages}:IMessages){
-  return(
+export default function ConversationArea({ conversations }: IConversationArea) {
+  return (
     <div className="overflow-y-auto">
-    {messages.map((message:Message, index:Key):ReactNode => (
-      <MessageTxt key={index} message={message}/>
-    ))}
-  </div>
-  )
+      {conversations.map(
+        (conversation: Conversation, index: Key): ReactNode => {
+          return <LastConversation key={index} conversation={conversation} />;
+        }
+      )}
+    </div>
+  );
 }
