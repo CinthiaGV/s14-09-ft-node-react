@@ -1,6 +1,6 @@
 'use client'
 
-import Contacts from "./Message/ConversationArea";
+import ConversationArea from "./Message/ConversationArea";
 import UserProfile from "./User/UserProfile";
 import { IUserMessages } from "./interfaces";
 
@@ -13,7 +13,7 @@ export default function UserMessages({ user, messages }:IUserMessages) {
       </div>
       <div className="hover:overflow-auto w-full h-auto">
       <div className='row-start-2'>
-      <Contacts messages={messages}/>
+      <ConversationArea messages={messages}/>
       </div>
       </div>
     </div>
