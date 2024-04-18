@@ -298,6 +298,13 @@ export const updateProfile = async (req, res, next) => {
   // ahora elimino la propiedad interests del objeto body
   delete body.interests;
   console.log(interests);
+
+  if (interests) {
+    body.interests = {
+      deleteMany: {},
+      create: interests,
+    };
+  }
   try {
     const user = await prisma.user.update({
       where: {
@@ -305,10 +312,6 @@ export const updateProfile = async (req, res, next) => {
       },
       data: {
         ...body,
-        interests: {
-          deleteMany: {},
-          create: interests,
-        },
       },
       include: {
         interests: true,
