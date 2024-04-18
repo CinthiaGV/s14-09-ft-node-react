@@ -324,3 +324,19 @@ export const updateProfile = async (req, res, next) => {
     next(error);
   }
 };
+
+export const list = async (req, res, next) => {
+  try {
+    const user = await prisma.user.findMany({
+      include: {
+        interests: true,
+      },
+    });
+
+    res.json({
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};

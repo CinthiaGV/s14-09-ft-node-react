@@ -18,6 +18,7 @@ router.route("/filter").get(controller.filter);
 router.route("/myProfile").get(auth, controller.myProfile);
 router.route("/updateProfile").put(auth, controller.updateProfile);
 router.route("/updateProfile").patch(auth, controller.updateProfile);
+router.route("/list").get(auth, controller.list);
 
 router.route("/getAll").get(controller.all);
 
