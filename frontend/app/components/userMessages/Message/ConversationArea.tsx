@@ -6,7 +6,7 @@ import MessageTxt from "./MessageTxt";
 
 export default function ConversationArea({messages}:IMessages){
   return(
-    <div className="overflow-y-auto">
+    <div className="overflow-auto hover:overflow-scroll">
     {messages.map((message:Message, index:Key):ReactNode => (
       <MessageTxt key={index} message={message}/>
     ))}

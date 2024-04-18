@@ -1,17 +1,19 @@
 {
   "user": {
-    "name": "Juan",
+    "name": "Wagner",
     "age": 30,
     "email": "juan@example.com",
     "phone": "1234567890",
-    "profile_picture": "https://example.com/user_profile.jpg",
+    "profile_picture": null,
+    "status":"online",
     "description": "I'm a software developer who loves coding and exploring new technologies."
   },
   "messages": [
     {
       "sender": {
         "name": "María",
-        "profile_picture": "https://example.com/maria_profile.jpg"
+        "profile_picture": "https://example.com/maria_profile.jpg",
+        "status": "online"
       },
       "content": [
         {
@@ -27,7 +29,8 @@
     {
       "sender": {
         "name": "Pedro",
-        "profile_picture": "https://example.com/pedro_profile.jpg"
+        "profile_picture": "https://example.com/pedro_profile.jpg",
+        "status": "online"
       },
       "content": [
         {
@@ -39,7 +42,8 @@
     {
       "sender": {
         "name": "Ana",
-        "profile_picture": "https://example.com/ana_profile.jpg"
+        "profile_picture": "https://example.com/ana_profile.jpg",
+        "status": "online"
       },
       "content": [
         {
@@ -51,7 +55,8 @@
     {
       "sender": {
         "name": "Luis",
-        "profile_picture": null
+        "profile_picture": null,
+        "status": "online"
       },
       "content": [
         {
@@ -63,7 +68,8 @@
     {
       "sender": {
         "name": "Sofía",
-        "profile_picture": null
+        "profile_picture": null,
+        "status": "online"
       },
       "content": [
         {
@@ -75,7 +81,8 @@
     {
       "sender": {
         "name": "Carlos",
-        "profile_picture": null
+        "profile_picture": null,
+        "status": "offline"
       },
       "content": [
         {
@@ -87,7 +94,8 @@
     {
       "sender": {
         "name": "Elena",
-        "profile_picture": null
+        "profile_picture": null,
+        "status": "offline"
       },
       "content": [
         {
@@ -99,7 +107,8 @@
     {
       "sender": {
         "name": "Diego",
-        "profile_picture": null
+        "profile_picture": null,
+        "status": "offline"
       },
       "content": [
         {
@@ -111,7 +120,8 @@
     {
       "sender": {
         "name": "Laura",
-        "profile_picture": null
+        "profile_picture": null,
+        "status": "offline"
       },
       "content": [
         {
@@ -123,7 +133,8 @@
     {
       "sender": {
         "name": "Pablo",
-        "profile_picture": null
+        "profile_picture": null,
+        "status": "offline"
       },
       "content": [
         {

@@ -2,14 +2,15 @@ export interface User {
   name: string
   profile_picture?: string | null
   description?:string|null
+  status: 'online' | 'offline'
 }
 
 export interface Message {
-  sender: User;
-  content: { text: string; timestamp: string }[];
+  sender: User
+  content: { text: string; timestamp: string }[]
 }
 
-export interface Props {
+export interface IUserMessages {
   user: User;
   messages: Message[];
 }
