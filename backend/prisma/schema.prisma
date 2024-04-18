@@ -22,7 +22,7 @@ model User {
   bio              String?
   image            String?
   status           Boolean        @default(false)
-  favoritePlatform String[]
+  favoritePlatform String[]       @default(["Pc", "Mobile", "Console"])
   interests        InterestGame[]
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
@@ -36,6 +36,7 @@ model User {
 
 model InterestGame {
   id           String   @id @default(uuid()) @db.Uuid
+  image        String   @default("https://res.cloudinary.com/dppqkypts/image/upload/v1713400787/data_ixiru6.png")
   nameGame     String
   categoryGame String
   skill        Int?
