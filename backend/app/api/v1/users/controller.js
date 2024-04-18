@@ -3,6 +3,7 @@ import { signToken } from "../auth.js";
 import fs from "fs";
 
 import { encryptPassword, verifyPassword } from "./model.js";
+import { uploadFiles } from "../../uploadsFiles/uploads.js";
 
 export const signup = async (req, res, next) => {
   const { body = {} } = req;
@@ -305,7 +306,7 @@ export const updateProfile = async (req, res, next) => {
   }
 
   try {
-    if (files.length > 0) {
+    if (files?.length > 0) {
       const promises = files.map((file) => uploadFiles(file.path));
       image = await Promise.all(promises);
       files.forEach((file) => {
@@ -313,7 +314,7 @@ export const updateProfile = async (req, res, next) => {
       });
     }
 
-    if (image[0].url) {
+    if (image) {
       body.image = image[0].url;
     }
 
