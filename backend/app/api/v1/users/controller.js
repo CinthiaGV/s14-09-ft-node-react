@@ -1,7 +1,9 @@
 import { prisma } from "../../../database.js";
 import { signToken } from "../auth.js";
+import fs from "fs";
 
 import { encryptPassword, verifyPassword } from "./model.js";
+import { uploadFiles } from "../../uploadsFiles/uploads.js";
 
 export const signup = async (req, res, next) => {
   const { body = {} } = req;
@@ -291,9 +293,10 @@ export const updateProfile = async (req, res, next) => {
   const { id } = decoded;
 
   const { interests } = body;
+  // convierto en arreglo la propiedad favorite si es que viene
+
   // ahora elimino la propiedad interests del objeto body
   delete body.interests;
-  console.log(interests);
 
   if (interests) {
     body.interests = {
@@ -301,7 +304,48 @@ export const updateProfile = async (req, res, next) => {
       create: interests,
     };
   }
+
   try {
+    const user = await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        ...body,
+      },
+      include: {
+        interests: true,
+      },
+    });
+
+    user.password = undefined;
+
+    res.json({
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateProfilePhoto = async (req, res, next) => {
+  const { body = {}, decoded = {}, files } = req;
+  const { id } = decoded;
+  let image = null;
+
+  try {
+    if (files?.length > 0) {
+      const promises = files.map((file) => uploadFiles(file.path));
+      image = await Promise.all(promises);
+      files.forEach((file) => {
+        fs.unlinkSync(file.path);
+      });
+    }
+
+    if (image) {
+      body.image = image[0].url;
+    }
+
     const user = await prisma.user.update({
       where: {
         id,
