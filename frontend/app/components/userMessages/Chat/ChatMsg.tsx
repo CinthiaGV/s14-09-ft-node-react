@@ -3,7 +3,7 @@ import { Key, ReactNode } from "react";
 import { IMessages, Message } from "../interfaces";
 
 
-export default function Chat({messages}:IMessages){
+export default function ChatMsg({messages}:IMessages){
   return(
     <div className="flex-1 flex flex-col">
         <div className="border-b border-gray-300 p-4">
