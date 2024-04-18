@@ -241,10 +241,14 @@ export const filter = async (req, res, next) => {
       select: {
         id: true,
         username: true,
+        name: true,
+        lastName: true,
         email: true,
         schedule: true,
+        image: true,
         interests: {
           select: {
+            image: true,
             categoryGame: true,
             skill: true,
           },
