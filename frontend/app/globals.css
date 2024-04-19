@@ -51,6 +51,22 @@ input {
 }
 
 @layer components {
+  .avatar-pseudo {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc; /* Color de fondo predeterminado */
+    border-radius: 50%; /* Para hacer un círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .initial {
+    font-size: 36px;
+    color: #fff; /* Color del texto */
+    text-transform: uppercase; /* Convertir la inicial en mayúscula */
+  }
+  
     .polygon {
       clip-path: polygon(var(--custom-shape));
       position: relative; 
@@ -65,7 +81,7 @@ input {
     clip-path: polygon(var(--custom-shape));
     background-color:white; 
   } 
-  /*boludo*/
+ 
   .separator {
     width: 100%;
     display: flex;
@@ -75,8 +91,8 @@ input {
   }
   
   .separator > div {
-    width: 8rem;
-    height: 1px;
+    width: 5rem;
+    height: 0.0625rem;
     border-radius: 5px;
     background-color: var(--font-color-sub);
   }
@@ -94,7 +110,7 @@ input {
     isolation: isolate;
     display: inline-grid;
     place-content: center;
-    padding: 0.5em 1.5em;
+    padding: 0.5rem 2.5rem;
     transition: color 250ms;
   }
   
