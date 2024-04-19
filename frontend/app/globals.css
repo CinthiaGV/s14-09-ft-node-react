@@ -5,31 +5,26 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --curve-size: 0.4rem;
-    --bgColor: rgba(35, 34, 34, 1);
-    --custom-shape:
-    var(--curve-size) 0,
-    calc(100% - var(--curve-size)) 0,
-    100% var(--curve-size),
-    calc(100% - var(--curve-size)) 100%,
-    var(--curve-size) 100%,
-    0 calc(100% - var(--curve-size));
+    /* --bgColor: rgba(35, 34, 34, 1); */
+    --custom-shape: var(--curve-size) 0, calc(100% - var(--curve-size)) 0,
+      100% var(--curve-size), calc(100% - var(--curve-size)) 100%,
+      var(--curve-size) 100%, 0 calc(100% - var(--curve-size));
     --font-color: #ffffff;
     --font-color-sub: #ffffff;
   }
-} 
-
-body {
-  background-color: var(--bgColor);
-  font-family: 'Chakra Petch', sans-serif;
-  padding: 0px;
-  color:white;
 }
 
+body {
+  background-color: rgba(35, 34, 34, 1);
+  font-family: 'Chakra Petch', sans-serif;
+  padding: 0px;
+  color: white;
+}
 
 input:focus {
   @apply transparency-imposed;
   outline: none;
-  border:1px solid #D9F04C;
+  border: 1px solid #d9f04c;
 }
 
 /* Para deshabilitar el autofill */
@@ -37,7 +32,7 @@ input {
   /* Otros estilos */
   -webkit-autofill: none;
   -webkit-box-shadow: 0 0 0px 1000px #525252 inset; /* Safari */
-  -webkit-text-fill-color:white;
+  -webkit-text-fill-color: white;
 }
 
 @layer utilities {
@@ -47,20 +42,20 @@ input {
 }
 
 @layer components {
-    .polygon {
-      clip-path: polygon(var(--custom-shape));
-      position: relative; 
-      background-color:transparent; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      position: relative; 
-  }
-  
-  .polygon-border { 
+  .polygon {
     clip-path: polygon(var(--custom-shape));
-    background-color:white; 
-  } 
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .polygon-border {
+    clip-path: polygon(var(--custom-shape));
+    background-color: white;
+  }
   /*boludo*/
   .separator {
     width: 100%;
@@ -69,14 +64,14 @@ input {
     justify-content: center;
     gap: 5px;
   }
-  
+
   .separator > div {
     width: 8rem;
     height: 1px;
     border-radius: 5px;
     background-color: var(--font-color-sub);
   }
-  
+
   .separator > span {
     color: var(--font-color);
   }
@@ -93,15 +88,15 @@ input {
     padding: 0.5em 1.5em;
     transition: color 250ms;
   }
-  
+
   .yellowBtn {
     @apply bg-yellow font-semibold text-black polygon glitch;
   }
-  
+
   .grayBtn {
     @apply bg-gray font-semibold text-white polygon glitch;
   }
-  
+
   .glassmorphism {
     @apply backdrop-filter backdrop-blur-md bg-gray-60 bg-opacity-60;
   }
@@ -111,11 +106,10 @@ input {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: transparent; /* Negro con 50% de transparencia */z-index: absolute; /* Asegúrate de que esté por encima de los otros elementos */
+    background-color: transparent; /* Negro con 50% de transparencia */
+    z-index: absolute; /* Asegúrate de que esté por encima de los otros elementos */
   }
-  
-  
-  
+
   .glitch::after {
     padding: 10px 50px;
     font-size: 20px;
@@ -125,7 +119,7 @@ input {
     background-color: transparent;
     position: relative;
   }
-  
+
   .glitch::after {
     --move1: inset(50% 50% 50% 50%);
     --move2: inset(31% 0 40% 0);
@@ -142,78 +136,78 @@ input {
     bottom: 0;
     display: block;
   }
-  
+
   .glitch:hover::after {
     animation: glitch_4011 1s;
     text-shadow: 10 10px 10px black;
     animation-timing-function: steps(2, end);
-    text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+    text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #e94be8;
     background-color: transparent;
     /*border: 3px solid rgb(0, 255, 213);*/
   }
-  
+
   .glitch:hover {
-    text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
-    color:aliceblue;
+    text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #e94be8;
+    color: aliceblue;
   }
-  
+
   .glitch:hover {
     background-color: transparent;
     /*border: 1px solid rgb(0, 255, 213);*/
     box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
   }
-  
+
   @keyframes glitch_4011 {
     0% {
       clip-path: var(--move1);
-      transform: translate(0px,-10px);
+      transform: translate(0px, -10px);
     }
-  
+
     10% {
       clip-path: var(--move2);
-      transform: translate(-10px,10px);
+      transform: translate(-10px, 10px);
     }
-  
+
     20% {
       clip-path: var(--move3);
-      transform: translate(10px,0px);
+      transform: translate(10px, 0px);
     }
-  
+
     30% {
       clip-path: var(--move4);
-      transform: translate(-10px,10px);
+      transform: translate(-10px, 10px);
     }
-  
+
     40% {
       clip-path: var(--move5);
-      transform: translate(10px,-10px);
+      transform: translate(10px, -10px);
     }
-  
+
     50% {
       clip-path: var(--move6);
-      transform: translate(-10px,10px);
+      transform: translate(-10px, 10px);
     }
-  
+
     60% {
       clip-path: var(--move1);
-      transform: translate(10px,-10px);
+      transform: translate(10px, -10px);
     }
-  
+
     70% {
       clip-path: var(--move3);
-      transform: translate(-10px,10px);
+      transform: translate(-10px, 10px);
     }
-  
+
     80% {
       clip-path: var(--move2);
-      transform: translate(10px,-10px);
+      transform: translate(10px, -10px);
     }
-  
+
     90% {
       clip-path: var(--move4);
-      transform: translate(-10px,10px);
+      transform: translate(-10px, 10px);
     }
-  
+
     100% {
       clip-path: var(--move1);
       transform: translate(0);
