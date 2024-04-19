@@ -5,7 +5,7 @@
     "email": "juan@example.com",
     "phone": "1234567890",
     "profile_picture": null,
-    "status":"online",
+    "status": "online",
     "description": "I'm a software developer who loves coding and exploring new technologies."
   },
   "conversations": [
@@ -18,14 +18,24 @@
       "messages": [
         {
           "sender": "María",
-          "text": "Hi Juan, how are you?",
-          "timestamp": "2024-04-15T10:00:00",
+          "content": [
+            {
+              "text": "Hi Juan, how are you?",
+              "timestamp": "2024-04-15T10:00:00"
+            },
+            {
+              "text": "I hope you're doing well!",
+              "timestamp": "2024-04-15T10:01:00"
+            }
+          ],
           "read": true
         },
         {
-          "sender": "María",
-          "text": "I hope you're doing well!",
-          "timestamp": "2024-04-15T10:01:00",
+          "sender": "owner",
+          "content":[{
+            "text": "Hi María, I'm doing well, thanks for asking!",
+            "timestamp": "2024-04-15T10:05:00"
+          }],
           "read": true
         }
       ]
@@ -39,8 +49,26 @@
       "messages": [
         {
           "sender": "Pedro",
-          "text": "Juan, can you help me with something?",
-          "timestamp": "2024-04-14T15:30:00",
+          "content": [
+            {
+              "text": "Juan, can you help me with something?",
+              "timestamp": "2024-04-14T15:30:00"
+            }
+          ],
+          "read": false
+        },
+        {
+          "sender": "owner",
+          "content": [
+            {
+              "text": "Sure, Pedro. What do you need help with?",
+              "timestamp": "2024-04-14T15:35:00"
+            },
+            {
+              "text": "I'm here to assist!",
+              "timestamp": "2024-04-14T15:40:00"
+            }
+          ],
           "read": false
         }
       ]
@@ -54,114 +82,27 @@
       "messages": [
         {
           "sender": "Ana",
-          "text": "Hello! How's your day going?",
-          "timestamp": "2024-04-13T08:45:00",
+          "content": [
+            {
+              "text": "Hello Juan! How's your day going?",
+              "timestamp": "2024-04-13T08:50:00"
+            }
+          ],
           "read": true
-        }
-      ]
-    },
-    {
-      "recipient": {
-        "name": "Luis",
-        "profile_picture": null,
-        "status": "online"
-      },
-      "messages": [
+        },
         {
-          "sender": "Luis",
-          "text": "Hey Juan, what's up?",
-          "timestamp": "2024-04-12T12:00:00",
-          "read": false
-        }
-      ]
-    },
-    {
-      "recipient": {
-        "name": "Sofía",
-        "profile_picture": null,
-        "status": "online"
-      },
-      "messages": [
-        {
-          "sender": "Sofía",
-          "text": "Hi Juan, long time no see!",
-          "timestamp": "2024-04-11T09:30:00",
+          "sender": "owner",
+          "content": [
+            {
+              "text": "Hi Ana! It's going well, thank you. How about you?",
+              "timestamp": "2024-04-13T08:55:00"
+            },
+            {
+              "text": "Anything exciting happening?",
+              "timestamp": "2024-04-13T09:00:00"
+            }
+          ],
           "read": true
-        }
-      ]
-    },
-    {
-      "recipient": {
-        "name": "Carlos",
-        "profile_picture": null,
-        "status": "offline"
-      },
-      "messages": [
-        {
-          "sender": "Carlos",
-          "text": "Juan, have you heard about the new project?",
-          "timestamp": "2024-04-10T14:20:00",
-          "read": true
-        }
-      ]
-    },
-    {
-      "recipient": {
-        "name": "Elena",
-        "profile_picture": null,
-        "status": "offline"
-      },
-      "messages": [
-        {
-          "sender": "Elena",
-          "text": "Hi Juan, how's everything going?",
-          "timestamp": "2024-04-09T11:15:00",
-          "read": false
-        }
-      ]
-    },
-    {
-      "recipient": {
-        "name": "Diego",
-        "profile_picture": null,
-        "status": "offline"
-      },
-      "messages": [
-        {
-          "sender": "Diego",
-          "text": "Hey Juan, let's catch up sometime!",
-          "timestamp": "2024-04-08T16:45:00",
-          "read": true
-        }
-      ]
-    },
-    {
-      "recipient": {
-        "name": "Laura",
-        "profile_picture": null,
-        "status": "offline"
-      },
-      "messages": [
-        {
-          "sender": "Laura",
-          "text": "Juan, do you have any plans for the weekend?",
-          "timestamp": "2024-04-07T10:30:00",
-          "read": true
-        }
-      ]
-    },
-    {
-      "recipient": {
-        "name": "Pablo",
-        "profile_picture": null,
-        "status": "offline"
-      },
-      "messages": [
-        {
-          "sender": "Pablo",
-          "text": "Hi Juan, it's been a while since we last talked!",
-          "timestamp": "2024-04-06T14:00:00",
-          "read": false
         }
       ]
     }

@@ -1,20 +1,26 @@
-import { Key, ReactNode } from "react";
-import { IMessages, Message } from "../interfaces";
-import ChatMsg from "./ChatMsg";
+import { Key, ReactNode } from 'react';
+import { IChatArea, Message } from '../interfaces';
+import ChatMsg from './ChatMsg';
 
-
-
-export default function ChatArea({messages}:IMessages){
-  return(
-    <div className='chat-area'>
-      <div className='chat-area-header'>
-      <div className="chat-area-title">CodePen Group</div>
+export default function ChatArea({ conversation }: IChatArea) {
+  return (
+    <div className="chat-area">
+      <div className="chat-area-header">
+        <div className="chat-area-title">{conversation.recipient.name}</div>
       </div>
-    <div className="overflow-y-auto">
-    {messages.map((message:Message, index:Key):ReactNode => (
-      <ChatMsg key={index} messages={messages}/>
-    ))}
-  </div>
-  </div>
-  )
+      <div className="chat-area-main">
+      {conversation.messages.map(
+        (message:Message, index:Key):ReactNode=>(<ChatMsg key={index} message={message}/>)
+      )} 
+      </div>
+    </div>
+  );
 }
+
+/*<div className="overflow-y-auto">
+        {conversation.map(
+          (conversation: Conversation, index: Key): ReactNode => (
+            <ChatMsg key={index} messages={messages} />
+          )
+        )}
+      </div>*/
