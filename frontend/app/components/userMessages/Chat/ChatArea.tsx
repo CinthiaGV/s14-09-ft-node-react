@@ -1,5 +1,6 @@
 import { Key, ReactNode } from 'react';
 import { IChatArea, Message } from '../interfaces';
+import ChatAreaFooter from './ChatAreaFooter';
 import ChatMsg from './ChatMsg';
 
 export default function ChatArea({ conversation }: IChatArea) {
@@ -13,6 +14,7 @@ export default function ChatArea({ conversation }: IChatArea) {
         (message:Message, index:Key):ReactNode=>(<ChatMsg key={index} message={message}/>)
       )} 
       </div>
+      <ChatAreaFooter/>
     </div>
   );
 }

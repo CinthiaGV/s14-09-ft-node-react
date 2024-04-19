@@ -13,7 +13,7 @@ export interface MsgTxt {
   timestamp: string
 }
 export interface Message {
-  sender: User
+  owner: boolean
   content:MsgTxt[]
   read: boolean
 }
