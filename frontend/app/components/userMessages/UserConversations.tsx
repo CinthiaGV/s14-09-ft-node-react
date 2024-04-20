@@ -17,7 +17,7 @@ export default function UserConversations({ user, conversations }: IUserConversa
           <p className="text-[#ACA5A5] text-[18px] mt-2">Descripcion</p>
         </div>
       </div>
-      <div className="hover:overflow-auto w-full h-auto bg-[#131212] border-l-2 border-[#49454F]">
+      <div className="bg-[#131212] border-l-2 border-[#49454F]">
         {/*<p className="text-[#ACA5A5] px-10 mt-5 text-[18px] ">Mensajes</p>*/}
         <div className="row-start-2">
           {/*<ConversationArea conversations={conversations} />*/}

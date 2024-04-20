@@ -1,28 +1,20 @@
-import { Key, ReactNode } from 'react';
-import { IChatArea, Message } from '../interfaces';
+import { IChatArea } from '../interfaces';
 import ChatAreaFooter from './ChatAreaFooter';
-import ChatMsg from './ChatMsg';
+import ChatAreaHeader from './ChatAreaHeader';
+import ChatAreaMain from './ChatAreaMain';
 
 export default function ChatArea({ conversation }: IChatArea) {
   return (
-    <div className="chat-area">
-      <div className="chat-area-header">
-        <div className="chat-area-title">{conversation.recipient.name}</div>
+    <div className='grid grid-rows-10'>
+      <div className='row-span-1'>
+        <ChatAreaHeader conversation={conversation}/>
       </div>
-      <div className="chat-area-main">
-      {conversation.messages.map(
-        (message:Message, index:Key):ReactNode=>(<ChatMsg key={index} message={message}/>)
-      )} 
+      <div className='row-start-2 row-span-8 w-full'>
+        <div className='max-h-[calc(100vh-4rem)] overflow-y-auto'>
+          <ChatAreaMain conversation={conversation}/> 
+        </div>
       </div>
       <ChatAreaFooter/>
     </div>
   );
 }
-
-/*<div className="overflow-y-auto">
-        {conversation.map(
-          (conversation: Conversation, index: Key): ReactNode => (
-            <ChatMsg key={index} messages={messages} />
-          )
-        )}
-      </div>*/
