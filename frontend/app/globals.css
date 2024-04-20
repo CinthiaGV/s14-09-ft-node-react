@@ -184,7 +184,7 @@ input {
    .chat-msg {
     display: flex;
     padding: 0 1.25rem 1rem;
-    &-content {
+    /*&-content {
      margin-left: 0.75rem;
      max-width: 70%;
      display: flex;
@@ -201,7 +201,7 @@ input {
      & + & {
       margin-top: 10px;
      }
-    }
+    }*/
    }
    
    .chat-msg-text {
