@@ -5,6 +5,7 @@ import { GiConsoleController } from 'react-icons/gi';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { differenceInYears, parseISO } from 'date-fns';
+import { useRadio } from '@nextui-org/react';
 
 const FilterUser = () => {
   const { data: session, status } = useSession();
@@ -79,7 +80,84 @@ const FilterUser = () => {
     }
   };
 
-  const handleButtonClick = () => {};
+  // const handleButtonClick = () => {
+  //   const res = fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/matches/add`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       authorization: `Bearer ${session?.user.meta.token}`,
+  //     },
+  //     body: JSON.stringify({
+  //       userReceptorId: session?.user.id,
+  //       initialMessage: inputValue,
+  //     }),
+  //   });
+  //   setInputValue('');
+  // };
+
+  // const handleButtonClick = async () => {
+  //   try {
+  //     const res = await fetch(
+  //       `${process.env.NEXT_PUBLIC_BACKEND_URL}/matches/add`,
+  //       {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           authorization: `Bearer ${session.user.meta.token}`,
+  //         },
+  //         body: JSON.stringify({
+  //           userReceptorId: session?.user.id,
+  //           initialMessage: inputValue,
+  //         }),
+  //       }
+  //     );
+  //     const user = await res.json();
+  //     console.log('router error', user);
+  //     if (user.error) {
+  //       setInputValue('');
+  //       // Mostrar el mensaje de error devuelto por el backend
+  //       alert(user.error.message);
+  //     } else {
+  //       setInputValue('');
+  //       return user;
+  //     }
+  //   } catch (error) {
+  //     console.error('Error en la solicitud fetch:', error);
+  //   }
+  // };
+
+  const handleButtonClick = async () => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/matches/add`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${session?.user.meta.token}`,
+        },
+        body: JSON.stringify({
+          userReceptorId: tarjetaSeleccionada.id,
+          initialMessage: inputValue,
+        }),
+      }
+    );
+    const user = await res.json();
+    console.log('match', user);
+    if (user.error) {
+      alert(user.error.message);
+      setInputValue('');
+    } else {
+      alert('Esperando que el usuario reciba su mensaje...');
+      setInputValue('');
+    }
+  };
+  //   const user = await res.json();
+  //   console.log('router error', user);
+  //   if (user.error) {
+  //     throw new Error(user.error.message);
+  //   }
+  //   return user;
+  // };
 
   if (tarjetaSeleccionada) {
     return (
