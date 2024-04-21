@@ -1,3 +1,5 @@
+
+
 type Status = 'online' | 'offline'
 export interface User {
   name: string
@@ -6,10 +8,13 @@ export interface User {
   status: Status
 }
 
-export interface Message {
-  sender: User
+export interface MsgTxt {
   text: string
   timestamp: string
+}
+export interface Message {
+  owner: boolean
+  content:MsgTxt[]
   read: boolean
 }
 
@@ -26,6 +31,10 @@ export interface IUserConversations {
 export interface IConversationArea extends Pick<IUserConversations, 'conversations'> {
 }
 
+export interface IChatArea {
+  conversation: Conversation
+}
+
 export interface IConversation {
   conversation: Conversation
 }
@@ -39,6 +48,10 @@ export interface IUserProfile {
 }
 
 export interface ILastSentMessage {
+  message: Message
+}
+
+export interface IChatMsg {
   message: Message
 }
 

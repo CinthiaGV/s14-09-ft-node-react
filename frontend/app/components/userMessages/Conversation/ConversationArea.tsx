@@ -5,11 +5,19 @@ import LastConversation from './LastConversation';
 export default function ConversationArea({ conversations }: IConversationArea) {
   return (
     <div className="overflow-y-auto">
+    {conversations.map(
+      (conversation: Conversation, index: Key): ReactNode => {
+        return <LastConversation key={index} conversation={conversation} />;
+      }
+    )}
+  </div>
+  );
+}
+
+{/*<div className="overflow-y-auto">
       {conversations.map(
         (conversation: Conversation, index: Key): ReactNode => {
           return <LastConversation key={index} conversation={conversation} />;
         }
       )}
-    </div>
-  );
-}
+    </div>*/}
