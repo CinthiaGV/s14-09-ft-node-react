@@ -3,9 +3,10 @@ import { IChatArea, Message } from '../interfaces';
 import ChatMsg from './ChatMsg';
 
 export default function ChatAreaMain({ conversation }: IChatArea) {
+  const messages = conversation?.messages
   return (
       <div>
-      {conversation.messages.map(
+      {messages.map(
         (message:Message, index:Key):ReactNode=>(<ChatMsg key={index} message={message}/>)
       )} 
       </div>
