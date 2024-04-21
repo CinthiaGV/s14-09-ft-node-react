@@ -30,6 +30,7 @@
     "react": "^18",
     "react-app-polyfill": "^1.0.5",
     "react-dom": "^18",
+    "react-feather": "^2.0.10",
     "typescript": "latest",
     "yup": "^1.4.0"
   },

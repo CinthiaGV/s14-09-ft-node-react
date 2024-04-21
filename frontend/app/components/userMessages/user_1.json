@@ -11,8 +11,8 @@
   "conversations": [
     {
       "recipient": {
-        "name": "María",
-        "profile_picture": "https://example.com/maria_profile.jpg",
+        "name": "Maria",
+        "profile_picture": "https://picsum.photos/30/30?r=hgdfgh",
         "status": "online"
       },
       "messages": [
@@ -34,22 +34,31 @@
           "owner": true,
           "content": [
             {
-              "text": "Hi María, I'm doing well, thanks for asking!",
+              "text": "Hi Maria, I'm doing well, thanks for asking!",
               "timestamp": "2024-04-15T10:05:00"
             }
           ],
           "read": true
-        },
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Pedro",
+        "profile_picture": "https://picsum.photos/30/30?r=sdfgsdf",
+        "status": "offline"
+      },
+      "messages": [
         {
           "owner": false,
           "content": [
             {
-              "text": "That's great to hear!",
-              "timestamp": "2024-04-15T10:10:00"
+              "text": "Hola Juan, ¿cómo estás?",
+              "timestamp": "2024-04-16T10:00:00"
             },
             {
-              "text": "Anything interesting happening lately?",
-              "timestamp": "2024-04-15T10:12:00"
+              "text": "Espero que estés bien.",
+              "timestamp": "2024-04-16T10:01:00"
             }
           ],
           "read": true
@@ -58,26 +67,31 @@
           "owner": true,
           "content": [
             {
-              "text": "Not much, just working on some projects.",
-              "timestamp": "2024-04-15T10:15:00"
-            },
-            {
-              "text": "How about you?",
-              "timestamp": "2024-04-15T10:17:00"
+              "text": "Hola Pedro, estoy bien, ¡gracias por preguntar!",
+              "timestamp": "2024-04-16T10:05:00"
             }
           ],
           "read": true
-        },
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Luis",
+        "profile_picture": "https://picsum.photos/30/30?r=sdfgsf",
+        "status": "online"
+      },
+      "messages": [
         {
           "owner": false,
           "content": [
             {
-              "text": "I've been busy with work too.",
-              "timestamp": "2024-04-15T10:20:00"
+              "text": "Hey there, Juan!",
+              "timestamp": "2024-04-17T10:00:00"
             },
             {
-              "text": "But I'm excited for the weekend!",
-              "timestamp": "2024-04-15T10:22:00"
+              "text": "How's everything going?",
+              "timestamp": "2024-04-17T10:01:00"
             }
           ],
           "read": true
@@ -86,60 +100,169 @@
           "owner": true,
           "content": [
             {
-              "text": "Me too! Any plans?",
-              "timestamp": "2024-04-15T10:25:00"
+              "text": "Hi Luis, everything's going great, thanks!",
+              "timestamp": "2024-04-17T10:05:00"
             }
           ],
           "read": true
-        },
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Ana",
+        "profile_picture": "https://picsum.photos/30/30?r=4536456",
+        "status": "offline"
+      },
+      "messages": [
         {
           "owner": false,
           "content": [
             {
-              "text": "I'm thinking of going hiking.",
-              "timestamp": "2024-04-15T10:30:00"
+              "text": "Hola Juan, ¿cómo estás?",
+              "timestamp": "2024-04-18T10:00:00"
             },
             {
-              "text": "How about you?",
-              "timestamp": "2024-04-15T10:32:00"
+              "text": "Te extraño.",
+              "timestamp": "2024-04-18T10:01:00"
             }
           ],
           "read": true
-        },
-        {
-          "owner": true,
-          "content": [
-            {
-              "text": "That sounds fun!",
-              "timestamp": "2024-04-15T10:35:00"
-            },
-            {
-              "text": "I might just relax at home.",
-              "timestamp": "2024-04-15T10:37:00"
-            }
-          ],
-          "read": true
-        },
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Carlos",
+        "profile_picture": "https://picsum.photos/30/30?r=656",
+        "status": "online"
+      },
+      "messages": [
         {
           "owner": false,
           "content": [
             {
-              "text": "That sounds nice too.",
-              "timestamp": "2024-04-15T10:40:00"
+              "text": "Hi Juan, long time no see!",
+              "timestamp": "2024-04-19T10:00:00"
             },
             {
-              "text": "Enjoy your weekend!",
-              "timestamp": "2024-04-15T10:42:00"
+              "text": "How have you been?",
+              "timestamp": "2024-04-19T10:01:00"
             }
           ],
           "read": true
-        },
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Elena",
+        "profile_picture": "https://picsum.photos/30/30?r=685",
+        "status": "offline"
+      },
+      "messages": [
         {
-          "owner": true,
+          "owner": false,
           "content": [
             {
-              "text": "Thanks, you too!",
-              "timestamp": "2024-04-15T10:45:00"
+              "text": "Hola Juan, ¿qué tal todo?",
+              "timestamp": "2024-04-20T10:00:00"
+            },
+            {
+              "text": "Espero que estés bien.",
+              "timestamp": "2024-04-20T10:01:00"
+            }
+          ],
+          "read": true
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Sofia",
+        "profile_picture": "https://picsum.photos/30/30?r=842",
+        "status": "online"
+      },
+      "messages": [
+        {
+          "owner": false,
+          "content": [
+            {
+              "text": "Hey Juan, how's your day going?",
+              "timestamp": "2024-04-21T10:00:00"
+            },
+            {
+              "text": "Anything exciting happening?",
+              "timestamp": "2024-04-21T10:01:00"
+            }
+          ],
+          "read": true
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Ricardo",
+        "profile_picture": "https://picsum.photos/30/30?r=321",
+        "status": "offline"
+      },
+      "messages": [
+        {
+          "owner": false,
+          "content": [
+            {
+              "text": "Hola Juan, ¿cómo estás?",
+              "timestamp": "2024-04-22T10:00:00"
+            },
+            {
+              "text": "¿Qué has estado haciendo últimamente?",
+              "timestamp": "2024-04-22T10:01:00"
+            }
+          ],
+          "read": true
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Laura",
+        "profile_picture": "https://picsum.photos/30/30?r=321",
+        "status": "online"
+      },
+      "messages": [
+        {
+          "owner": false,
+          "content": [
+            {
+              "text": "Hi Juan, how's everything going?",
+              "timestamp": "2024-04-23T10:00:00"
+            },
+            {
+              "text": "Hope you're having a good day!",
+              "timestamp": "2024-04-23T10:01:00"
+            }
+          ],
+          "read": true
+        }
+      ]
+    },
+    {
+      "recipient": {
+        "name": "Diego",
+        "profile_picture": "https://picsum.photos/30/30?r=3565",
+        "status": "offline"
+      },
+      "messages": [
+        {
+          "owner": false,
+          "content": [
+            {
+              "text": "Hola Juan, ¿cómo estás?",
+              "timestamp": "2024-04-24T10:00:00"
+            },
+            {
+              "text": "¿Has estado trabajando mucho?",
+              "timestamp": "2024-04-24T10:01:00"
             }
           ],
           "read": true
