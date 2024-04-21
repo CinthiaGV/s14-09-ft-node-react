@@ -4,10 +4,10 @@ export default function LastSentMsg({ message }: ILastSentMessage) {
   return (
         <div className="msg-content">
           <span className="msg-message">
-            {message.text}
+            {message.content[0].text}
           </span>
           <span className="msg-date">
-            {message.timestamp}
+            {message.content[0].timestamp}
           </span>
         </div>
   );

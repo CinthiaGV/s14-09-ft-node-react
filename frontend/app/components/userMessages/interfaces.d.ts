@@ -1,26 +1,25 @@
-
-
-type Status = 'online' | 'offline'
+type Status = 'online' | 'offline';
 export interface User {
-  name: string
-  profile_picture?: string | null
-  description?:string|null
-  status: Status
+  id: number; // revisar wagner
+  name: string;
+  profile_picture?: string | null;
+  description?: string | null;
+  status: Status;
 }
 
 export interface MsgTxt {
-  text: string
-  timestamp: string
+  text: string;
+  timestamp: string;
 }
 export interface Message {
-  owner: boolean
-  content:MsgTxt[]
-  read: boolean
+  owner: boolean;
+  content: MsgTxt[];
+  read: boolean;
 }
 
 export interface Conversation {
-  recipient: User
-  messages: Message[] 
+  recipient: User;
+  messages: Message[];
 }
 
 export interface IUserConversations {
@@ -28,31 +27,31 @@ export interface IUserConversations {
   conversations: Conversation[];
 }
 
-export interface IConversationArea extends Pick<IUserConversations, 'conversations'> {
-}
+export interface IConversationArea
+  extends Pick<IUserConversations, 'conversations'> {}
 
 export interface IChatArea {
-  conversation: Conversation
+  conversation: Conversation;
 }
 
 export interface IConversation {
-  conversation: Conversation
+  conversation: Conversation;
 }
 
 export interface IMessages {
-  messages:Message[]
+  messages: Message[];
 }
 
 export interface IUserProfile {
-  user: User
+  user: User;
 }
 
 export interface ILastSentMessage {
-  message: Message
+  message: Message;
 }
 
 export interface IChatMsg {
-  message: Message
+  message: Message;
 }
 
 export interface IProfilePhoto extends Pick<User, 'profile_picture'> {}
