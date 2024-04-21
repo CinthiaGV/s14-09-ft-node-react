@@ -1,12 +1,13 @@
+'use client'
 import { Key, ReactNode } from 'react';
-import { IChatArea, Message } from '../interfaces';
+import { IChatAreaMain, Message } from '../interfaces';
 import ChatMsg from './ChatMsg';
 
-export default function ChatAreaMain({ conversation }: IChatArea) {
+export default function ChatAreaMain({ conversation }: IChatAreaMain) {
   const messages = conversation?.messages
   return (
       <div>
-      {messages.map(
+      {messages?.map(
         (message:Message, index:Key):ReactNode=>(<ChatMsg key={index} message={message}/>)
       )} 
       </div>
