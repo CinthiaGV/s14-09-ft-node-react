@@ -11,6 +11,7 @@
   "conversations": [
     {
       "recipient": {
+        "id": 2,
         "name": "Maria",
         "profile_picture": "https://picsum.photos/30/30?r=hgdfgh",
         "status": "online"
@@ -44,6 +45,7 @@
     },
     {
       "recipient": {
+        "id": 3,
         "name": "Pedro",
         "profile_picture": "https://picsum.photos/30/30?r=sdfgsdf",
         "status": "offline"
@@ -77,6 +79,7 @@
     },
     {
       "recipient": {
+        "id": 3,
         "name": "Luis",
         "profile_picture": "https://picsum.photos/30/30?r=sdfgsf",
         "status": "online"
@@ -110,6 +113,7 @@
     },
     {
       "recipient": {
+        "id": 4,
         "name": "Ana",
         "profile_picture": "https://picsum.photos/30/30?r=4536456",
         "status": "offline"
@@ -133,6 +137,7 @@
     },
     {
       "recipient": {
+        "id": 5,
         "name": "Carlos",
         "profile_picture": "https://picsum.photos/30/30?r=656",
         "status": "online"
@@ -156,6 +161,7 @@
     },
     {
       "recipient": {
+        "id": 6,
         "name": "Elena",
         "profile_picture": "https://picsum.photos/30/30?r=685",
         "status": "offline"
@@ -179,6 +185,7 @@
     },
     {
       "recipient": {
+        "id": 7,
         "name": "Sofia",
         "profile_picture": "https://picsum.photos/30/30?r=842",
         "status": "online"
@@ -202,6 +209,7 @@
     },
     {
       "recipient": {
+        "id": 8,
         "name": "Ricardo",
         "profile_picture": "https://picsum.photos/30/30?r=321",
         "status": "offline"
@@ -225,6 +233,7 @@
     },
     {
       "recipient": {
+        "id": 9,
         "name": "Laura",
         "profile_picture": "https://picsum.photos/30/30?r=321",
         "status": "online"
@@ -248,6 +257,7 @@
     },
     {
       "recipient": {
+        "id": 10,
         "name": "Diego",
         "profile_picture": "https://picsum.photos/30/30?r=3565",
         "status": "offline"
