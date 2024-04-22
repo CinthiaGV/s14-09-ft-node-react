@@ -279,6 +279,13 @@ input {
     }
   }
 
+  .back-arrow {
+    &:hover {
+      background-color: var(--msg-hover-bg);
+      height: 5rem;
+    }
+  }
+
   .msg {
     display: flex;
     align-items: center;

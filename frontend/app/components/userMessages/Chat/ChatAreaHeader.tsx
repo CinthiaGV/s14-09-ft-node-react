@@ -13,7 +13,7 @@ export default function ChatAreaHeader({
   return (
     <div className="chat-area-header">
       <button onClick={() => setSelectedConversation(null)}>
-        <FiArrowLeft className="w-20 h-6 mr-0"/>
+        <FiArrowLeft className="w-20 h-6 mr-0 back-arrow"/>
       </button>
         <div className={clsx('msg','online', status === 'online'?'online':'')}>
           <Image
