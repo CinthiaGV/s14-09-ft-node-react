@@ -2,11 +2,10 @@ import { IConversationArea } from './interfaces.d';
 //Base
 type Status = 'online' | 'offline';
 export interface User {
-  id: number;
   name: string;
   profile_picture?: string | null;
   description?: string | null;
-  status: Status;
+  status: string
 }
 
 export interface Conversation {

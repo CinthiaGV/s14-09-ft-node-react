@@ -1,5 +1,5 @@
 import UserConversations from '../components/userMessages/UserConversations';
-import * as data from './../components/userMessages/user_2.json';
+import * as data from './../components/userMessages/user_1.json';
 export default function Page() {
   return (
     <div className="mt-[5.5rem]">
