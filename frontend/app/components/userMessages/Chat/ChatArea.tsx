@@ -9,7 +9,7 @@ export default function ChatArea({ conversation, setSelectedConversation}: IChat
       <div className='row-span-1'>
         <ChatAreaHeader conversation={conversation} setSelectedConversation={setSelectedConversation}/>
       </div>
-      <div className='row-start-2 row-span-8 w-full'>
+      <div className='row-start-2 row-span-8'>
         <div className='max-h-[calc(100vh-4rem)] overflow-y-auto'>
           <ChatAreaMain conversation={conversation}/> 
         </div>
