@@ -272,6 +272,7 @@ export const filter = async (req, res, next) => {
         email: true,
         schedule: true,
         image: true,
+        favoritePlatform: true,
         interests: {
           select: {
             image: true,
