@@ -7,6 +7,8 @@ export const registerUser = async (values: IUser) => {
   try {
     const info:Iregister = {userData:values}
     const { data } = await axios.post(`${endpoint}/users/signup`, info);
+    alert('User created successfully!')
+    console.log('User created successfully!')
     return data
   } catch (error) {
     console.log('Unsucessful register!', error);
