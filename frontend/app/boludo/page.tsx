@@ -1,5 +1,5 @@
-import UserMessages from '../components/userMessages/UserMessages';
-import * as user from './../components/userMessages/user_2.json';
+import UserConversations from '../components/userMessages/UserConversations';
+import * as data from './../components/userMessages/user_1.json';
 export default function Page() {
   return (
     <div className="mt-[5.5rem]">
@@ -7,7 +7,7 @@ export default function Page() {
         <div className="w-2/3 h-full bg-red-500 flex items-center justify-center">
           <h1 className="text-white">sector Matias</h1>
         </div>
-          <UserMessages user={user.user} messages={user.messages} />
+          <UserConversations user={data.user} conversations={data.conversations}/>
       </div>
     </div>
   );
