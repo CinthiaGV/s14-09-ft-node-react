@@ -1,3 +1,5 @@
+/* FilterModal.Module.css */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -13,6 +15,7 @@
 
 .modal-content {
   background-color: #fff;
+  color: #000;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -51,12 +54,37 @@
   color: #000; /* Color negro para los títulos */
 }
 
-.modal-column label {
-  display: block;
+.modal-column .checkbox-container {
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
   color: #000; /* Color negro para las etiquetas */
 }
 
-.modal-column input[type='checkbox'] {
-  margin-right: 5px;
+.modal-column .checkbox-input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  background-color: #d9d9d9; /* Color de fondo del checkbox */
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.checkbox-custom::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 5px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.checkbox-input:checked + .checkbox-custom::after {
+  opacity: 1; /* Mostrar el check cuando el checkbox está seleccionado */
 }
