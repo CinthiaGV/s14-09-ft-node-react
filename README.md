@@ -1,6 +1,6 @@
-# Tinder de VideoJuegos - Tu Compañero de Juegos 🎮
+# NOA 🎮
 
-Tinder de videjuegos una aplicación web construida con React y TypeScript que tiene como objetivo conectar a jugadores basados en sus intereses en los videojuegos. ¡Piensa en Tinder para jugadores! Los usuarios pueden iniciar sesión, navegar a través de perfiles de otros jugadores que comparten intereses similares en los videojuegos, enviar invitaciones y conectarse con ellos para iniciar conversaciones y potencialmente jugar juntos.
+NOA una aplicación web construida con React y TypeScript que tiene como objetivo conectar a jugadores basados en sus intereses en los videojuegos. ¡Piensa en Tinder para jugadores! Los usuarios pueden iniciar sesión, navegar a través de perfiles de otros jugadores que comparten intereses similares en los videojuegos, enviar invitaciones y conectarse con ellos para iniciar conversaciones y potencialmente jugar juntos.
 
 ## Características
 
