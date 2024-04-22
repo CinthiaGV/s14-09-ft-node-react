@@ -6,7 +6,7 @@ export default function ChatAreaMain({ conversation }: IChatAreaMain) {
   const messages = conversation?.messages;
   
   return (
-    <div className="overflow-y-auto" style={{ maxHeight: 'calc(100vh - 4rem)' }}>
+    <div className="hover:overflow-y-auto" style={{ maxHeight: 'calc(100vh - 4rem)' }}>
       {messages?.map((message: Message, index: Key): ReactNode => (
         <ChatMsg key={index} message={message} />
       ))}
