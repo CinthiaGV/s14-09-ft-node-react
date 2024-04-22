@@ -20,11 +20,9 @@ export default function ChatArea({
           <ChatAreaMain conversation={conversation} />
         </div>
       </div>
-      <div className="row-start-3 absolute">
-        <div className='absolute top-0'>
-          <div className="relative mt-[calc(100vh-27.5rem)] ">
+      <div className="row-start-3">
+        <div className='absolute right-0 bottom-0 left-[66.7rem]'>
             <ChatAreaFooter />
-          </div>
         </div>
       </div>
     </div>
