@@ -14,9 +14,9 @@ export default function UserConversations({
   return (
     <div className="w-1/3 grid grid-rows-3">
       {!selectedConversation ? (
-        <div >
+        <div>
           <UserProfile user={user} />
-          <div className="bg-[#131212] border-l-2 border-[#49454F]">
+          <div className="border-l-2 border-[#49454F]">
             <ConversationArea
               conversations={conversations}
               setSelectedConversation={setSelectedConversation}
