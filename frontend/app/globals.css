@@ -92,20 +92,26 @@ input {
    .chat-area-header {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 0.625rem;
   }
 
   .chat-area-profile {
-    width: 2rem;
     border-radius: 50%;
     object-fit: cover;
     margin-right: .625rem; /* Añadido para separar el perfil del título */
+    display: flex;
+  align-items: center;
+  }
+
+  .profile-image {
+    margin-right: 0.625rem; /* Ajusta el margen entre la flecha y la imagen */
+    width: 2rem;
   }
   
 
   .chat-area-title {
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: bold;
   }
 
    .chat-area-footer {
@@ -259,11 +265,11 @@ input {
   }
 
   .msg-profile {
-    width: 44px;
-    height: 44px;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 15px;
+    margin-right: .9375rem;
     &.group {
       display: flex;
       justify-content: center;
@@ -283,25 +289,30 @@ input {
     cursor: pointer;
     transition: 0.2s;
     position: relative;
+  
     &:hover {
       background-color: var(--msg-hover-bg);
     }
+  
     &.active {
       background: var(--active-conversation-bg);
       border-left: 0.25rem solid var(--owner-text-chat-color);
     }
+  
     &.online:before {
       content: '';
       position: absolute;
       background-color: #23be7e;
-      width: 9px;
-      height: 9px;
+      width: 0.6rem;
+      height: 0.6rem;
       border-radius: 50%;
-      border: 2px solid var(--theme-bg-color);
-      left: 50px;
+      border: 0.1rem solid var(--theme-bg-color);
+      left: 3.125rem;
       bottom: 19px;
+      z-index: 2; /* Aumenta el z-index para que el punto verde se sobreponga a cualquier imagen */
     }
   }
+  
 
   .msg-username {
     margin-bottom: 4px;
