@@ -1,4 +1,3 @@
-'use client';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
@@ -39,12 +38,12 @@ const ProfileForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log(data);
     // Lógica para enviar los datos del formulario al backend
   };
 
-  const handleProfilePicChange = (e) => {
+  const handleProfilePicChange = (e: { target: { files: (Blob | MediaSource)[]; }; }) => {
     setProfilePic(URL.createObjectURL(e.target.files[0]));
   };
 

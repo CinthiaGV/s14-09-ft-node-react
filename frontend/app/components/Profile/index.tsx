@@ -1,3 +1,5 @@
+'use client';
+
 import ProfileForm from "./ProfileForm";
 
 export const Profile = () => {
