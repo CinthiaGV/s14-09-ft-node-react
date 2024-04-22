@@ -11,6 +11,8 @@ const FilterModal: React.FC<ModalProps> = ({
   isOpen,
   toggleModal,
   setFilteredUsers,
+  filtrActivo,
+  setFiltroActivo,
 }) => {
   const [gameType, setGameType] = useState<string>('');
   const [skillLevel, setSkillLevel] = useState<string>('');
@@ -39,6 +41,7 @@ const FilterModal: React.FC<ModalProps> = ({
         filteredUsers = data;
         setFilteredUsers(data);
         toggleModal();
+        setFiltroActivo(true);
       })
       .catch((error) => {
         console.error('Error fetching filtered users:', error);

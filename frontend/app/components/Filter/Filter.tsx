@@ -3,7 +3,14 @@ import Image from 'next/image';
 import { FilterModal } from '../FilterModal/FilterModal';
 import './FilterModule.css';
 
-function Filter({ isOpen, setIsOpen, toggleModal, setFilteredUsers }) {
+function Filter({
+  isOpen,
+  setIsOpen,
+  toggleModal,
+  setFilteredUsers,
+  filtroActivo,
+  setFiltroActivo,
+}) {
   return (
     <>
       <div className="skewed-border" onClick={toggleModal}>
@@ -20,6 +27,8 @@ function Filter({ isOpen, setIsOpen, toggleModal, setFilteredUsers }) {
         setIsOpen={setIsOpen}
         toggleModal={toggleModal}
         setFilteredUsers={setFilteredUsers}
+        setFiltroActivo={setFiltroActivo}
+        filtroActivo={filtroActivo}
       />
     </>
   );

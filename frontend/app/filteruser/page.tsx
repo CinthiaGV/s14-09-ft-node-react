@@ -22,18 +22,12 @@ const FilterUser = () => {
   const [indice, setIndice] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [filteredUsers, setFilteredUsers] = useState<any[]>([]);
+  const [filtroActivo, setFiltroActivo] = useState(false);
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-  // const [username, setUsername] = useState('');
-  // const [age, setAge] = useState('');
-  // const [bio, Setbio] = useState('');
-  // const [image, setImage] = useState('');
-  // const [nameGame, setNameGame] = useState('');
-  // const [categoryGame, setCategoryGame] = useState('');
-  // const [skillLevel, setSkillLevel] = useState('');
-  // const [favoritePlatform, setFavoritePlatform] = useState('');
+
   useEffect(() => {
     const fetchCards = async () => {
       if (session) {
@@ -64,9 +58,14 @@ const FilterUser = () => {
   }, [session]);
 
   useEffect(() => {
-    setTarjetaSeleccionada(tarjetas[indice]);
-    console.log('selectCard', tarjetaSeleccionada);
-  }, [tarjetas, indice, session]);
+    if (filtroActivo) {
+      console.log('filtroActivo', filteredUsers.data);
+      setTarjetaSeleccionada(filteredUsers.data[indice]);
+    } else {
+      setTarjetaSeleccionada(tarjetas[indice]);
+      console.log('selectCard', tarjetaSeleccionada);
+    }
+  }, [tarjetas, indice, session, filtroActivo]);
 
   useEffect(() => {
     if (tarjetaSeleccionada && typeof tarjetaSeleccionada.age === 'string') {
@@ -93,52 +92,6 @@ const FilterUser = () => {
     }
   };
 
-  // const handleButtonClick = () => {
-  //   const res = fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/matches/add`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       authorization: `Bearer ${session?.user.meta.token}`,
-  //     },
-  //     body: JSON.stringify({
-  //       userReceptorId: session?.user.id,
-  //       initialMessage: inputValue,
-  //     }),
-  //   });
-  //   setInputValue('');
-  // };
-
-  // const handleButtonClick = async () => {
-  //   try {
-  //     const res = await fetch(
-  //       `${process.env.NEXT_PUBLIC_BACKEND_URL}/matches/add`,
-  //       {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           authorization: `Bearer ${session.user.meta.token}`,
-  //         },
-  //         body: JSON.stringify({
-  //           userReceptorId: session?.user.id,
-  //           initialMessage: inputValue,
-  //         }),
-  //       }
-  //     );
-  //     const user = await res.json();
-  //     console.log('router error', user);
-  //     if (user.error) {
-  //       setInputValue('');
-  //       // Mostrar el mensaje de error devuelto por el backend
-  //       alert(user.error.message);
-  //     } else {
-  //       setInputValue('');
-  //       return user;
-  //     }
-  //   } catch (error) {
-  //     console.error('Error en la solicitud fetch:', error);
-  //   }
-  // };
-
   const handleButtonClick = async () => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/matches/add`,
@@ -164,13 +117,6 @@ const FilterUser = () => {
       setInputValue('');
     }
   };
-  //   const user = await res.json();
-  //   console.log('router error', user);
-  //   if (user.error) {
-  //     throw new Error(user.error.message);
-  //   }
-  //   return user;
-  // };
 
   if (tarjetaSeleccionada) {
     return (
@@ -183,6 +129,8 @@ const FilterUser = () => {
                 setIsOpen={setIsOpen}
                 toggleModal={toggleModal}
                 setFilteredUsers={setFilteredUsers}
+                setFiltroActivo={setFiltroActivo}
+                filtroActivo={filtroActivo}
               />
               <div className="absolute bottom-80 text-2xl">
                 <button
@@ -228,37 +176,89 @@ const FilterUser = () => {
                 <div className="flex flex-col gap-2">
                   <h3 className="">Juegos</h3>
                   <div className="flex gap-x-4">
-                    {/* <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1">
                       <img
-                        src="interests[tarjetaSeleccionada.interests.[0].urlgame"
+                        src={
+                          tarjetaSeleccionada.interests &&
+                          tarjetaSeleccionada.interests[0]?.urlgame
+                            ? tarjetaSeleccionada.interests[0].urlgame
+                            : 'https://media.moddb.com/images/groups/1/30/29155/ADD_LOGO.png'
+                        }
                         alt="Nombre del juego"
                         className="w-16 h-14"
                       />
-                      <div className="flex gap-1">
-                        {tarjetaSeleccionada.interests.[0].skill >= 1 && (
-                          <img
-                            src="assets/star.png"
-                            alt="Nombre del juego"
-                            className="h-4 w-4"
-                          />
-                        )}
-                        {tarjetaSeleccionada.interests.[0].skill >= 2 && (
-                          <img
-                            src="assets/star.png"
-                            alt="Nombre del juego"
-                            className="h-4 w-4"
-                          />
-                        )}
-                        {tarjetaSeleccionada.interests.[0].skill === 3 && (
-                          <img
-                            src="assets/star.png"
-                            alt="Nombre del juego"
-                            className="h-4 w-4"
-                          />
-                        )}
-                      </div>
-                    </div> */}
+
+                      {tarjetaSeleccionada.interests[0]?.skill >= 2 && (
+                        <img
+                          src="assets/star.png"
+                          alt="Nombre del juego"
+                          className="h-4 w-4"
+                        />
+                      )}
+                      {tarjetaSeleccionada.interests[0]?.skill === 3 && (
+                        <img
+                          src="assets/star.png"
+                          alt="Nombre del juego"
+                          className="h-4 w-4"
+                        />
+                      )}
+                    </div>
                     <div className="flex flex-col gap-1">
+                      <img
+                        src={
+                          tarjetaSeleccionada.interests &&
+                          tarjetaSeleccionada.interests[1]?.urlgame
+                            ? tarjetaSeleccionada.interests[1].urlgame
+                            : 'https://media.moddb.com/images/groups/1/30/29155/ADD_LOGO.png'
+                        }
+                        alt="Nombre del juego"
+                        className="w-16 h-14"
+                      />
+
+                      {tarjetaSeleccionada.interests[1]?.skill >= 2 && (
+                        <img
+                          src="assets/star.png"
+                          alt="Nombre del juego"
+                          className="h-4 w-4"
+                        />
+                      )}
+                      {tarjetaSeleccionada.interests[1]?.skill === 3 && (
+                        <img
+                          src="assets/star.png"
+                          alt="Nombre del juego"
+                          className="h-4 w-4"
+                        />
+                      )}
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <img
+                        src={
+                          tarjetaSeleccionada.interests &&
+                          tarjetaSeleccionada.interests[2]?.urlgame
+                            ? tarjetaSeleccionada.interests[2].urlgame
+                            : 'https://media.moddb.com/images/groups/1/30/29155/ADD_LOGO.png'
+                        }
+                        alt="Nombre del juego"
+                        className="w-16 h-14"
+                      />
+
+                      {tarjetaSeleccionada.interests[2]?.skill >= 2 && (
+                        <img
+                          src="assets/star.png"
+                          alt="Nombre del juego"
+                          className="h-4 w-4"
+                        />
+                      )}
+                      {tarjetaSeleccionada.interests[2]?.skill === 3 && (
+                        <img
+                          src="assets/star.png"
+                          alt="Nombre del juego"
+                          className="h-4 w-4"
+                        />
+                      )}
+                    </div>
+
+                    {/* <div className="flex flex-col gap-1">
                       <img
                         src="https://picsum.photos/200"
                         alt="Nombre del juego"
@@ -281,61 +281,13 @@ const FilterUser = () => {
                           className="h-4 w-4"
                         />
                       </div>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <img
-                        src="assets/valorant-logo.png"
-                        alt="Nombre del juego"
-                        className="w-16 h-14"
-                      />
-                      <div className="flex gap-1">
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <img
-                        src="assets/valorant-logo.png"
-                        alt="Nombre del juego"
-                        className="w-16 h-14"
-                      />
-                      <div className="flex gap-1">
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h3 className="">Plataforma preferida</h3>
                   <div className="flex gap">
-                    {tarjetaSeleccionada.favoritePlatform.map((platform) => (
+                    {tarjetaSeleccionada?.favoritePlatform.map((platform) => (
                       <div
                         className="flex flex-col items-center gap-2"
                         key={platform.id}
