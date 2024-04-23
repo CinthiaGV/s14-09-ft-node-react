@@ -79,7 +79,9 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
   const handleSubmit = async () => {
     try {
       const formData = new FormData();
-      formData.append('id', id);
+      if (id) {
+        formData.append('id', id);
+      }
       formData.append('username', username);
       formData.append('lastName', lastName);
       formData.append('bio', bio);
@@ -92,27 +94,32 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       if (selectedImage) {
         formData.append('image', selectedImage);
       }
-
+  
+      const jsonObject: { [key: string]: string | Blob } = {};
+      formData.forEach((value, key) => {
+        jsonObject[key] = value;
+      });
+  
       const headers = new Headers();
       const token = session && session.user.meta.token;
       if (token) {
         headers.append("authorization", `Bearer ${token}`);
       }
       
-      console.log('Datos a enviar:', formData);
+      console.log('Datos a enviar:', jsonObject);
       const response = await fetch(
         `https://api-tinder-games.onrender.com/api/v1/users/updateProfile`,
         {
           method: 'PUT',
           headers: headers,
-          body: formData,
+          body: JSON.stringify(jsonObject), // Convertir el objeto JSON a una cadena JSON
         }
       );
-
+  
       if (!response.ok) {
         throw new Error('Error al enviar los datos');
       }
-
+  
       console.log('Datos enviados correctamente');
     } catch (error) {
       console.error('Hubo un error al enviar los datos:', error);
@@ -227,4 +234,6 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
     </div>
   );
 };
+
+
 
