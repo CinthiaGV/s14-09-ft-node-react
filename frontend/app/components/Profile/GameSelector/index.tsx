@@ -42,6 +42,24 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
     },
   ];
 
+  // Ejemplo de como debes enviar favoritePlatform
+  const favoritePlatformExample = ['PC', 'Mobile', 'Console'];
+
+  //ejemplo de como debes enviar interest
+
+  const interests = [
+    {
+      nameGame: 'Titanic',
+      categoryGame: 'Action',
+      skill: 5,
+    },
+    {
+      nameGame: 'Combat2',
+      categoryGame: 'Action',
+      skill: 1,
+    },
+  ];
+
   const profileImages = [
     'https://via.placeholder.com/199',
     'https://via.placeholder.com/200',
@@ -82,9 +100,10 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       if (id) {
         formData.append('id', id);
       }
-      // formData.append('username', username);
+      formData.append('name', username);
       formData.append('lastName', lastName);
-      // formData.append('bio', bio);
+      formData.append('bio', bio);
+
       // formData.append('skill', skill.toString());
       // favoritePlatform.forEach((platform) =>
       //   formData.append('favoritePlatform', platform)
@@ -95,7 +114,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       //   formData.append('image', selectedImage);
       // }
 
-      const jsonObject: { [key: string]: string | Blob } = {};
+      const jsonObject: { [key: string]: string | Blob } | any = {};
       formData.forEach((value, key) => {
         jsonObject[key] = value;
       });
@@ -104,15 +123,24 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       const token = session && session.user.meta.token;
       if (token) {
         headers.append('authorization', `Bearer ${token}`);
+        headers.append('Content-Type', 'application/json');
       }
 
-      console.log('Datos a enviar:', jsonObject);
+      //TODO Por ejemplo aqui mejor como objeto agrego las demas propiedades, deberias eliminar el FormData
+
+      jsonObject.favoritePlatform = favoritePlatformExample;
+      jsonObject.interests = interests;
+      let payload: any = JSON.stringify(jsonObject);
+
+      console.log('Payload:', payload);
+
       const response = await fetch(
         `https://api-tinder-games.onrender.com/api/v1/users/updateProfile`,
         {
           method: 'PUT',
           headers: headers,
-          body: JSON.stringify(jsonObject), // Convertir el objeto JSON a una cadena JSON
+
+          body: payload, // Convertir el objeto JSON a una cadena JSON
         }
       );
 
