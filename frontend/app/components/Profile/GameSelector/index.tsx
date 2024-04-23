@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
-import '../styles.css'; 
+import '../styles.css';
 
 interface GameSelectorProps {
   id: string;
@@ -68,7 +68,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
 
   const handleImageChange = (imageUrl: string) => {
     console.log('Imagen seleccionada:', imageUrl);
-    setSelectedImage(imageUrl); 
+    setSelectedImage(imageUrl);
   };
 
   const handleAddGame = (gameName: string, gameCategory: string) => {
@@ -82,30 +82,30 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       if (id) {
         formData.append('id', id);
       }
-      formData.append('username', username);
+      // formData.append('username', username);
       formData.append('lastName', lastName);
-      formData.append('bio', bio);
-      formData.append('skill', skill.toString());
-      favoritePlatform.forEach((platform) =>
-        formData.append('favoritePlatform', platform)
-      );
-      selectedGames.forEach((game) => formData.append('interests', game));
-      schedule.forEach((time) => formData.append('schedule', time));
-      if (selectedImage) {
-        formData.append('image', selectedImage);
-      }
-  
+      // formData.append('bio', bio);
+      // formData.append('skill', skill.toString());
+      // favoritePlatform.forEach((platform) =>
+      //   formData.append('favoritePlatform', platform)
+      // );
+      // selectedGames.forEach((game) => formData.append('interests', game));
+      // schedule.forEach((time) => formData.append('schedule', time));
+      // if (selectedImage) {
+      //   formData.append('image', selectedImage);
+      // }
+
       const jsonObject: { [key: string]: string | Blob } = {};
       formData.forEach((value, key) => {
         jsonObject[key] = value;
       });
-  
+
       const headers = new Headers();
       const token = session && session.user.meta.token;
       if (token) {
-        headers.append("authorization", `Bearer ${token}`);
+        headers.append('authorization', `Bearer ${token}`);
       }
-      
+
       console.log('Datos a enviar:', jsonObject);
       const response = await fetch(
         `https://api-tinder-games.onrender.com/api/v1/users/updateProfile`,
@@ -115,11 +115,11 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
           body: JSON.stringify(jsonObject), // Convertir el objeto JSON a una cadena JSON
         }
       );
-  
+
       if (!response.ok) {
         throw new Error('Error al enviar los datos');
       }
-  
+
       console.log('Datos enviados correctamente');
     } catch (error) {
       console.error('Hubo un error al enviar los datos:', error);
@@ -174,22 +174,22 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
         </select>
       </div>
       <div className="my-2">
-  <label>Categoría del juego:</label>
-  <select
-    value={gameCategory}
-    onChange={(e) => setGameCategory(e.target.value)}
-    className="my-2 px-4 py-2 border border-black rounded-3xl"
-  >
-    <option key="" value="">
-      Selecciona una categoría
-    </option>
-    {gamesList.map((game, index) => (
-      <option key={`${game.category}-${index}`} value={game.category}>
-        {game.category}
-      </option>
-    ))}
-  </select>
-</div>
+        <label>Categoría del juego:</label>
+        <select
+          value={gameCategory}
+          onChange={(e) => setGameCategory(e.target.value)}
+          className="my-2 px-4 py-2 border border-black rounded-3xl"
+        >
+          <option key="" value="">
+            Selecciona una categoría
+          </option>
+          {gamesList.map((game, index) => (
+            <option key={`${game.category}-${index}`} value={game.category}>
+              {game.category}
+            </option>
+          ))}
+        </select>
+      </div>
       <button
         onClick={() => handleAddGame(gameName, gameCategory)}
         className="my-2 px-4 py-2 border border-black rounded-3xl cursor-pointer bg-blue-500 text-white"
@@ -234,6 +234,3 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
     </div>
   );
 };
-
-
-
