@@ -319,6 +319,8 @@ export const updateProfile = async (req, res, next) => {
   const { id } = decoded;
 
   const { interests } = body;
+
+  console.log(body);
   // convierto en arreglo la propiedad favorite si es que viene
 
   // ahora elimino la propiedad interests del objeto body
