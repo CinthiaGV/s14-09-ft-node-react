@@ -9,6 +9,10 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 ## ¿Dónde puedo encontrar la web?
 
 
+
+
+
+
 ## Características
 
 - **Autenticación de Usuarios**: Sistema de autenticación seguro que permite a los usuarios registrarse e iniciar sesión de forma segura.
@@ -18,9 +22,9 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 - **Funcionalidad de Chat**: Funcionalidad de chat en tiempo real que permite a los usuarios comunicarse con sus compañeros de juego y planificar sesiones de juego.
 - **Diseño Responsivo**: La aplicación está diseñada para ser receptiva, asegurando una experiencia perfecta en todos los dispositivos.
 
-## Tecnologías Utilizadas
-
-- **React**: Una biblioteca de JavaScript para construir interfaces de usuario.
+|**Tecnologias Usadas en la implementacion**||
+|:---:|:---:|
+| <img style="width: 100px; min-width: 100px" src="[READMEassets\Figma.png](https://sigdeletras.com/images/blog/202004_react_leaflet/react.png)"> |Una biblioteca de JavaScript para construir interfaces de usuario|
 - **TypeScript**: Un superset de JavaScript tipado estáticamente que mejora la calidad del código y la productividad del desarrollador.
 - **React Router**: Enrutamiento declarativo para aplicaciones React.
 - **WebSocket**: Comunicación en tiempo real para funcionalidad de chat.
