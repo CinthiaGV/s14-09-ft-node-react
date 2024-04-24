@@ -53,7 +53,7 @@ model Match {
   userEmisor     User      @relation(fields: [userEmisorId], references: [id], name: "userEmisor")
   userReceptorId String    @db.Uuid
   userReceptor   User      @relation(fields: [userReceptorId], references: [id], name: "userReceptor")
-  status         Boolean   @default(false)
+  status         Boolean   @default(true)
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   messages       Message[]
