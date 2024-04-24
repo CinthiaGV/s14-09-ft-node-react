@@ -30,15 +30,11 @@
     "postcss-cli": "^11.0.0",
     "react": "^18.2.0",
     "react-app-polyfill": "^1.0.5",
-<<<<<<< HEAD
     "react-datepicker": "^6.6.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.2",
-=======
-    "react-dom": "^18",
     "react-feather": "^2.0.10",
     "react-icons": "^5.1.0",
->>>>>>> 2fdf624bdd959c9b6de83d10c8b8339fd7d8a1db
     "typescript": "latest",
     "yup": "^1.4.0"
   },
