@@ -13,5 +13,5 @@
       "use": "@now/next"
     }
   ],
-  "framework": "next"
+  "framework": "nextjs"
 }
