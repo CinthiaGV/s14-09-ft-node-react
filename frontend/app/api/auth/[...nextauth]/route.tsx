@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import GoogleProvider from 'next-auth/providers/google';
 import FacebookProvider from 'next-auth/providers/facebook';
+import GoogleProvider from 'next-auth/providers/google';
 
 const handler = NextAuth({
   providers: [
@@ -19,6 +19,11 @@ const handler = NextAuth({
         },
       },
       async authorize(credentials, req) {
+        if(!credentials) {
+          throw new Error(
+            'No credentials previded!'
+          );
+        }
         if (credentials.email.length < 3) {
           throw new Error(
             'El correo electrónico debe tener al menos 3 caracteres.'
@@ -65,8 +70,8 @@ const handler = NextAuth({
       },
     }),
     FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      clientId: process.env.FACEBOOK_CLIENT_ID || "",
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET || "",
     }),
   ],
   callbacks: {
@@ -84,3 +89,4 @@ const handler = NextAuth({
   },
 });
 export { handler as GET, handler as POST };
+
