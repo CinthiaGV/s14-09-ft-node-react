@@ -21,6 +21,8 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
   const [gameCategory, setGameCategory] = useState<string>(''); // Estado para la categoría del juego
   const { data: session } = useSession();
 
+  
+
   const gamesList = [
     {
       name: 'The Legend of Zelda: Breath of the Wild',
