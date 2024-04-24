@@ -9,6 +9,8 @@ import { differenceInYears, parseISO } from 'date-fns';
 import './FilterModal.Module.css';
 import './FilterModule.css';
 import { Filter } from '../components/Filter/Filter';
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 interface ModalProps {
   isOpen: boolean;
@@ -163,10 +165,11 @@ const FilterUser = () => {
         <div className="h-screen w-screen flex">
           {/* Previous arrow/button */}
           <button
-            className="relative h-[8%] w-[4%] top-[50%] left-[10%] text-white text-4xl  bg-[#414141] hover:bg-gray-800 transition ease-in-out rounded-md focus:outline-none z-10 shadow-[#000] shadow-lg"
+            className="relative h-[7%] w-[4%] top-[50%] left-[10%] text-white text-4xl  bg-[#414141] hover:bg-gray-800 transition ease-in-out rounded-md focus:outline-none z-10 shadow-[#000] shadow-lg pl-2"
             onClick={tarjetaAnterior}
           >
-            &#9664; {/* Unicode for left-pointing arrow */}
+            {/* &#9664; Unicode for left-pointing arrow */}
+            <IoIosArrowBack />
           </button>
           <div className="w-2/3 h-full flex items-center justify-center">
             <div className="h-screen w-screen flex  text-white">
@@ -314,10 +317,11 @@ const FilterUser = () => {
             </div>
             {/* Next arrow/button */}
             <button
-              className="relative h-[8%] w-[8%] top-[4%] right-[15%] text-white text-4xl  bg-[#414141] rounded-md focus:outline-none z-10 hover:bg-gray-800 transition ease-in-out shadow-[#000] shadow-lg"
+              className="relative h-[7%] w-[8%] top-[4%] right-[15%] text-white text-4xl  bg-[#414141] rounded-md focus:outline-none z-10 hover:bg-gray-800 transition ease-in-out shadow-[#000] shadow-lg pl-3"
               onClick={tarjetaPosterior}
             >
-              &#9654; {/* Unicode for right-pointing arrow */}
+              {/* &#9654; Unicode for right-pointing arrow */}
+            <IoIosArrowForward />
             </button>
           </div>
 
