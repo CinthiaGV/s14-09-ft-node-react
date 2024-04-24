@@ -69,6 +69,39 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
     // Agrega más URLs de imágenes de perfil aquí
   ];
 
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0]; // Obtén el archivo del input
+    if (file) {
+      const formData = new FormData();
+      formData.append('imageProfile', file); // Usa el mismo nombre que espera el backend
+
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/updateProfilePhoto`,
+          {
+            method: 'PUT',
+            headers: {
+              authorization: `Bearer ${session?.user.meta.token}`,
+            },
+            body: formData, // Envía el formulario como cuerpo
+          }
+        );
+
+        const info = await res.json();
+
+        if (res.ok) {
+          console.log('Imagen subida con éxito:', info);
+          // Aquí podrías hacer algo con la respuesta, como mostrar un mensaje al usuario
+        } else {
+          throw new Error(info.message || 'Error al subir la imagen');
+        }
+      } catch (error) {
+        console.error('Error en la subida de la imagen:', error);
+        // Aquí podrías manejar el error, como mostrar un mensaje al usuario
+      }
+    }
+  };
+
   const handlePlatformChange = (platform: string) => {
     setFavoritePlatform((prevFavoritePlatforms) =>
       prevFavoritePlatforms.includes(platform)
@@ -160,7 +193,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
 
   return (
     <div>
-      <div className="my-2">
+      {/* <div className="my-2">
         <label>Nombre:</label>
         <input
           type="text"
@@ -177,16 +210,23 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
           onChange={(e) => setLastName(e.target.value)}
           className="my-2 px-4 py-2 border border-black rounded-3xl"
         />
-      </div>
-      <div>
-        <label>Bio:</label>
-        <input
-          type="text"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          className="my-2 px-4 py-2 border border-black rounded-3xl"
-        />
-      </div>
+      </div> */}
+      {/* <label className="block sm:text-xs w-[628px]  opacity-90 ">
+        <h5 className="font-[700] text-xl">Descripción:</h5>
+        <div
+          style={{ transform: 'skewX(-10deg)' }}
+          className=" border-[1.6px] border-[#FFFFFF] mb-2 py-2 sm:mb-10 flex sm:text-base items-center  w-[80%] mt-2"
+        >
+          <PiUserListBold className="pl-2 w-6" />
+          <input
+            type="text"
+            value={bio}
+            placeholder="Estoy libre para jugar a las tardes"
+            onChange={(e) => setBio(e.target.value)}
+            className="polygon pl-2 py-2 focus:border-none block w-full bg-transparent focus:outline-none sm:text-base"
+          />
+        </div>
+      </label> */}
       <div className="my-2">
         <label>Nombre del juego:</label>
         <select
@@ -244,17 +284,12 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       <div className="my-2">
         <label>Foto de Perfil:</label>
         <div className="profile-images-container">
-          {profileImages.map((imageUrl) => (
-            <img
-              key={imageUrl}
-              src={imageUrl}
-              alt="Profile"
-              className={`profile-image ${
-                selectedImage === imageUrl ? 'selected' : ''
-              }`}
-              onClick={() => handleImageChange(imageUrl)}
-            />
-          ))}
+          <input
+            required
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
         </div>
       </div>
       <button

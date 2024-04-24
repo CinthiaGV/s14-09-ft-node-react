@@ -10,7 +10,10 @@ export default function LastConversation({
 }: ILastConversation) {
   const { data: session, status } = useSession();
 
-  const profile_picture = conversation.userEmisor.image;
+  const profile_picture =
+    conversation.userEmisor.email === session?.user.email
+      ? conversation.userReceptor.image
+      : conversation.userEmisor.image;
   const name =
     conversation.userEmisor.id === session?.user.id
       ? conversation.userReceptor.username
@@ -22,13 +25,7 @@ export default function LastConversation({
       className={clsx('msg', status === 'online' ? 'online' : '')}
       onClick={() => setSelectedConversation(conversation)}
     >
-      <Image
-        className="msg-profile"
-        src={
-          profile_picture || `https://picsum.photos/30/30?r=${Math.random()}`
-        }
-        alt={name}
-      />
+      <Image className="msg-profile" src={profile_picture} alt={name} />
       <div className="msg-detail">
         <div className="msg-username">{name}</div>
         <LastSentMsg message={lastMsg} />

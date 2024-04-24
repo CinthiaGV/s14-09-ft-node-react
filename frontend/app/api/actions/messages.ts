@@ -19,6 +19,24 @@ export const getConversations = async (session: any) => {
   }
 };
 
+export const getProfile = async (session: any) => {
+  try {
+    const response = await fetch(`${endpoint}/users/myprofile`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session?.user?.meta?.token}`, // Cambio en la clave 'authorization' a 'Authorization'
+      },
+    });
+    const info = await response.json(); // Agregué el await para esperar la respuesta JSON
+    console.log(info);
+    return info;
+  } catch (error) {
+    console.error(error); // Agregué la impresión del error para fines de depuración
+    throw error; // Puedes manejar el error aquí o propagarlo hacia arriba
+  }
+};
+
 export const getMessages = async (session: any, matchId: string) => {
   try {
     const response = await fetch(`${endpoint}/matches/${matchId}`, {

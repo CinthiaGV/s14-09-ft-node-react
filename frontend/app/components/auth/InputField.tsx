@@ -12,7 +12,12 @@ interface IInputField {
   formikProps: any;
 }
 
-export default function InputField({ label, id, type, formikProps }: IInputField) {
+export default function InputField({
+  label,
+  id,
+  type,
+  formikProps,
+}: IInputField) {
   const { formik } = formikProps;
   const [showPassword, setShowPassword] = useState(false);
 
