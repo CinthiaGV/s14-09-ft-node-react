@@ -232,7 +232,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
         <select
           value={gameName}
           onChange={(e) => setGameName(e.target.value)}
-          className="my-2 px-4 py-2 border border-black rounded-3xl"
+          className="my-2 px-4 py-2 border border-black rounded-3xl text-black"
         >
           <option value="">Selecciona un juego</option>
           {gamesList.map((game, index) => (
@@ -250,13 +250,13 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
         <select
           value={gameCategory}
           onChange={(e) => setGameCategory(e.target.value)}
-          className="my-2 px-4 py-2 border border-black rounded-3xl"
+          className="my-2 px-4 py-2 border border-black rounded-3xl text-black"
         >
-          <option key="" value="">
+          <option key="" value="" >
             Selecciona una categoría
           </option>
           {gamesList.map((game, index) => (
-            <option key={`${game.category}-${index}`} value={game.category}>
+            <option key={`${game.category}-${index}`} value={game.category} className=' text-black'>
               {game.category}
             </option>
           ))}
@@ -264,23 +264,23 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       </div>
       <button
         onClick={() => handleAddGame(gameName, gameCategory)}
-        className="my-2 px-4 py-2 border border-black rounded-3xl cursor-pointer bg-blue-500 text-white"
+        className="btn yellowBtn glitch  place-self-center"
       >
         Agregar Juego
       </button>
 
       <div className="my-2">
         <label>Skill:</label>
+      </div>
         <select
           value={skill}
           onChange={(e) => setSkill(parseInt(e.target.value))}
-          className="my-2 px-4 py-2 border border-black rounded-3xl cursor-pointer"
+          className="my-2 px-4 py-2 border border-black rounded-3xl cursor-pointer text-black"
         >
           <option value={1}>★</option>
           <option value={2}>★★</option>
           <option value={3}>★★★</option>
         </select>
-      </div>
       <div className="my-2">
         <label>Foto de Perfil:</label>
         <div className="profile-images-container">
@@ -294,7 +294,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       </div>
       <button
         onClick={handleSubmit}
-        className="my-2 px-4 py-2 border border-black rounded-3xl cursor-pointer bg-blue-500 text-white"
+        className="btn yellowBtn glitch place-self-center"
       >
         Enviar Datos
       </button>
