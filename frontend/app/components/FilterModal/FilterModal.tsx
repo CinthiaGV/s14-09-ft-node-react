@@ -13,6 +13,7 @@ const FilterModal: React.FC<ModalProps> = ({
   setFilteredUsers,
   filtrActivo,
   setFiltroActivo,
+  resetFilters,
 }) => {
   const [gameType, setGameType] = useState<string>('');
   const [skillLevel, setSkillLevel] = useState<string>('');
@@ -133,6 +134,12 @@ const FilterModal: React.FC<ModalProps> = ({
           </div>
         </div>
         <button onClick={handleFilterUsers}>Filtrar Usuarios</button>
+        <button
+          onClick={resetFilters}
+          className="px-4 py-2  text-black rounded"
+        >
+          Resetear Filtros
+        </button>
       </div>
     </div>
   );

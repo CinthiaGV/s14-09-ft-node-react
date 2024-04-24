@@ -10,6 +10,7 @@ function Filter({
   setFilteredUsers,
   filtroActivo,
   setFiltroActivo,
+  resetFilters
 }) {
   return (
     <>
@@ -29,6 +30,7 @@ function Filter({
         setFilteredUsers={setFilteredUsers}
         setFiltroActivo={setFiltroActivo}
         filtroActivo={filtroActivo}
+        resetFilters={resetFilters}
       />
     </>
   );

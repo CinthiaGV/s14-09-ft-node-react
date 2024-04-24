@@ -38,11 +38,15 @@ const FilterUser = () => {
   const { data: session, status } = useSession();
   const [inputValue, setInputValue] = useState('');
   const [tarjetas, setTarjetas] = useState([]);
+  const [tarjetasFull, setTarjetasFull] = useState([]);
   const [tarjetaSeleccionada, setTarjetaSeleccionada] = useState<UserCard>();
   const [indice, setIndice] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [filteredUsers, setFilteredUsers] = useState<any>([]);
   const [filtroActivo, setFiltroActivo] = useState(false);
+
+
+
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -68,6 +72,8 @@ const FilterUser = () => {
           const cards = await res.json();
           console.log('router user', cards.data);
           setTarjetas(cards.data);
+          setTarjetasFull(cards.data);
+          console.log('cards', tarjetasFull);
         } catch (error) {
           console.error('Error fetching cards:', error);
         }
@@ -107,7 +113,9 @@ const FilterUser = () => {
   };
 
   const tarjetaPosterior = () => {
-    if (indice < tarjetas.length - 1) {
+    // Si el filtro está activo, usamos 'filteredUsers.length', si no, 'tarjetas.length'
+    const listToUse = filtroActivo ? filteredUsers.data : tarjetasFull;
+    if (indice < listToUse?.length - 1) {
       setIndice(indice + 1);
     }
   };
@@ -138,6 +146,17 @@ const FilterUser = () => {
     }
   };
 
+  const resetFilters = () => {
+    // Esto supondrá que tienes una manera de obtener todas las tarjetas sin filtros
+    // Posiblemente podrías llamar a fetchCards nuevamente o simplemente eliminar el filtro
+    setFiltroActivo(false);
+    setFilteredUsers([]); // O restaurar a la lista completa si mantienes una copia sin filtrar
+    setIndice(0); // Opcional: Vuelve al principio de la lista de tarjetas
+    setTarjetas(tarjetasFull)
+    setTarjetaSeleccionada (tarjetasFull[indice]);
+  };
+
+
   if (tarjetaSeleccionada) {
     return (
       <>
@@ -160,6 +179,7 @@ const FilterUser = () => {
                     setFilteredUsers={setFilteredUsers}
                     setFiltroActivo={setFiltroActivo}
                     filtroActivo={filtroActivo}
+                    resetFilters={resetFilters}
                   />
                 </div>
 
@@ -175,8 +195,10 @@ const FilterUser = () => {
                         <h2 className="text-xl font-bold mb-2">
                           {tarjetaSeleccionada.username}
                         </h2>
-                        <p className='text-sm font-extralight'>{tarjetaSeleccionada.age} años</p>
-                        <div className='text-sm font-extralight'>
+                        <p className="text-sm font-extralight">
+                          {tarjetaSeleccionada.age} años
+                        </p>
+                        <div className="text-sm font-extralight">
                           {tarjetaSeleccionada.bio}
                         </div>
                       </div>
@@ -308,6 +330,17 @@ const FilterUser = () => {
   } else {
     return (
       <div role="status">
+        <div className="flex flex-col mb-5 mt-[50%] mr-[50%] ">
+          <Filter
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            toggleModal={toggleModal}
+            setFilteredUsers={setFilteredUsers}
+            setFiltroActivo={setFiltroActivo}
+            filtroActivo={filtroActivo}
+            resetFilters={resetFilters}
+          />
+        </div>
         <svg
           aria-hidden="true"
           className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
