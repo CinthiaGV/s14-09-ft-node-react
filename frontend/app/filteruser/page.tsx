@@ -2,6 +2,7 @@
 import { FaMobileAlt } from 'react-icons/fa';
 import { RiComputerLine } from 'react-icons/ri';
 import { GiConsoleController } from 'react-icons/gi';
+import { BsSendPlusFill } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { differenceInYears, parseISO } from 'date-fns';
@@ -14,14 +15,33 @@ interface ModalProps {
   toggleModal: () => void;
 }
 
+// Types and Interfaces
+interface UserInterest {
+  image?: string;
+  skill?: number;
+}
+
+interface UserCard {
+  age: string | number;
+  username?: string;
+  name?: string;
+  lastName?: string;
+  skills?: string;
+  id?: string;
+  image?: string;
+  bio?: string;
+  interests?: UserInterest[];
+  favoritePlatform?: string[];
+}
+
 const FilterUser = () => {
   const { data: session, status } = useSession();
   const [inputValue, setInputValue] = useState('');
   const [tarjetas, setTarjetas] = useState([]);
-  const [tarjetaSeleccionada, setTarjetaSeleccionada] = useState();
+  const [tarjetaSeleccionada, setTarjetaSeleccionada] = useState<UserCard>();
   const [indice, setIndice] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const [filteredUsers, setFilteredUsers] = useState<any[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<any>([]);
   const [filtroActivo, setFiltroActivo] = useState(false);
 
   const toggleModal = () => {
@@ -102,7 +122,7 @@ const FilterUser = () => {
           authorization: `Bearer ${session?.user.meta.token}`,
         },
         body: JSON.stringify({
-          userReceptorId: tarjetaSeleccionada.id,
+          userReceptorId: tarjetaSeleccionada?.id,
           initialMessage: inputValue,
         }),
       }
@@ -122,229 +142,189 @@ const FilterUser = () => {
     return (
       <>
         <div className="h-screen w-screen flex">
-          <div className="w-2/3 h-fullflex items-center justify-center">
-            <div className="relative w-full h-full flex flex-col pt-32 pb-8 pr-16 pl-32">
-              <Filter
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                toggleModal={toggleModal}
-                setFilteredUsers={setFilteredUsers}
-                setFiltroActivo={setFiltroActivo}
-                filtroActivo={filtroActivo}
-              />
-              <div className="absolute bottom-80 text-2xl">
-                <button
-                  className="bg-[#36343b] h-16 w-16"
-                  onClick={tarjetaAnterior}
-                >
-                  &lt;
-                </button>
-                <button
-                  className="bg-[#36343b] h-16 w-16 absolute left-[480px]"
-                  onClick={tarjetaPosterior}
-                >
-                  &gt;
-                </button>
-              </div>
-              {/* <div className="flex-1 bg-[url('/assets/avatar.jpg')] bg-cover mr-20 ml-20 max-w-sm"> */}
-              <div
-                className="flex-1 bg-cover mr-20 ml-20 pl-4 max-w-sm"
-                style={{
-                  backgroundImage: `url(${
-                    tarjetaSeleccionada.image ??
-                    'url(https://st2.depositphotos.com/2498595/5613/v/450/depositphotos_56138187-stock-illustration-profile-icon-white-on-the.jpg)'
-                  })`,
-                }}
-              >
-                <div className="flex flex-col text-white h-full justify-end">
-                  <div className="backdrop-filter backdrop-blur-sm backdrop-saturate-100 bg-opacity-50 bg-opacity-50">
-                    <div className="flex gap-3">
-                      <p className="">
-                        {tarjetaSeleccionada.username ?? 'Usuario'}
-                      </p>
-                      <p className="">
-                        {tarjetaSeleccionada.age + ' años' ?? 'Edad'}
-                      </p>
-                    </div>
-                    <p className="">
-                      {tarjetaSeleccionada.bio ?? 'Descripción'}
-                    </p>
-                  </div>
+          {/* Previous arrow/button */}
+          <button
+            className="relative h-[8%] w-[8%] top-[50%] left-[10%] text-white text-4xl  bg-gray-700 hover:bg-gray-800 transition ease-in-out rounded-md focus:outline-none z-10"
+            onClick={tarjetaAnterior}
+          >
+            &#9664; {/* Unicode for left-pointing arrow */}
+          </button>
+          <div className="w-2/3 h-full flex items-center justify-center">
+            <div className="h-screen w-screen flex  text-white">
+              <div className="w-full max-w-md mx-auto my-auto ">
+                <div className="flex flex-col mb-5 mr-[50%] ">
+                  <Filter
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    toggleModal={toggleModal}
+                    setFilteredUsers={setFilteredUsers}
+                    setFiltroActivo={setFiltroActivo}
+                    filtroActivo={filtroActivo}
+                  />
                 </div>
-              </div>
-              <div className="flex-1 mr-20 ml-20  pl-4 h-full flex flex-col justify-around max-w-sm bg-[#201e1e]">
-                <div className="flex flex-col gap-2">
-                  <h3 className="">Juegos</h3>
-                  <div className="flex gap-x-4">
-                    <div className="flex flex-col gap-1">
-                      <img
-                        src={
-                          tarjetaSeleccionada.interests &&
-                          tarjetaSeleccionada.interests[0]?.urlgame
-                            ? tarjetaSeleccionada.interests[0].urlgame
-                            : 'https://media.moddb.com/images/groups/1/30/29155/ADD_LOGO.png'
-                        }
-                        alt="Nombre del juego"
-                        className="w-16 h-14"
-                      />
 
-                      {tarjetaSeleccionada.interests[0]?.skill >= 2 && (
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      )}
-                      {tarjetaSeleccionada.interests[0]?.skill === 3 && (
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      )}
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <img
-                        src={
-                          tarjetaSeleccionada.interests &&
-                          tarjetaSeleccionada.interests[1]?.urlgame
-                            ? tarjetaSeleccionada.interests[1].urlgame
-                            : 'https://media.moddb.com/images/groups/1/30/29155/ADD_LOGO.png'
-                        }
-                        alt="Nombre del juego"
-                        className="w-16 h-14"
-                      />
-
-                      {tarjetaSeleccionada.interests[1]?.skill >= 2 && (
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      )}
-                      {tarjetaSeleccionada.interests[1]?.skill === 3 && (
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      )}
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <img
-                        src={
-                          tarjetaSeleccionada.interests &&
-                          tarjetaSeleccionada.interests[2]?.urlgame
-                            ? tarjetaSeleccionada.interests[2].urlgame
-                            : 'https://media.moddb.com/images/groups/1/30/29155/ADD_LOGO.png'
-                        }
-                        alt="Nombre del juego"
-                        className="w-16 h-14"
-                      />
-
-                      {tarjetaSeleccionada.interests[2]?.skill >= 2 && (
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      )}
-                      {tarjetaSeleccionada.interests[2]?.skill === 3 && (
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                      )}
-                    </div>
-
-                    {/* <div className="flex flex-col gap-1">
-                      <img
-                        src="https://picsum.photos/200"
-                        alt="Nombre del juego"
-                        className="w-16 h-14"
-                      />
-                      <div className="flex gap-1">
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
-                        <img
-                          src="assets/star.png"
-                          alt="Nombre del juego"
-                          className="h-4 w-4"
-                        />
+                <div className="rounded-lg overflow-hidden max-h-[720px] ">
+                  <div
+                    className="bg-cover bg-center h-[300px] flex items-end "
+                    style={{
+                      backgroundImage: `url(${tarjetaSeleccionada.image})`,
+                    }}
+                  >
+                    <div className="bg-gradient-to-t from-[#000000dc] to-[#00000000] w-full">
+                      <div className="p-2 rounded">
+                        <h2 className="text-xl font-bold">
+                          {tarjetaSeleccionada.username}
+                        </h2>
+                        <p>{tarjetaSeleccionada.age} años</p>
+                        <div className="flex items-center">
+                          {tarjetaSeleccionada.bio}
+                        </div>
                       </div>
-                    </div> */}
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="">Plataforma preferida</h3>
-                  <div className="flex gap">
-                    {tarjetaSeleccionada?.favoritePlatform.map((platform) => (
-                      <div
-                        className="flex flex-col items-center gap-2"
-                        key={platform.id}
-                      >
-                        {platform === 'Mobile' && (
-                          <>
-                            <FaMobileAlt className="ml-8" />
-                            <p className="ml-8">{platform}</p>
-                          </>
-                        )}
-                        {platform === 'Pc' && (
-                          <>
-                            <RiComputerLine className="ml-8" />
-                            <p className="ml-8">{platform}</p>
-                          </>
-                        )}
-                        {platform === 'Console' && (
-                          <>
-                            <GiConsoleController className="ml-8" />
-                            <p className="ml-8">{platform}</p>
-                          </>
-                        )}
-                      </div>
-                    ))}
+                  <div className="px-4 py-2">
+                    <h3 className="text-lg font-semibold mb-2">
+                      Juegos favoritos
+                    </h3>
+                    <div className="flex -mx-2">
+                      {tarjetaSeleccionada.interests?.length ? (
+                        tarjetaSeleccionada?.interests?.map(
+                          (interest, index) => (
+                            <div key={index} className="px-2">
+                              <div className="bg-gray-700 rounded p-2 flex flex-col items-center">
+                                <img
+                                  src={
+                                    interest.image
+                                      ? interest.image
+                                      : 'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
+                                  }
+                                  alt="Juego"
+                                  className="w-16 h-16"
+                                />
+                                <div className="flex mt-1">
+                                  {[...Array(interest.skill)].map((e, i) => (
+                                    <img
+                                      key={i}
+                                      src="assets/star.png"
+                                      alt="Estrella"
+                                      className="h-4 w-4"
+                                    />
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        )
+                      ) : (
+                        <div className="mx-auto border border-[#5c5959] rounded p-3">
+                          <div className="flex items-center rounded ">
+                            No hay juegos favoritos
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="pl-14">Enviale una solicitud de mensaje!</h3>
-                  <div className="relative flex justify-end">
-                    <div className="w-5/6 max-w-[350px]">
+                  <div className="px-4 py-2">
+                    <h3 className="text-lg font-semibold mb-2">Plataforma</h3>
+                    <div className="flex -mx-2">
+                      {tarjetaSeleccionada?.favoritePlatform?.length ? (
+                        tarjetaSeleccionada?.favoritePlatform?.map(
+                          (platform) => (
+                            <div className="flex flex-col items-center gap-2">
+                              {platform === 'Mobile' && (
+                                <>
+                                  <FaMobileAlt className="ml-8" />
+                                  <p className="ml-8">{platform}</p>
+                                </>
+                              )}
+                              {platform === 'Pc' && (
+                                <>
+                                  <RiComputerLine className="ml-8" />
+                                  <p className="ml-8">{platform}</p>
+                                </>
+                              )}
+                              {platform === 'Console' && (
+                                <>
+                                  <GiConsoleController className="ml-8" />
+                                  <p className="ml-8">{platform}</p>
+                                </>
+                              )}
+                            </div>
+                          )
+                        )
+                      ) : (
+                        <div className="mx-auto border border-[#5c5959] rounded p-3">
+                          <div className="flex items-center rounded ">
+                            No hay plataformas favoritas
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="w-full px-1 py-2 mt-7">
+                    <label htmlFor="message" className="block mb-2">
+                      ¡Envíale una solicitud de mensaje!
+                    </label>
+                    <div className="flex items-center">
                       <input
+                        id="message"
                         type="text"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
-                        className="border rounded-full  w-full py-2 min-h-[3rem] pl-3 pr-12 max-w-[350px]"
+                        className="flex-1 p-2 rounded-xl bg-gray-800 border border-gray-600 text-sm"
+                        placeholder={`Hola ${tarjetaSeleccionada.username}, vamos a jugar!`}
                       />
+                      <button
+                        onClick={handleButtonClick}
+                        className="ml-2 bg-[#c2d64f] hover:bg-[#d1d4bb] text-black  p-2 rounded"
+                        style={{
+                          cursor: 'pointer',
+                          backgroundImage:
+                            'https://cdn-icons-png.flaticon.com/512/6652/6652725.png',
+                        }}
+                      >
+                        <BsSendPlusFill />
+                      </button>
                     </div>
-                    <button
-                      onClick={handleButtonClick}
-                      className="relative rounded-full right-12 h-8 w-10 top-1"
-                    >
-                      <img
-                        src="assets/button-send.png"
-                        alt="boton para enviar mensaje"
-                        className="h-12 w-12"
-                      />
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
+            {/* Next arrow/button */}
+            <button
+              className="relative h-[8%] w-[16%] top-[4%] right-[15%] text-white text-4xl  bg-gray-700 rounded-md focus:outline-none z-10 hover:bg-gray-800 transition ease-in-out"
+              onClick={tarjetaPosterior}
+            >
+              &#9654; {/* Unicode for right-pointing arrow */}
+            </button>
           </div>
+
           <div className="w-1/3 h-full bg-blue-500 flex items-center justify-center">
             <h1 className="text-white">sector Wagner</h1>
           </div>
         </div>
       </>
+    );
+  } else {
+    return (
+      <div role="status">
+        <svg
+          aria-hidden="true"
+          className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+          viewBox="0 0 100 101"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+            fill="currentColor"
+          />
+          <path
+            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+            fill="currentFill"
+          />
+        </svg>
+      </div>
     );
   }
 };
