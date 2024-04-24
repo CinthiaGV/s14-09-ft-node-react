@@ -29,18 +29,18 @@ export const sendMessage = async (
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${session?.user?.meta?.token}`, // Cambio en la clave 'authorization' a 'Authorization'
+        Authorization: `Bearer ${session?.user?.meta?.token}`,
       },
       body: JSON.stringify({
         text: text,
         matchId: matchId,
       }),
     });
-    const info = await response.json(); // Agregué el await para esperar la respuesta JSON
+    const info = await response.json();
     return info;
   } catch (error) {
-    console.error('Error fetching conversations:', error); // Agregué la impresión del error para fines de depuración
-    throw error; // Puedes manejar el error aquí o propagarlo hacia arriba
+    console.error('Error fetching conversations:', error);
+    throw error;
   }
 };
 
