@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    },
+    {
+      "src": "*.tsx",
+      "use": "@now/next"
+    },
+    {
+      "src": "*.ts",
+      "use": "@now/next"
+    }
+  ],
+  "framework": "next"
+}
