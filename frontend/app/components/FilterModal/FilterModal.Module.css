@@ -77,10 +77,12 @@
   display: block;
   width: 10px;
   height: 5px;
-  border: solid #fff;
+  border: solid #131212;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
+  padding-top: 15px;
+  margin-left: 5px;
 }
 
 .checkbox-input:checked + .checkbox-custom::after {

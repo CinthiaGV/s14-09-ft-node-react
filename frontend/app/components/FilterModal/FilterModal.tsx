@@ -54,10 +54,11 @@ const FilterModal: React.FC<ModalProps> = ({
   return (
     <div className="modal-overlay" onClick={toggleModal}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={toggleModal}>
-          X BOTON X!!!
+        <button className="ml-[95%]" onClick={toggleModal}>
+          ✖
         </button>
         <hr className="divider" />
+
         <div className="modal-columns">
           <div className="modal-column">
             <h2>Tipos de juego</h2>
@@ -133,13 +134,20 @@ const FilterModal: React.FC<ModalProps> = ({
             </label>
           </div>
         </div>
-        <button onClick={handleFilterUsers}>Filtrar Usuarios</button>
-        <button
-          onClick={resetFilters}
-          className="px-4 py-2  text-black rounded"
-        >
-          Resetear Filtros
-        </button>
+        <div className='mt-4'>
+          <button
+            className="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            onClick={handleFilterUsers}
+          >
+            Filtrar Usuarios
+          </button>
+          <button
+            onClick={resetFilters}
+            className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          >
+            Resetear Filtros
+          </button>
+        </div>
       </div>
     </div>
   );
