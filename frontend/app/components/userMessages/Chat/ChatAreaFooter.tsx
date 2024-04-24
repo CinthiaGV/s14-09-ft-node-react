@@ -18,6 +18,13 @@ export default function ChatAreaFooter({ conversation }: IChatFooter) {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Evitar el comportamiento predeterminado del textarea al presionar Enter
+      handleSendMessage(); // Llamar a la función para enviar el mensaje
+    }
+  };
+
   return (
     <div className="chat-area-footer flex items-center justify-between bg-white border-t border-gray-300 p-2">
       <textarea
@@ -26,6 +33,7 @@ export default function ChatAreaFooter({ conversation }: IChatFooter) {
         rows={3}
         value={messageText} // Valor del textarea vinculado al estado
         onChange={(e) => setMessageText(e.target.value)} // Actualizar el estado con el valor del textarea
+        onKeyDown={handleKeyDown} // Llamar a handleKeyDown cuando se presiona una tecla en el textarea
       />
       <button
         className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded"

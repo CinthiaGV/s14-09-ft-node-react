@@ -9,9 +9,11 @@ import { differenceInYears, parseISO } from 'date-fns';
 import './FilterModal.Module.css';
 import './FilterModule.css';
 import { Filter } from '../components/Filter/Filter';
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
-import { RxMobile } from "react-icons/rx";
+import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowBack } from 'react-icons/io';
+import { RxMobile } from 'react-icons/rx';
+import UserConversations from '../components/userMessages/UserConversations';
+import { getConversations } from '../api/actions/messages';
 
 interface ModalProps {
   isOpen: boolean;
@@ -47,9 +49,24 @@ const FilterUser = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [filteredUsers, setFilteredUsers] = useState<any>([]);
   const [filtroActivo, setFiltroActivo] = useState(false);
+  const [conversations, setConversations] = useState([]); // Agregué estado para almacenar las conversaciones
 
+  useEffect(() => {
+    const fetchConversations = async () => {
+      if (session) {
+        try {
+          const convos = await getConversations(session);
+          setConversations(convos);
+          if (convos.length > 0)
+            console.log('Conversations from page: ', convos);
+        } catch (error) {
+          console.error('Error fetching conversations:', error);
+        }
+      }
+    };
 
-
+    fetchConversations();
+  }, [session]);
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -155,10 +172,9 @@ const FilterUser = () => {
     setFiltroActivo(false);
     setFilteredUsers([]); // O restaurar a la lista completa si mantienes una copia sin filtrar
     setIndice(0); // Opcional: Vuelve al principio de la lista de tarjetas
-    setTarjetas(tarjetasFull)
-    setTarjetaSeleccionada (tarjetasFull[indice]);
+    setTarjetas(tarjetasFull);
+    setTarjetaSeleccionada(tarjetasFull[indice]);
   };
-
 
   if (tarjetaSeleccionada) {
     return (
@@ -266,7 +282,9 @@ const FilterUser = () => {
                               {platform === 'Pc' && (
                                 <>
                                   <RiComputerLine className="ml-8 h-8" />
-                                  <p className="ml-8 text-xs uppercase">{platform}</p>
+                                  <p className="ml-8 text-xs uppercase">
+                                    {platform}
+                                  </p>
                                 </>
                               )}
                               {platform === 'Console' && (
@@ -322,13 +340,18 @@ const FilterUser = () => {
               onClick={tarjetaPosterior}
             >
               {/* &#9654; Unicode for right-pointing arrow */}
-            <IoIosArrowForward />
+              <IoIosArrowForward />
             </button>
           </div>
 
-          <div className="w-1/3 h-full bg-blue-500 flex items-center justify-center">
-            <h1 className="text-white">sector Wagner</h1>
-          </div>
+          {/* <div className="w-1/3 h-full bg-blue-500 flex items-center justify-center"> */}
+          {session && session.user && (
+            <UserConversations
+              user={session.user}
+              conversations={conversations}
+            />
+          )}
+          {/* </div> */}
         </div>
       </>
     );

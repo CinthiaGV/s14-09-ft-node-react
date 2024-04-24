@@ -6,16 +6,8 @@ export default function LastConversation({
   conversation,
   setSelectedConversation,
 }: ILastConversation) {
-  // const status = conversation.recipient.status;
-  // const profile_picture = conversation.recipient.profile_picture;
-  // const name = conversation.recipient.name;
-  // const index = conversation.messages.length - 1;
-  // const lastMsg = conversation.messages[index];
-
-  // const status = conversation.recipient.status;
   const profile_picture = conversation.userEmisor.image;
   const name = conversation.userEmisor.username;
-  // const index = conversation.messages[conversation.messages.length - 1].text;
   const lastMsg = conversation.messages[conversation.messages.length - 1];
 
   return (

@@ -14,7 +14,7 @@ const handleButtonLogout = async () => {
   await signOut({ callbackUrl: '/' });
 };
 
-export default function Header() {
+export default function HeaderNav() {
   const { data: session, status } = useSession();
   if (status === 'loading') {
     return <p>Loading...</p>;
@@ -26,7 +26,7 @@ export default function Header() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Logo />
           <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button className='btn yellowBtn' onClick={handleButtonLogout}>
+            <button className="btn yellowBtn" onClick={handleButtonLogout}>
               Logout
             </button>
           </div>
@@ -40,8 +40,8 @@ export default function Header() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <Login/>
-          <Register/>
+          <Login />
+          <Register />
         </div>
         <Navbar />
       </div>

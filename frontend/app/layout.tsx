@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import * as React from 'react';
 import Main from './components/Main/Main';
-import Header from './components/header/Header';
 import './globals.css';
 import { Providers } from './providers';
 
@@ -22,7 +21,6 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="h-screen sm:overflow-hidden ">
         <Providers>
-          <Header />
           <Main>{children}</Main>
         </Providers>
       </body>
