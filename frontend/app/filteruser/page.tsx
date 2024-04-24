@@ -11,6 +11,7 @@ import './FilterModule.css';
 import { Filter } from '../components/Filter/Filter';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { RxMobile } from "react-icons/rx";
 
 interface ModalProps {
   isOpen: boolean;
@@ -165,7 +166,7 @@ const FilterUser = () => {
         <div className="h-screen w-screen flex">
           {/* Previous arrow/button */}
           <button
-            className="relative h-[7%] w-[4%] top-[50%] left-[10%] text-white text-4xl  bg-[#414141] hover:bg-gray-800 transition ease-in-out rounded-md focus:outline-none z-10 shadow-[#000] shadow-lg pl-2"
+            className="relative h-[7%] w-[4%] top-[50%] left-[10%] text-white text-4xl  bg-[#414141] hover:bg-gray-800 transition ease-in-out rounded-md focus:outline-none z-10 shadow-[#000] shadow-lg pl-3"
             onClick={tarjetaAnterior}
           >
             {/* &#9664; Unicode for left-pointing arrow */}
@@ -258,20 +259,20 @@ const FilterUser = () => {
                             <div className="flex flex-col items-center gap-2">
                               {platform === 'Mobile' && (
                                 <>
-                                  <FaMobileAlt className="ml-8" />
-                                  <p className="ml-8">{platform}</p>
+                                  <RxMobile className="ml-8 h-8" />
+                                  <p className="ml-8 text-xs">{platform}</p>
                                 </>
                               )}
                               {platform === 'Pc' && (
                                 <>
-                                  <RiComputerLine className="ml-8" />
-                                  <p className="ml-8">{platform}</p>
+                                  <RiComputerLine className="ml-8 h-8" />
+                                  <p className="ml-8 text-xs uppercase">{platform}</p>
                                 </>
                               )}
                               {platform === 'Console' && (
                                 <>
-                                  <GiConsoleController className="ml-8" />
-                                  <p className="ml-8">{platform}</p>
+                                  <GiConsoleController className="ml-8 h-8" />
+                                  <p className="ml-8 text-xs">{platform}</p>
                                 </>
                               )}
                             </div>
@@ -317,7 +318,7 @@ const FilterUser = () => {
             </div>
             {/* Next arrow/button */}
             <button
-              className="relative h-[7%] w-[8%] top-[4%] right-[15%] text-white text-4xl  bg-[#414141] rounded-md focus:outline-none z-10 hover:bg-gray-800 transition ease-in-out shadow-[#000] shadow-lg pl-3"
+              className="relative h-[7%] w-[8%] top-[4%] right-[15%] text-white text-4xl  bg-[#414141] rounded-md focus:outline-none z-10 hover:bg-gray-800 transition ease-in-out shadow-[#000] shadow-lg pl-4"
               onClick={tarjetaPosterior}
             >
               {/* &#9654; Unicode for right-pointing arrow */}
