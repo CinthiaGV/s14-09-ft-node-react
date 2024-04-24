@@ -1,17 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "next.config.js",
-      "use": "@now/next"
-    },
-    {
-      "src": "*.tsx",
-      "use": "@now/next"
-    },
-    {
-      "src": "*.ts",
-      "use": "@now/next"
-    }
-  ],
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@vercel/next" }],
   "framework": "nextjs"
 }
