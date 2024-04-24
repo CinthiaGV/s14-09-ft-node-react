@@ -22,7 +22,7 @@ export default function ChatArea({
       </div>
       <div className="row-start-3">
         <div className="absolute right-0 bottom-0 left-[66.7rem]">
-          <ChatAreaFooter />
+          <ChatAreaFooter conversation={conversation} />
         </div>
       </div>
     </div>

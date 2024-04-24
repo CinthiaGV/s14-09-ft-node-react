@@ -10,8 +10,34 @@ export const getConversations = async (session: any) => {
     });
     const info = await response.json(); // Agregué el await para esperar la respuesta JSON
     const conversations = await info.data;
+    console.log(conversations);
     console.log('Conversations from api: ', conversations);
     return conversations;
+  } catch (error) {
+    console.error('Error fetching conversations:', error); // Agregué la impresión del error para fines de depuración
+    throw error; // Puedes manejar el error aquí o propagarlo hacia arriba
+  }
+};
+
+export const sendMessage = async (
+  session: any,
+  text: string,
+  matchId: string
+) => {
+  try {
+    const response = await fetch(`${endpoint}/messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session?.user?.meta?.token}`, // Cambio en la clave 'authorization' a 'Authorization'
+      },
+      body: JSON.stringify({
+        text: text,
+        matchId: matchId,
+      }),
+    });
+    const info = await response.json(); // Agregué el await para esperar la respuesta JSON
+    return info;
   } catch (error) {
     console.error('Error fetching conversations:', error); // Agregué la impresión del error para fines de depuración
     throw error; // Puedes manejar el error aquí o propagarlo hacia arriba

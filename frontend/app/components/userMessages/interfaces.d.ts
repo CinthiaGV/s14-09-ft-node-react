@@ -54,6 +54,10 @@ export interface IChatArea extends Omit<IConversationArea, 'conversations'> {
   conversation: Conversation | undefined;
 }
 
+export interface IChatFooter extends Omit<IConversationArea, 'conversations'> {
+  conversation: Conversation | undefined;
+}
+
 export interface IChatAreaHeader extends IChatArea {}
 
 export interface IChatAreaMain

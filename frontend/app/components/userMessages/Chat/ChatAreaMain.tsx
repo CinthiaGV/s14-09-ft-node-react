@@ -4,6 +4,7 @@ import ChatMsg from './ChatMsg';
 
 export default function ChatAreaMain({ conversation }: IChatAreaMain) {
   const messages = conversation?.messages;
+  console.log(conversation);
 
   return (
     <div

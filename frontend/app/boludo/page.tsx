@@ -8,7 +8,6 @@ import UserConversations from '../components/userMessages/UserConversations';
 export default function Page() {
   const { data: session, status } = useSession();
   const [conversations, setConversations] = useState([]); // Agregué estado para almacenar las conversaciones
-
   useEffect(() => {
     const fetchConversations = async () => {
       if (session) {
