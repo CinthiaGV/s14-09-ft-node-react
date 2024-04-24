@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import '../styles.css';
 
@@ -21,7 +22,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
   const [gameCategory, setGameCategory] = useState<string>(''); // Estado para la categoría del juego
   const { data: session } = useSession();
 
-  
+  const router = useRouter();
 
   const gamesList = [
     {
@@ -151,6 +152,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       }
 
       console.log('Datos enviados correctamente');
+      router.push('/filteruser');
     } catch (error) {
       console.error('Hubo un error al enviar los datos:', error);
     }

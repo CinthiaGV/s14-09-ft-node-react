@@ -43,7 +43,9 @@ const ProfileForm = () => {
     // Lógica para enviar los datos del formulario al backend
   };
 
-  const handleProfilePicChange = (e: { target: { files: (Blob | MediaSource)[]; }; }) => {
+  const handleProfilePicChange = (e: {
+    target: { files: (Blob | MediaSource)[] };
+  }) => {
     setProfilePic(URL.createObjectURL(e.target.files[0]));
   };
 
@@ -146,21 +148,9 @@ const ProfileForm = () => {
             />
           </div>
         </div>
-
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className="polygon inline-flex justify-center rounded-lg border border-white px-36 bg-transparent py-2  text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          >
-            Finalizar
-          </button>
-        </div>
       </form>
     </div>
   );
 };
 
 export default ProfileForm;
-
-
-

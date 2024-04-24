@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="h-screen sm:overflow-hidden ">
+      <body className="h-screen">
         <Providers>
           <Main>{children}</Main>
         </Providers>
