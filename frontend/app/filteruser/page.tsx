@@ -144,7 +144,7 @@ const FilterUser = () => {
         <div className="h-screen w-screen flex">
           {/* Previous arrow/button */}
           <button
-            className="relative h-[8%] w-[8%] top-[50%] left-[10%] text-white text-4xl  bg-gray-700 hover:bg-gray-800 transition ease-in-out rounded-md focus:outline-none z-10"
+            className="relative h-[8%] w-[4%] top-[50%] left-[10%] text-white text-4xl  bg-[#414141] hover:bg-gray-800 transition ease-in-out rounded-md focus:outline-none z-10 shadow-[#000] shadow-lg"
             onClick={tarjetaAnterior}
           >
             &#9664; {/* Unicode for left-pointing arrow */}
@@ -152,7 +152,7 @@ const FilterUser = () => {
           <div className="w-2/3 h-full flex items-center justify-center">
             <div className="h-screen w-screen flex  text-white">
               <div className="w-full max-w-md mx-auto my-auto ">
-                <div className="flex flex-col mb-5 mr-[50%] ">
+                <div className="flex flex-col mb-5 mt-[20%] mr-[50%] ">
                   <Filter
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
@@ -163,20 +163,20 @@ const FilterUser = () => {
                   />
                 </div>
 
-                <div className="rounded-lg overflow-hidden max-h-[720px] ">
+                <div className="rounded-lg overflow-hidden max-h-[790px] ">
                   <div
-                    className="bg-cover bg-center h-[300px] flex items-end "
+                    className="bg-cover bg-center h-[400px] min-h-[400px] max-h-[400px] flex items-end "
                     style={{
                       backgroundImage: `url(${tarjetaSeleccionada.image})`,
                     }}
                   >
                     <div className="bg-gradient-to-t from-[#000000dc] to-[#00000000] w-full">
-                      <div className="p-2 rounded">
-                        <h2 className="text-xl font-bold">
+                      <div className="p-5 rounded">
+                        <h2 className="text-xl font-bold mb-2">
                           {tarjetaSeleccionada.username}
                         </h2>
-                        <p>{tarjetaSeleccionada.age} años</p>
-                        <div className="flex items-center">
+                        <p className='text-sm font-extralight'>{tarjetaSeleccionada.age} años</p>
+                        <div className='text-sm font-extralight'>
                           {tarjetaSeleccionada.bio}
                         </div>
                       </div>
@@ -191,7 +191,7 @@ const FilterUser = () => {
                         tarjetaSeleccionada?.interests?.map(
                           (interest, index) => (
                             <div key={index} className="px-2">
-                              <div className="bg-gray-700 rounded p-2 flex flex-col items-center">
+                              <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 flex flex-col items-center">
                                 <img
                                   src={
                                     interest.image
@@ -292,7 +292,7 @@ const FilterUser = () => {
             </div>
             {/* Next arrow/button */}
             <button
-              className="relative h-[8%] w-[16%] top-[4%] right-[15%] text-white text-4xl  bg-gray-700 rounded-md focus:outline-none z-10 hover:bg-gray-800 transition ease-in-out"
+              className="relative h-[8%] w-[8%] top-[4%] right-[15%] text-white text-4xl  bg-[#414141] rounded-md focus:outline-none z-10 hover:bg-gray-800 transition ease-in-out shadow-[#000] shadow-lg"
               onClick={tarjetaPosterior}
             >
               &#9654; {/* Unicode for right-pointing arrow */}
