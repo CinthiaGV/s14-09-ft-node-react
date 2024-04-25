@@ -33,39 +33,41 @@ const ProfileDer = () => {
                     <h3 className="text-lg font-semibold mb-5">
                       Juegos favoritos
                     </h3>
-                    <div className='w-[100%]'>
+                    <div className="w-[100%]">
                       <div className="px-2  flex flex-row items-center gap-9">
                         <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
-
                           <Image
                             src={
                               'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
                             }
                             alt="Juego"
                             className="w-16 h-16"
+                            width={100}
+                            height={100}
                           />
-                          </div>
+                        </div>
                         <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
-
                           <Image
                             src={
                               'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
                             }
                             alt="Juego"
                             className="w-16 h-16"
+                            width={100}
+                            height={100}
                           />
-                          </div>
+                        </div>
                         <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
-
                           <Image
                             src={
                               'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
                             }
                             alt="Juego"
                             className="w-16 h-16"
+                            width={100}
+                            height={100}
                           />
-                          </div>
-                         
+                        </div>
                       </div>
                     </div>
                   </div>

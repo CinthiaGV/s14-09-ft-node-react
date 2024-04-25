@@ -93,6 +93,7 @@ const FilterUser = () => {
           setTarjetas(cards.data);
           setTarjetasFull(cards.data);
           console.log('cards', tarjetasFull);
+          return cards
         } catch (error) {
           console.error('Error fetching cards:', error);
         }
@@ -100,7 +101,7 @@ const FilterUser = () => {
     };
 
     fetchCards();
-  }, [session, tarjetasFull]);
+  }, [session]);
 
   useEffect(() => {
     if (filtroActivo) {
@@ -110,7 +111,7 @@ const FilterUser = () => {
       setTarjetaSeleccionada(tarjetas[indice]);
       console.log('selectCard', tarjetaSeleccionada);
     }
-  }, [tarjetas, indice, session, filtroActivo, filteredUsers.data, tarjetaSeleccionada]);
+  }, [tarjetas, indice, session, filtroActivo]);
 
   useEffect(() => {
     if (tarjetaSeleccionada && typeof tarjetaSeleccionada.age === 'string') {
@@ -241,13 +242,17 @@ const FilterUser = () => {
                                   }
                                   alt="Juego"
                                   className="w-16 h-16"
+                                  width={100}
+                                  height={100}
                                 />
                                 <div className="flex mt-1">
                                   {[...Array(interest.skill)].map((e, i) => (
                                     <Image
                                       key={i}
-                                      src="assets/star.png"
-                                      alt="Estrella"
+                                      src="https://i.pinimg.com/originals/41/38/96/41389654a309cd16fbc49259f3dce948.png"
+                                  height={100}
+                                  width={100}
+                                  alt="Estrella"
                                       className="h-4 w-4"
                                     />
                                   ))}

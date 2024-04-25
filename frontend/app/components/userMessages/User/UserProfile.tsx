@@ -24,7 +24,7 @@ export default function UserProfile({ user }: IUserProfile) {
     };
     console.log(userGet);
     fetchProfile();
-  }, [session, userGet]);
+  }, [session]);
 
   return (
     <div className="flex justify-center items-center row-span-1 border-b-2 border-l-2 border-[#49454F] bg-[#131212] h-[18.75rem] ">
