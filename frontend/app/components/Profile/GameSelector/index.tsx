@@ -26,12 +26,6 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
 
   const gamesList = [
     {
-      name: 'The Legend of Zelda: Breath of the Wild',
-      category: 'Action',
-      image:
-        'https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg',
-    },
-    {
       name: 'Cyberpunk 2077',
       category: 'Adventure',
       image:
@@ -42,6 +36,20 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       category: 'Action',
       image:
         'https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg',
+    },
+    // Juegos multijugador agregados
+    {
+      name: 'Call of Duty: Warzone',
+      category: 'Shooter',
+      image:
+        'https://upload.wikimedia.org/wikipedia/en/2/2e/COD_Warzone_cover_art.jpg',
+    },
+    // Juegos multijugador adicionales
+    {
+      name: 'Fortnite',
+      category: 'Battle Royale',
+      image:
+        'https://upload.wikimedia.org/wikipedia/en/9/90/Fortnite_cover.png',
     },
   ];
 
