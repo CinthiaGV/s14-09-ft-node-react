@@ -62,25 +62,15 @@ Para empezar con GameMate localmente, sigue estos pasos:
 
 ## Equipo de desarrollo
 
-- **FrontEnd**
-Maximo Valfre
-Matías Campos
-Wagner Dueñas
-- **Backend**
-Javier Damiani
-Fernando Torron
-Gabriel Mancilla Ducuara
-Welinton Elvis Suarez Galvis
-Nicolas Fontanini
-Tomas Laus
-- **UI/UX**
-Alex Montero
-Michellangela Sierra
-Noelia Sciorra
-- **QA**
-Llorente Gabriel
-Cinthia Gutiérrez Vargas
-- **Project Manager/ Team Lider**
-Johana Baccei
+|**Team Lider**|**QA**|**Backend**|**Frontend**|**UI/UX**|**Project Manager/TeamLider**|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|**Orlando**|**Llorente Gabriel**|**Javier Damiani**|**Maximo Valfre**|**Alex Montero**|**Johana Baccei**|
+||**Cinthia Gutiérrez**|**Fernando Torron**|**Matías Campos**|**Michellangela Sierra**
+|||**Gabriel Mancilla**|**Wagner Dueñas**|**Noelia Sciorra**
+|||**Welinton Suarez**
+|||**Nicolas Fontanini**
+|||**Tomas Laus**
+
+
 
 
