@@ -4,9 +4,9 @@ import { useState } from 'react';
 import '../styles.css';
 
 interface GameSelectorProps {
-  id: string;
-  onSelectGame: (game: string) => void;
-  selectedGames: string[];
+  id?: string;
+  onSelectGame?: any;
+  selectedGames?: string[];
 }
 
 export const GameSelector = ({ id }: GameSelectorProps) => {

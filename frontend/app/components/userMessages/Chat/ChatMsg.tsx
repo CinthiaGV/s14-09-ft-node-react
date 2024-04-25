@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { Key } from 'react';
 import { useSession } from 'next-auth/react';
+import { Key } from 'react';
 import { IChatMsg, MsgTxt } from '../interfaces';
 
 export default function ChatMsg({ message }: IChatMsg) {
@@ -15,7 +15,9 @@ export default function ChatMsg({ message }: IChatMsg) {
       )}
     >
       <div className="chat-msg-content">
-        <div className="chat-msg-text">{message.text}</div>
+        {message?.content?.map((content:MsgTxt, index:Key)=>(
+          <div key={index} className="chat-msg-text">{content.text}</div>
+        ))}
       </div>
     </div>
   );
