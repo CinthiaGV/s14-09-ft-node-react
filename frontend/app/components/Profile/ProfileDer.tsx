@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import UserProfile from '../userMessages/User/UserProfile';
+import Image from 'next/image';
 
 const ProfileDer = () => {
   return (
@@ -38,7 +37,7 @@ const ProfileDer = () => {
                       <div className="px-2  flex flex-row items-center gap-9">
                         <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
 
-                          <img
+                          <Image
                             src={
                               'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
                             }
@@ -48,7 +47,7 @@ const ProfileDer = () => {
                           </div>
                         <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
 
-                          <img
+                          <Image
                             src={
                               'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
                             }
@@ -58,7 +57,7 @@ const ProfileDer = () => {
                           </div>
                         <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
 
-                          <img
+                          <Image
                             src={
                               'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
                             }

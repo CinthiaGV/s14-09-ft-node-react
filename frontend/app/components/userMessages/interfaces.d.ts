@@ -2,13 +2,14 @@ import { IConversationArea } from './interfaces.d';
 //Base
 type Status = 'online' | 'offline';
 export interface User {
-  name: string;
+  username: string;
   profile_picture?: string | null;
   description?: string | null;
   status: string;
 }
 
 export interface Conversation {
+  id: string
   userEmisor: User;
   messages: Message[];
 }
@@ -77,4 +78,4 @@ export interface IChatMsg {
 
 export interface IProfilePhoto extends Pick<User, 'profile_picture'> {}
 
-export interface INoProfilePhoto extends Pick<User, 'name'> {}
+export interface INoProfilePhoto extends Pick<User, 'username'> {}

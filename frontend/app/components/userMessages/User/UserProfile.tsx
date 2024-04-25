@@ -1,14 +1,14 @@
-import { IUserProfile } from '../interfaces';
-import { signOut } from 'next-auth/react';
-import NoProfilePhoto from './NoProfilePhoto';
+import { Image } from '@nextui-org/react';
+import { signOut, useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
 import { TbLogout } from 'react-icons/tb';
 import { getProfile } from '../../../api/actions/messages';
-import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
+import { IUserProfile } from '../interfaces';
+import NoProfilePhoto from './NoProfilePhoto';
 
 export default function UserProfile({ user }: IUserProfile) {
   const { data: session, status } = useSession();
-  const [userGet, setUserGet] = useState();
+  const [userGet, setUserGet] = useState<any>();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -24,7 +24,7 @@ export default function UserProfile({ user }: IUserProfile) {
     };
     console.log(userGet);
     fetchProfile();
-  }, [session]);
+  }, [session, userGet]);
 
   return (
     <div className="flex justify-center items-center row-span-1 border-b-2 border-l-2 border-[#49454F] bg-[#131212] h-[18.75rem] ">
@@ -39,9 +39,9 @@ export default function UserProfile({ user }: IUserProfile) {
       <a href="/profile">
         <div className="flex flex-col justify-center items-center">
           {!userGet?.image ? (
-            <NoProfilePhoto name={user.username} />
+            <NoProfilePhoto username={user.username} />
           ) : (
-            <img src={`${userGet.image}`} alt={`${user.username}`} />
+            <Image src={`${userGet.image}`} alt={`${user.username}`} />
           )}
           <p className="text-[#FDF7F7] mt-5 text-[24px]">{user.username}</p>
         </div>

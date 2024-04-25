@@ -1,8 +1,8 @@
+import { useSession } from 'next-auth/react';
 import { Key, ReactNode, useEffect, useState } from 'react';
+import { getMessages } from '../../../api/actions/messages';
 import { IChatAreaMain, Message } from '../interfaces';
 import ChatMsg from './ChatMsg';
-import { useSession } from 'next-auth/react';
-import { getMessages } from '../../../api/actions/messages';
 
 export default function ChatAreaMain({ conversation }: IChatAreaMain) {
   const { data: session, status } = useSession();
@@ -12,7 +12,7 @@ export default function ChatAreaMain({ conversation }: IChatAreaMain) {
     const fetchConversations = async () => {
       if (session) {
         try {
-          const convos = await getMessages(session, conversation.id);
+          const convos = await getMessages(session, conversation?.id || "");
           setMessages(convos);
           if (convos.length > 0) console.log('Messages from page: ', convos);
         } catch (error) {
