@@ -4,7 +4,7 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 
 ![Section 1](https://github.com/No-Country/s14-09-ft-node-react/assets/117502571/8b9dd2f8-6cca-43a8-b623-28a197f16b31)
 
-
+## Video Presentacion
 
 
 ## ¿Dónde puedo encontrar la web?
@@ -34,8 +34,30 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 ## Algoritmo de Coincidencia, Invitaciones y Funcionalidad de chat
 ![Algoritmo, Solicituded, Chat](https://github.com/No-Country/s14-09-ft-node-react/assets/117502571/ac8cce96-5333-448c-909d-ee3f7f7ebd07)
 
+## Stacks Project Manager 📁 📂
 
-## Tecnologias Usadas en la implementacion
+****
+|||
+|:---:|:---:|
+| <img style="width: 100px; min-width: 100px" src="https://media.licdn.com/dms/image/D4D12AQEutamvJAXtZw/article-cover_image-shrink_720_1280/0/1689973782139?e=1719446400&v=beta&t=C74qZoyr5JYJVt0UHLtedx7X2ViMRUpU3Q-PLO0Pnrc" >|Figma, Herramienta de Prototipado Agil|
+| <img style="width: 100px; min-width: 100px" src="https://oshl.umh.es/files/2014/11/inkscapelogo.jpg" >|Editor de gráficos vectoriales libre|
+| <img style="width: 100px; min-width: 100px" src="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/08/23034455/google-sprint-book-logo.jpeg" >| Metodologia Design Sprint para manejar el prototipado agil para validacion con usuarios en pocos dias|
+| <img style="width: 100px; min-width: 100px" src="https://i.pinimg.com/736x/74/6d/77/746d77ef9b49afd5ec2306d39592d01e.jpg" >| Canva para edicion de videos |
+
+## Stacks de Equipo UX/UI🎨
+
+****
+|||
+|:---:|:---:|
+| <img style="width: 100px; min-width: 100px" src="https://media.licdn.com/dms/image/D4D12AQEutamvJAXtZw/article-cover_image-shrink_720_1280/0/1689973782139?e=1719446400&v=beta&t=C74qZoyr5JYJVt0UHLtedx7X2ViMRUpU3Q-PLO0Pnrc" >|Figma, Herramienta de Prototipado Agil|
+| <img style="width: 100px; min-width: 100px" src="https://oshl.umh.es/files/2014/11/inkscapelogo.jpg" >|Editor de gráficos vectoriales libre|
+| <img style="width: 100px; min-width: 100px" src="https://d2mug8yhikhiqv.cloudfront.net/wp-content/uploads/2017/08/23034455/google-sprint-book-logo.jpeg" >| Metodologia Design Sprint para manejar el prototipado agil para validacion con usuarios en pocos dias|
+| <img style="width: 100px; min-width: 100px" src="https://i.pinimg.com/736x/74/6d/77/746d77ef9b49afd5ec2306d39592d01e.jpg" >| Canva para edicion de videos |
+
+
+
+
+## Stacks de Equipo Frontend
 ****
 |||
 |:---:|:---:|
@@ -45,6 +67,25 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 | <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1400/1*TVd_sNhpc7JDPBHAsAOQZg.jpeg">|Enrutamiento declarativo para aplicaciones React.|
 | <img style="width: 100px; min-width: 100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsPgbj3cubMDZPt8HwrkIBbf4AKUK1lY_ow&usqp=CAU">|Comunicación en tiempo real para funcionalidad de chat|
 
+## Stacks de Equipo Backend
+****
+|||
+|:---:|:---:|
+| <img style="width: 100px; min-width: 100px" src="https://sigdeletras.com/images/blog/202004_react_leaflet/react.png">|Una biblioteca de JavaScript para construir interfaces de usuario|
+| <img style="width: 100px; min-width: 100px" src="https://cdn.neowin.com/news/images/uploaded/2024/03/1709760302_typescript_story.jpg">|Un superset de JavaScript tipado estáticamente que mejora la calidad del código y la productividad del desarrollador|
+| <img style="width: 100px; min-width: 100px" src="https://blog.appsignal.com/_next/image?url=%2Fimages%2Fblog%2F2022-12%2Ftop-5-nodejs-posts-in-2022.png&w=3840&q=50">|es una tecnología para programar sistemas en el lado del servidor|
+| <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1400/1*TVd_sNhpc7JDPBHAsAOQZg.jpeg">|Enrutamiento declarativo para aplicaciones React.|
+| <img style="width: 100px; min-width: 100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsPgbj3cubMDZPt8HwrkIBbf4AKUK1lY_ow&usqp=CAU">|Comunicación en tiempo real para funcionalidad de chat|
+
+## Stacks de Equipo QA Tester
+****
+|||
+|:---:|:---:|
+| <img style="width: 100px; min-width: 100px" src="https://sigdeletras.com/images/blog/202004_react_leaflet/react.png">|Una biblioteca de JavaScript para construir interfaces de usuario|
+| <img style="width: 100px; min-width: 100px" src="https://cdn.neowin.com/news/images/uploaded/2024/03/1709760302_typescript_story.jpg">|Un superset de JavaScript tipado estáticamente que mejora la calidad del código y la productividad del desarrollador|
+| <img style="width: 100px; min-width: 100px" src="https://blog.appsignal.com/_next/image?url=%2Fimages%2Fblog%2F2022-12%2Ftop-5-nodejs-posts-in-2022.png&w=3840&q=50">|es una tecnología para programar sistemas en el lado del servidor|
+| <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1400/1*TVd_sNhpc7JDPBHAsAOQZg.jpeg">|Enrutamiento declarativo para aplicaciones React.|
+| <img style="width: 100px; min-width: 100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsPgbj3cubMDZPt8HwrkIBbf4AKUK1lY_ow&usqp=CAU">|Comunicación en tiempo real para funcionalidad de chat|
 
 
 
