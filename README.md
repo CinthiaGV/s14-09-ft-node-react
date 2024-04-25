@@ -82,15 +82,11 @@ https://noalone.vercel.app/
 
 
 
-## Empezar
+## Agradecimientos
 
-Para empezar con GameMate localmente, sigue estos pasos:
+<img style="width: 100px; min-width: 100px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAA3lBMVEUHCUL///8AAEAN/KcAADsAAEMGCkIAAEEAAD0HCUQAADkAADEGAEAAADwAADMAACQAACsO9qYKOlEAADYLt4d2do24uckAACj18/jNzdQgIFIaHFHz9PWys8IAAC7T09ze3OAAACDAwc3q6u0yM1sHGkMKIE0IIUgLIEsIE0QPEEciI1IPrIUO8KcOoH4LwI8LhndiZH2oqLt1dZFSUnRAQmYP3JwKMlEJS1oMDE2EhZvDxNSWnLCfpLRjYYEvMF9OUHiMi58MknYAABoPzpoXGVOEgZ8mKFQIK0stLlT8tjKmAAADDUlEQVR4nO3YbXObRhSGYXaBZRchSyoRlngxGKjdSnFjyyapZcuu07pO/v8fyiJ7mnzsTDpWW93XaDRChw/sMwc44DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAPyGytt9muyntR3+tSil3dFz/PsqJfjw5PXGi05OffjbKOIvU99NHrZQtGaO8bLkM/O2Oji0r+5etGKOlsWW71VeU2fUyXody9NuzyS9e9O5sch4pZzjNL8L5KjR+oGw2+jJvmvli6MkgMkOtpFaB70tneNXpUGqtHaWDPQrLe+O67z/8eua656Ex4aVIxlURe1l67SlzkIh0Ja7i6zQLZZbJNNNZmhpPNrVcpOnjcuFnqd6TrGxThG/ciTuZuDasOFLeVOSyLAZFnufTUMVJfrxuustZPisGdX04vzksbeXiVojNNBdFdTssN2F/ju4De6bZznr2/t2HKJyK8q4sDmbJfVMP1CDJx2YR1819kofzclSVh1X52yx5zOfZg9jc13M/X4dmD8Ny3Y99WJdFH9ZmVNUHfVhHOozrcrR6CWtc1eMmOW7q3x/E02Cdp+LK25+wor/COvtj21mPVdWHNaieO+vI9+K6Gn8TVtjUh019/CBanYk/8+XezBbfdpa9Zjk2LL8WfVjjl7BG0/K+rp4767g/DeuDph5tO6vVYVNV3r5c3+3U9LWzPkZG9WFN+7CKtLk5MuNaLFaiq6s0yb159dT0nRU3yaiZGxtWEBd2310v4vUo/dbeC3vu+dAxeiqun/LiqLb3vHXshGsxy0uzzmciGdzOcnGzDasYb8RqPWuD4YVYh7tewmux03f06YcXp5FSw7QzQfvky65rh3ZA123XLXyv7VpfSvu7le1nbeu6+7zsjPHuxN1w14t4Ncam9cI32weZ/tlQqudnQjvEe1JLZQKt+3k+0NIWTCAdEwS+3SveiP25vn8veXXn78nc8P2M9Mjq7zLqeteH8N/Rv7ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOD/5wvmoETs9bIe+QAAAABJRU5ErkJggg==">
 
-1. Clona este repositorio.
-2. Navega hasta el directorio del proyecto.
-3. Instala las dependencias usando `npm install`.
-4. Configura las variables de entorno para la configuración de Firebase.
-5. Ejecuta la aplicación usando `npm start`
+
 
 
 **************
