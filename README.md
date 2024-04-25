@@ -71,7 +71,7 @@ https://noalone.vercel.app/
 |||
 |:---:|:---:|
 | <img style="width: 100px; min-width: 100px" src="https://qualitapps.com/wp-content/uploads/2023/02/102.png">| Node Expres|
-| <img style="width: 100px; min-width: 100px" src="https://cdn.neowin.com/news/images/uploaded/2024/03/1709760302_typescript_story.jpg">|Un superset de JavaScript tipado estáticamente que mejora la calidad del código y la productividad del desarrollador|
+| <img style="width: 100px; min-width: 100px" src="https://kinsta.com/wp-content/uploads/2022/02/postgres-logo.png">|Postgresql|
 
 ## Stacks de Equipo QA Tester
 ****
