@@ -72,5 +72,25 @@ Para empezar con GameMate localmente, sigue estos pasos:
 |||**Tomas Laus**
 
 
+##
 
-
+| **Team Lider**        | **QA**               | **Backend**         | **Frontend**        | **UI/UX**           | **Project Manager/Team Lider**  |
+|:---------------------:|:--------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------------------:|
+| **Orlando**           | **Llorente Gabriel** | **Javier Damiani**  | **Maximo Valfre**  | **Alex Montero**   | **Johana Baccei**              |
+| ![Foto Orlando](enlace_foto_orlando) | ![Foto Llorente Gabriel](enlace_foto_llorente_gabriel) | ![Foto Javier Damiani](enlace_foto_javier_damiani) | ![Foto Maximo Valfre](enlace_foto_maximo_valfre) | ![Foto Alex Montero](enlace_foto_alex_montero) | ![Foto Johana Baccei](enlace_foto_johana_baccei) |
+| [![Banner LinkedIn Orlando](enlace_banner_linkedin_orlando)](enlace_banner_linkedin_orlando) | [![Banner LinkedIn Llorente Gabriel](enlace_banner_linkedin_llorente_gabriel)](enlace_banner_linkedin_llorente_gabriel) | [![Banner LinkedIn Javier Damiani](enlace_banner_linkedin_javier_damiani)](enlace_banner_linkedin_javier_damiani) | [![Banner LinkedIn Maximo Valfre](enlace_banner_linkedin_maximo_valfre)](enlace_banner_linkedin_maximo_valfre) | [![Banner LinkedIn Alex Montero](enlace_banner_linkedin_alex_montero)](enlace_banner_linkedin_alex_montero) | [![Banner LinkedIn Johana Baccei](enlace_banner_linkedin_johana_baccei)](enlace_banner_linkedin_johana_baccei) |
+|| **Cinthia Gutiérrez**|**Fernando Torron**|**Matías Campos**|**Michellangela Sierra**|
+|| ![Foto Cinthia Gutiérrez](enlace_foto_cinthia_gutierrez) | ![Foto Fernando Torron](enlace_foto_fernando_torron) | ![Foto Matías Campos](enlace_foto_matias_campos) | ![Foto Michellangela Sierra](enlace_foto_michellangela_sierra) |
+|| [![Banner LinkedIn Cinthia Gutiérrez](enlace_banner_linkedin_cinthia_gutierrez)](enlace_banner_linkedin_cinthia_gutierrez) | [![Banner LinkedIn Fernando Torron](enlace_banner_linkedin_fernando_torron)](enlace_banner_linkedin_fernando_torron) | [![Banner LinkedIn Matías Campos](enlace_banner_linkedin_matias_campos)](enlace_banner_linkedin_matias_campos) | [![Banner LinkedIn Michellangela Sierra](enlace_banner_linkedin_michellangela_sierra)](enlace_banner_linkedin_michellangela_sierra) |
+||| **Gabriel Mancilla**| **Wagner Dueñas**   | **Noelia Sciorra**  |
+||| ![Foto Gabriel Mancilla](enlace_foto_gabriel_mancilla) | ![Foto Wagner Dueñas](enlace_foto_wagner_duenas) | ![Foto Noelia Sciorra](enlace_foto_noelia_sciorra) |
+||| [![Banner LinkedIn Gabriel Mancilla](enlace_banner_linkedin_gabriel_mancilla)](enlace_banner_linkedin_gabriel_mancilla) | [![Banner LinkedIn Wagner Dueñas](enlace_banner_linkedin_wagner_duenas)](enlace_banner_linkedin_wagner_duenas) | [![Banner LinkedIn Noelia Sciorra](enlace_banner_linkedin_noelia_sciorra)](enlace_banner_linkedin_noelia_sciorra) |
+||| **Welinton Suarez**|
+||| ![Foto Welinton Suarez](enlace_foto_welinton_suarez) |
+||| [![Banner LinkedIn Welinton Suarez](enlace_banner_linkedin_welinton_suarez)](enlace_banner_linkedin_welinton_suarez) | 
+||| **Nicolas Fontanini**|
+||| ![Foto Nicolas Fontanini](enlace_foto_nicolas_fontanini) | 
+||| [![Banner LinkedIn Nicolas Fontanini](enlace_banner_linkedin_nicolas_fontanini)](enlace_banner_linkedin_nicolas_fontanini) |
+||| **Tomas Laus**|
+||| ![Foto Tomas Laus](enlace_foto_tomas_laus) |
+||| [![Banner LinkedIn Tomas Laus](enlace_banner_linkedin_tomas_laus)](enlace_banner_linkedin_tomas_laus) |
