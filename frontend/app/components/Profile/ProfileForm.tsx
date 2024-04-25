@@ -18,14 +18,14 @@ import { useRouter } from 'next/navigation';
 const ProfileForm = () => {
   // Estados para guardar las selecciones del usuario
   const { data: session, status } = useSession();
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [profilePic, setProfilePic] = useState(null);
-  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
-  const [selectedGames, setSelectedGames] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState(null);
-  const [username, setUsername] = useState('');
-  const [description, setDescription] = useState('');
-  const [age, setAge] = useState();
+  const [selectedDate, setSelectedDate] = useState<any>(null);
+  const [profilePic, setProfilePic] = useState<any>(null);
+  const [selectedPlatforms, setSelectedPlatforms] = useState<any>([]);
+  const [selectedGames, setSelectedGames] = useState<any>([]);
+  const [selectedGenre, setSelectedGenre] = useState<any>(null);
+  const [username, setUsername] = useState<any>('');
+  const [description, setDescription] = useState<any>('');
+  const [age, setAge] = useState<any>();
   const router = useRouter();
 
   const platforms = [
@@ -65,9 +65,9 @@ const ProfileForm = () => {
   };
 
   const handlePlatformChange = (value: string) => {
-    setSelectedPlatforms((prevSelectedPlatforms) =>
+    setSelectedPlatforms((prevSelectedPlatforms: any) =>
       prevSelectedPlatforms.includes(value)
-        ? prevSelectedPlatforms.filter((platform) => platform !== value)
+        ? prevSelectedPlatforms.filter((platform: any) => platform !== value)
         : [...prevSelectedPlatforms, value]
     );
   };

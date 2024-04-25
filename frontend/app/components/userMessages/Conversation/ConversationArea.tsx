@@ -11,10 +11,10 @@ export default function ConversationArea({
     (a: Conversation, b: Conversation) => {
       // Sort conversations based on the updatedAt timestamp of the last message in each conversation
       const aLastMessageTime = new Date(
-        a.messages[a.messages.length - 1].updatedAt
+        a.messages?.[a.messages.length - 1]?.updatedAt || ''
       ).getTime();
       const bLastMessageTime = new Date(
-        b.messages[b.messages.length - 1].updatedAt
+        b.messages?.[b.messages.length - 1]?.updatedAt || ''
       ).getTime();
       return bLastMessageTime - aLastMessageTime;
     }
@@ -28,7 +28,7 @@ export default function ConversationArea({
           (conversation: Conversation, index: Key): ReactNode => {
             // Pass the last message of each conversation to LastConversation component
             const lastMessage =
-              conversation.messages[conversation.messages.length - 1];
+              conversation.messages?.[conversation.messages.length - 1] ?? null;
             return (
               <LastConversation
                 key={index}

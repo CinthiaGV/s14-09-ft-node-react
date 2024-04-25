@@ -15,7 +15,7 @@ const ProfileDer = ({
   selectedGenre,
   selectedGames,
   selectedPlatforms,
-}) => {
+}: any) => {
   const { data: session, status } = useSession();
   const [userGet, setUserGet] = useState<any>();
 
@@ -34,7 +34,7 @@ const ProfileDer = ({
     fetchProfile();
   }, [session, userGet]);
 
-  const fileInputRef = useRef(null); // Crea una referencia para el input de carga de archivos
+  const fileInputRef: any = useRef(null); // Crea una referencia para el input de carga de archivos
 
   const handleImageUpload = async () => {
     const file = fileInputRef.current.files[0]; // Accede al archivo seleccionado
@@ -123,7 +123,7 @@ const ProfileDer = ({
             {/* Sección de plataformas */}
             <div className="px-4 py-2">
               <div className="flex flex-wrap gap-2">
-                {selectedPlatforms.map((platform) => (
+                {selectedPlatforms.map((platform: any) => (
                   <div key={platform}>
                     {platform === 'pc' && (
                       <RiComputerLine className="h-8 w-8" />
@@ -146,7 +146,7 @@ const ProfileDer = ({
                 {/* Iterar sobre los juegos */}
                 <div className="w-[100%]">
                   <div className="px-2  flex flex-row items-center gap-9">
-                    {selectedGames.map((game) => (
+                    {selectedGames.map((game: any) => (
                       <div
                         key={game.nameGame}
                         className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2"
