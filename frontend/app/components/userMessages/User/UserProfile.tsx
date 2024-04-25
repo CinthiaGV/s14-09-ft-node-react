@@ -41,7 +41,7 @@ export default function UserProfile({ user }: IUserProfile) {
           {!userGet?.image ? (
             <NoProfilePhoto username={user.username} />
           ) : (
-            <Image src={`${userGet.image}`} alt={`${user.username}`} />
+            <Image src={`${userGet.image}`} alt={`${user.username}`} className='w-[150px]' />
           )}
           <p className="text-[#FDF7F7] mt-5 text-[24px]">{user.username}</p>
         </div>

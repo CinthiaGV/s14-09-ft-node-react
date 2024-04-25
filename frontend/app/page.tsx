@@ -169,30 +169,30 @@ const Header: React.FC = () => {
           <div className="border-2 border-white border-solid relative m-10 overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300">
             <Image
               src="/Perrito.png"
-              width={402}
+              width={350}
               height={393}
               alt="Imagen Cards"
-              className="inline-block"
+              className="inline-block h-[20rem]"
             />
             <p className="text-white text-center text-5xl mt-5">Cristiano</p>
           </div>
           <div className="border-2 border-white border-solid relative m-10 overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300">
             <Image
-              src="/Perrito.png"
-              width={402}
+              src="/gamer2.webp"
+              width={350}
               height={393}
               alt="Imagen Card"
-              className="inline-block"
+              className="inline-block h-[20rem]"
             />
             <p className="text-white text-center text-5xl mt-5">Leonel</p>
           </div>
-          <div className="border-2 border-white border-solid  relative m-10 overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300">
+          <div className="border-2 h-[402px] border-white border-solid  relative m-10 overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300">
             <Image
-              src="/Perrito.png"
-              width={402}
-              height={393}
+              src="/gamer3.avif"
+              width={350}
+              height={200}
               alt="Imagen Cards"
-              className="inline-block"
+              className="inline-block h-[20rem]"
             />
             <p className="text-white text-center text-5xl mt-5">Federico</p>
           </div>

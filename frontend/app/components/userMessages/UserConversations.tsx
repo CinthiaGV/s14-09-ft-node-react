@@ -16,7 +16,7 @@ export default function UserConversations({
       {!selectedConversation ? (
         <div>
           <UserProfile user={user} />
-          <div className="border-l-2 border-[#49454F]">
+          <div className="border-l-2 h-screen border-[#49454F]">
             <ConversationArea
               conversations={conversations}
               setSelectedConversation={setSelectedConversation}

@@ -65,7 +65,7 @@ const FilterUser = () => {
     };
 
     fetchConversations();
-  }, [session]);
+  }, [session, conversations]);
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -191,7 +191,7 @@ const FilterUser = () => {
           <div className="w-2/3 h-full flex items-center justify-center">
             <div className="h-screen w-screen flex  text-white">
               <div className="w-full max-w-md mx-auto my-auto ">
-                <div className="flex flex-col mb-5 mt-[20%] mr-[50%] ">
+                <div className="flex flex-col mb-5  mr-[50%] ">
                   <Filter
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
@@ -348,7 +348,7 @@ const FilterUser = () => {
             </button>
           </div>
 
-          {/* <div className="w-1/3 h-full bg-blue-500 flex items-center justify-center"> */}
+          {/* <div className=""> */}
           {session && session.user && (
             <UserConversations
               user={session.user}
@@ -362,17 +362,6 @@ const FilterUser = () => {
   } else {
     return (
       <div role="status">
-        <div className="flex flex-col mb-5 mt-[50%] mr-[50%] ">
-          <Filter
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            toggleModal={toggleModal}
-            setFilteredUsers={setFilteredUsers}
-            setFiltroActivo={setFiltroActivo}
-            filtroActivo={filtroActivo}
-            resetFilters={resetFilters}
-          />
-        </div>
         <svg
           aria-hidden="true"
           className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
