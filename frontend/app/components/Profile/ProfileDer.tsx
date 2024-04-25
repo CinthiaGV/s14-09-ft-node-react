@@ -3,6 +3,10 @@ import { getProfile } from '../../api/actions/messages';
 import { useSession } from 'next-auth/react';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useRef, useEffect, useState } from 'react';
+import { IoPhonePortraitOutline } from 'react-icons/io5';
+import { RiComputerLine } from 'react-icons/ri';
+import { GiConsoleController } from 'react-icons/gi';
+import { platform } from 'os';
 
 const ProfileDer = ({
   username,
@@ -116,6 +120,25 @@ const ProfileDer = ({
               </div>
             </div>
 
+            {/* Sección de plataformas */}
+            <div className="px-4 py-2">
+              <div className="flex flex-wrap gap-2">
+                {selectedPlatforms.map((platform) => (
+                  <div key={platform}>
+                    {platform === 'pc' && (
+                      <RiComputerLine className="h-8 w-8" />
+                    )}
+                    {platform === 'console' && (
+                      <GiConsoleController className="h-8 w-8" />
+                    )}
+                    {platform === 'mobile' && (
+                      <IoPhonePortraitOutline className="h-8 w-8" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Sección de juegos favoritos */}
             <div className="px-4 py-2">
               <h3 className="text-lg font-semibold mb-2">Juegos favoritos</h3>
@@ -123,39 +146,20 @@ const ProfileDer = ({
                 {/* Iterar sobre los juegos */}
                 <div className="w-[100%]">
                   <div className="px-2  flex flex-row items-center gap-9">
-                    <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
-                      <Image
-                        src={
-                          'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
-                        }
-                        alt="Juego"
-                        className="w-16 h-16"
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                    <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
-                      <Image
-                        src={
-                          'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
-                        }
-                        alt="Juego"
-                        className="w-16 h-16"
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                    <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 ">
-                      <Image
-                        src={
-                          'https://cdn2.steamgriddb.com/icon/d8732349cbe3ba46021a86345bb98c4c.ico'
-                        }
-                        alt="Juego"
-                        className="w-16 h-16"
-                        width={100}
-                        height={100}
-                      />
-                    </div>
+                    {selectedGames.map((game) => (
+                      <div
+                        key={game.nameGame}
+                        className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2"
+                      >
+                        <Image
+                          src={game.image} // Utiliza la imagen del juego del interés
+                          alt={game.nameGame} // Usa el nombre del juego como alt
+                          className="w-16 h-16 object-center object-cover"
+                          width={100}
+                          height={100}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

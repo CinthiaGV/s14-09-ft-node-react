@@ -10,7 +10,7 @@ export default function ChatAreaFooter({ conversation }: IChatFooter) {
   const handleSendMessage = async () => {
     try {
       // Llamar a la función sendMessage con la sesión y el texto del mensaje
-      await sendMessage(session, messageText, conversation?.id || "");
+      await sendMessage(session, messageText, conversation?.id || '');
       console.log('Mensaje enviado');
       setMessageText(''); // Limpiar el texto del textarea después de enviar el mensaje
     } catch (error) {
@@ -18,7 +18,7 @@ export default function ChatAreaFooter({ conversation }: IChatFooter) {
     }
   };
 
-  const handleKeyDown = (e:any) => {
+  const handleKeyDown = (e: any) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault(); // Evitar el comportamiento predeterminado del textarea al presionar Enter
       handleSendMessage(); // Llamar a la función para enviar el mensaje
@@ -26,7 +26,7 @@ export default function ChatAreaFooter({ conversation }: IChatFooter) {
   };
 
   return (
-    <div className="chat-area-footer flex items-center justify-between bg-white border-t border-gray-300 p-2">
+    <div className="chat-area-footer flex items-center justify-between border-t border-gray-300 p-2">
       <textarea
         placeholder="Type something here..."
         className="flex-1 mr-2 border rounded-lg px-1 bg-gray text-white"

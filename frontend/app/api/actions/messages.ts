@@ -10,7 +10,8 @@ export const getConversations = async (session: any) => {
     });
     const info = await response.json(); // Agregué el await para esperar la respuesta JSON
     const conversations = await info.data;
-    // console.log('Conversations from api: ', conversations);
+    console.log(conversations);
+    console.log('Conversations from api: ', conversations);
     return conversations;
   } catch (error) {
     console.error('Error fetching conversations:', error); // Agregué la impresión del error para fines de depuración
@@ -47,7 +48,7 @@ export const getMessages = async (session: any, matchId: string) => {
     });
     const info = await response.json(); // Agregué el await para esperar la respuesta JSON
     const conversations = await info.data;
-    // console.log('Messages from api: ', conversations);
+    console.log('Messages from api: ', conversations);
     return conversations.messages;
   } catch (error) {
     console.error('Error fetching Messages:', error); // Agregué la impresión del error para fines de depuración

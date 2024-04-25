@@ -3,21 +3,21 @@ import { useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles.css';
-import {
-  AccountCircleIcon,
-  CalendarIcon,
-  CellphoneIcon,
-  ComputerIcon,
-  ConsoleIcon,
-} from '../../assets';
+import { useSession } from 'next-auth/react';
+import { AccountCircleIcon } from '../../assets';
+import { IoPhonePortraitOutline } from 'react-icons/io5';
+import { RiComputerLine } from 'react-icons/ri';
+import { GiConsoleController } from 'react-icons/gi';
 import { PiUserListBold } from 'react-icons/pi';
 
 import { GameSelector } from './GameSelector';
 import GenreSelector from './GenreSelector';
 import ProfileDer from './ProfileDer';
+import { useRouter } from 'next/navigation';
 
 const ProfileForm = () => {
   // Estados para guardar las selecciones del usuario
+  const { data: session, status } = useSession();
   const [selectedDate, setSelectedDate] = useState(null);
   const [profilePic, setProfilePic] = useState(null);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
@@ -26,12 +26,12 @@ const ProfileForm = () => {
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
   const [age, setAge] = useState();
-
+  const router = useRouter();
 
   const platforms = [
-    { value: 'mobile', Icon: ConsoleIcon, label: 'Mobile' },
-    { value: 'pc', Icon: ComputerIcon, label: 'PC' },
-    { value: 'console', Icon: CellphoneIcon, label: 'Console' },
+    { value: 'mobile', Icon: IoPhonePortraitOutline, label: 'Mobile' },
+    { value: 'pc', Icon: RiComputerLine, label: 'PC' },
+    { value: 'console', Icon: GiConsoleController, label: 'Console' },
   ];
 
   useEffect(() => {
@@ -98,13 +98,48 @@ const ProfileForm = () => {
     }
   };
 
+  const handleDataUpload = async (event: any) => {
+    event.preventDefault();
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/updateProfile`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${session?.user.meta.token}`,
+          },
+          body: JSON.stringify({
+            username,
+            favoritePlatform: selectedPlatforms,
+            interests: selectedGames,
+            bio: description,
+            age: selectedDate,
+            gender: selectedGenre,
+          }),
+        }
+      );
+      const info = await res.json();
+      console.log(info);
+
+      if (res.ok) {
+        console.log('PUT con éxito:', info);
+        router.push('/filteruser');
+      } else {
+        throw new Error(info.message);
+      }
+    } catch (error) {
+      console.error('Error al subir los datos:', error);
+    }
+  };
+
   return (
     <div className="w-full flex">
       {/* Sección del formulario a la izquierda */}
       <div className="flex-1 px-4 sm:pl-[82px] py-[104px] text-[#FFFFFF]">
         <h4 className="pb-[41px] font-[700] text-4xl">Completá tu Perfil</h4>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleDataUpload}
           className="space-y-8 sm:w-[80%] text-white"
         >
           {/* Inputs y controles del formulario aquí */}
@@ -225,7 +260,9 @@ const ProfileForm = () => {
               />
             </div>
           </div>
-        <button type='submit' className="btn yellowBtn">Guardar</button>
+          <button type="submit" className="btn yellowBtn">
+            Guardar
+          </button>
         </form>
       </div>
 

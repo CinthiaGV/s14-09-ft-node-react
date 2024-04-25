@@ -93,7 +93,7 @@ const FilterUser = () => {
           setTarjetas(cards.data);
           setTarjetasFull(cards.data);
           console.log('cards', tarjetasFull);
-          return cards
+          return cards;
         } catch (error) {
           console.error('Error fetching cards:', error);
         }
@@ -250,9 +250,9 @@ const FilterUser = () => {
                                     <Image
                                       key={i}
                                       src="https://i.pinimg.com/originals/41/38/96/41389654a309cd16fbc49259f3dce948.png"
-                                  height={100}
-                                  width={100}
-                                  alt="Estrella"
+                                      height={100}
+                                      width={100}
+                                      alt="Estrella"
                                       className="h-4 w-4"
                                     />
                                   ))}
@@ -276,14 +276,17 @@ const FilterUser = () => {
                       {tarjetaSeleccionada?.favoritePlatform?.length ? (
                         tarjetaSeleccionada?.favoritePlatform?.map(
                           (platform, index) => (
-                            <div key={index} className="flex flex-col items-center gap-2">
-                              {platform === 'Mobile' && (
+                            <div
+                              key={index}
+                              className="flex flex-col items-center gap-2"
+                            >
+                              {platform === 'mobile' && (
                                 <>
                                   <RxMobile className="ml-8 h-8" />
                                   <p className="ml-8 text-xs">{platform}</p>
                                 </>
                               )}
-                              {platform === 'Pc' && (
+                              {platform === 'pc' && (
                                 <>
                                   <RiComputerLine className="ml-8 h-8" />
                                   <p className="ml-8 text-xs uppercase">
@@ -291,7 +294,7 @@ const FilterUser = () => {
                                   </p>
                                 </>
                               )}
-                              {platform === 'Console' && (
+                              {platform === 'console' && (
                                 <>
                                   <GiConsoleController className="ml-8 h-8" />
                                   <p className="ml-8 text-xs">{platform}</p>
