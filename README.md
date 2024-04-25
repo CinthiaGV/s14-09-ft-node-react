@@ -4,7 +4,7 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 
 ![Section 1](https://github.com/No-Country/s14-09-ft-node-react/assets/117502571/8b9dd2f8-6cca-43a8-b623-28a197f16b31)
 
-## Video Presentacion
+# Presentacion del proyecto
 https://www.canva.com/design/DAGDJ9mMNic/KsSAtQUQDCFxzmpCArZVYg/edit
 
 ## ¿Dónde puedo encontrar la web?
