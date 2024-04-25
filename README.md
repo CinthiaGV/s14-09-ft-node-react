@@ -63,7 +63,6 @@ https://noalone.vercel.app/
 |:---:|:---:|
 | <img style="width: 100px; min-width: 100px" src="https://sigdeletras.com/images/blog/202004_react_leaflet/react.png">|Una biblioteca de JavaScript para construir interfaces de usuario|
 | <img style="width: 100px; min-width: 100px" src="https://cdn.neowin.com/news/images/uploaded/2024/03/1709760302_typescript_story.jpg">|Un superset de JavaScript tipado estáticamente que mejora la calidad del código y la productividad del desarrollador|
-| <img style="width: 100px; min-width: 100px" src="https://blog.appsignal.com/_next/image?url=%2Fimages%2Fblog%2F2022-12%2Ftop-5-nodejs-posts-in-2022.png&w=3840&q=50">|es una tecnología para programar sistemas en el lado del servidor|
 | <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1400/1*TVd_sNhpc7JDPBHAsAOQZg.jpeg">|Enrutamiento declarativo para aplicaciones React.|
 | <img style="width: 100px; min-width: 100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsPgbj3cubMDZPt8HwrkIBbf4AKUK1lY_ow&usqp=CAU">|Comunicación en tiempo real para funcionalidad de chat|
 
