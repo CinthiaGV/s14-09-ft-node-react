@@ -1,19 +1,18 @@
 'use client';
-import { FaMobileAlt } from 'react-icons/fa';
-import { RiComputerLine } from 'react-icons/ri';
-import { GiConsoleController } from 'react-icons/gi';
-import { BsSendPlusFill } from 'react-icons/bs';
-import { useEffect, useState } from 'react';
+import { differenceInYears } from 'date-fns';
 import { useSession } from 'next-auth/react';
-import { differenceInYears, parseISO } from 'date-fns';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { BsSendPlusFill } from 'react-icons/bs';
+import { GiConsoleController } from 'react-icons/gi';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { RiComputerLine } from 'react-icons/ri';
+import { RxMobile } from 'react-icons/rx';
+import { getConversations } from '../api/actions/messages';
+import { Filter } from '../components/Filter/Filter';
+import UserConversations from '../components/userMessages/UserConversations';
 import './FilterModal.Module.css';
 import './FilterModule.css';
-import { Filter } from '../components/Filter/Filter';
-import { IoIosArrowForward } from 'react-icons/io';
-import { IoIosArrowBack } from 'react-icons/io';
-import { RxMobile } from 'react-icons/rx';
-import UserConversations from '../components/userMessages/UserConversations';
-import { getConversations } from '../api/actions/messages';
 
 interface ModalProps {
   isOpen: boolean;
@@ -101,7 +100,7 @@ const FilterUser = () => {
     };
 
     fetchCards();
-  }, [session]);
+  }, [session, tarjetasFull]);
 
   useEffect(() => {
     if (filtroActivo) {
@@ -111,7 +110,7 @@ const FilterUser = () => {
       setTarjetaSeleccionada(tarjetas[indice]);
       console.log('selectCard', tarjetaSeleccionada);
     }
-  }, [tarjetas, indice, session, filtroActivo]);
+  }, [tarjetas, indice, session, filtroActivo, filteredUsers.data, tarjetaSeleccionada]);
 
   useEffect(() => {
     if (tarjetaSeleccionada && typeof tarjetaSeleccionada.age === 'string') {
@@ -234,7 +233,7 @@ const FilterUser = () => {
                           (interest, index) => (
                             <div key={index} className="px-2">
                               <div className="bg-[#414141] shadow-[#000] shadow-lg rounded p-2 flex flex-col items-center">
-                                <img
+                                <Image
                                   src={
                                     interest.image
                                       ? interest.image
@@ -245,7 +244,7 @@ const FilterUser = () => {
                                 />
                                 <div className="flex mt-1">
                                   {[...Array(interest.skill)].map((e, i) => (
-                                    <img
+                                    <Image
                                       key={i}
                                       src="assets/star.png"
                                       alt="Estrella"
@@ -271,8 +270,8 @@ const FilterUser = () => {
                     <div className="flex -mx-2">
                       {tarjetaSeleccionada?.favoritePlatform?.length ? (
                         tarjetaSeleccionada?.favoritePlatform?.map(
-                          (platform) => (
-                            <div className="flex flex-col items-center gap-2">
+                          (platform, index) => (
+                            <div key={index} className="flex flex-col items-center gap-2">
                               {platform === 'Mobile' && (
                                 <>
                                   <RxMobile className="ml-8 h-8" />
