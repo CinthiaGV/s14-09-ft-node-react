@@ -64,7 +64,7 @@ export const GameSelector = ({ onSelectGame, selectedGames }: Props) => {
     },
   ];
 
-  const handleAddGame = (selectedGame) => {
+  const handleAddGame = (selectedGame: any) => {
     if (selectedGame) {
       onSelectGame([...selectedGames, selectedGame]);
     }
