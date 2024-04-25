@@ -69,7 +69,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
     // Agrega más URLs de imágenes de perfil aquí
   ];
 
-  const handleImageUpload = async (event:any) => {
+  const handleImageUpload = async (event: any) => {
     const file = event.target.files[0]; // Obtén el archivo del input
     if (file) {
       const formData = new FormData();
@@ -252,11 +252,15 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
           onChange={(e) => setGameCategory(e.target.value)}
           className="my-2 px-4 py-2 border border-black rounded-3xl text-black"
         >
-          <option key="" value="" >
+          <option key="" value="">
             Selecciona una categoría
           </option>
           {gamesList.map((game, index) => (
-            <option key={`${game.category}-${index}`} value={game.category} className=' text-black'>
+            <option
+              key={`${game.category}-${index}`}
+              value={game.category}
+              className=" text-black"
+            >
               {game.category}
             </option>
           ))}
@@ -272,26 +276,15 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
       <div className="my-2">
         <label>Skill:</label>
       </div>
-        <select
-          value={skill}
-          onChange={(e) => setSkill(parseInt(e.target.value))}
-          className="my-2 px-4 py-2 border border-black rounded-3xl cursor-pointer text-black"
-        >
-          <option value={1}>★</option>
-          <option value={2}>★★</option>
-          <option value={3}>★★★</option>
-        </select>
-      <div className="my-2">
-        <label>Foto de Perfil:</label>
-        <div className="profile-images-container">
-          <input
-            required
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-          />
-        </div>
-      </div>
+      <select
+        value={skill}
+        onChange={(e) => setSkill(parseInt(e.target.value))}
+        className="my-2 px-4 py-2 border border-black rounded-3xl cursor-pointer text-black"
+      >
+        <option value={1}>★</option>
+        <option value={2}>★★</option>
+        <option value={3}>★★★</option>
+      </select>
       <button
         onClick={handleSubmit}
         className="btn yellowBtn glitch place-self-center"

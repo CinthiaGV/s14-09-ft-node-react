@@ -80,10 +80,10 @@ const ProfileForm = () => {
             >
               <AccountCircleIcon classNames="pl-2" />
               <input
-             type="text"
-             placeholder="Nombre de Usuario"
-             {...register('username', { required: true })}
-             onChange={e => setUsername(e.target.value)}
+                type="text"
+                placeholder="Nombre de Usuario"
+                {...register('username', { required: true })}
+                onChange={(e) => setUsername(e.target.value)}
                 className="input polygon pl-2 py-2 focus:border-none block w-full bg-transparent focus:outline-none sm:text-base"
               />
               {errors.username && (
@@ -122,9 +122,7 @@ const ProfileForm = () => {
                 />
 
                 {errors.username && (
-                  <span className="text-red-500">
-                    Este campo es requerido
-                  </span>
+                  <span className="text-red-500">Este campo es requerido</span>
                 )}
               </div>
             </label>
@@ -141,7 +139,7 @@ const ProfileForm = () => {
                 <input
                   type="text"
                   placeholder="Estoy libre para jugar a las tardes"
-                  onChange={e => setDescription(e.target.value)}
+                  onChange={(e) => setDescription(e.target.value)}
                   className="polygon pl-2 py-2 focus:border-none block w-full bg-transparent focus:outline-none sm:text-base"
                 />
               </div>
@@ -156,10 +154,11 @@ const ProfileForm = () => {
               {platforms.map(({ value, Icon, label }) => (
                 <label
                   key={value}
-                  className={`w-fit flex flex-col items-center justify-center text-sm ${selectedPlatforms.includes(value)
+                  className={`w-fit flex flex-col items-center justify-center text-sm ${
+                    selectedPlatforms.includes(value)
                       ? 'opacity-100'
                       : 'opacity-20'
-                    }`}
+                  }`}
                   htmlFor={value}
                 >
                   <input
@@ -192,7 +191,7 @@ const ProfileForm = () => {
         </form>
       </div>
 
-      <div className="flex-1 bg-[#3E3A3A] rounded-[12px] flex items-center justify-center">
+      <div className="flex-1 bg-[#3E3A3A] rounded-[12px] flex justify-center m-[25px]">
         <ProfileDer
           username={username}
           description={description}

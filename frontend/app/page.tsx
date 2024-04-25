@@ -172,7 +172,7 @@ const Header: React.FC = () => {
               width={350}
               height={393}
               alt="Imagen Cards"
-              className="inline-block h-[20rem]"
+              className="inline-block h-[20rem] object-cover"
             />
             <p className="text-white text-center text-5xl mt-5">Cristiano</p>
           </div>
@@ -182,7 +182,7 @@ const Header: React.FC = () => {
               width={350}
               height={393}
               alt="Imagen Card"
-              className="inline-block h-[20rem]"
+              className="inline-block h-[20rem] object-cover"
             />
             <p className="text-white text-center text-5xl mt-5">Leonel</p>
           </div>
@@ -192,7 +192,7 @@ const Header: React.FC = () => {
               width={350}
               height={200}
               alt="Imagen Cards"
-              className="inline-block h-[20rem]"
+              className="inline-block h-[20rem] object-cover"
             />
             <p className="text-white text-center text-5xl mt-5">Federico</p>
           </div>
