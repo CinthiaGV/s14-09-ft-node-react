@@ -1,8 +1,8 @@
+import { useSession } from 'next-auth/react';
+import { useState } from 'react';
 import { Send } from 'react-feather';
 import { sendMessage } from '../../../api/actions/messages';
-import { useSession } from 'next-auth/react';
 import { IChatFooter } from '../interfaces';
-import { useState } from 'react';
 
 export default function ChatAreaFooter({ conversation }: IChatFooter) {
   const { data: session, status } = useSession();
@@ -10,7 +10,7 @@ export default function ChatAreaFooter({ conversation }: IChatFooter) {
   const handleSendMessage = async () => {
     try {
       // Llamar a la función sendMessage con la sesión y el texto del mensaje
-      await sendMessage(session, messageText, conversation.id);
+      await sendMessage(session, messageText, conversation?.id || "");
       console.log('Mensaje enviado');
       setMessageText(''); // Limpiar el texto del textarea después de enviar el mensaje
     } catch (error) {
@@ -18,7 +18,7 @@ export default function ChatAreaFooter({ conversation }: IChatFooter) {
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e:any) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault(); // Evitar el comportamiento predeterminado del textarea al presionar Enter
       handleSendMessage(); // Llamar a la función para enviar el mensaje

@@ -2,7 +2,10 @@ import { IConversationArea } from './interfaces.d';
 //Base
 type Status = 'online' | 'offline';
 export interface User {
+  email?:any;
+  id?:any;
   username?: string;
+  image?: string | null;
   profile_picture?: string | null;
   description?: string | null;
   status?: string;
@@ -11,9 +14,11 @@ export interface User {
 }
 
 export interface Conversation {
-  id: string
-  userEmisor: User;
-  messages: Message[];
+  updatedAt?: any
+  id?: string
+  userEmisor?: User;
+  userReceptor?: User;
+  messages?: Message[];
 }
 
 export interface DataJson {
@@ -26,9 +31,13 @@ export interface MsgTxt {
   timestamp: string;
 }
 export interface Message {
-  owner: boolean;
-  content: MsgTxt[];
-  read: boolean;
+  id?:string
+  text?:string
+  updatedAt?:any
+  userId?: string;
+  owner?: boolean;
+  content?: MsgTxt[];
+  read?: boolean;
 }
 
 //Components
@@ -43,7 +52,7 @@ export interface IUserProfile extends Pick<IUserConversations, 'user'> {}
 
 export interface IConversationArea
   extends Pick<IUserConversations, 'conversations'> {
-  setSelectedConversation: any;
+  setSelectedConversation?: any;
 }
 
 export interface ILastConversation
