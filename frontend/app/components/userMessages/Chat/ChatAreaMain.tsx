@@ -22,7 +22,7 @@ export default function ChatAreaMain({ conversation }: IChatAreaMain) {
     };
 
     fetchConversations();
-  }, [session, messages]);
+  }, [session, messages, conversation?.id]);
 
   return (
     <div className="overflow-y-auto" style={{ maxHeight: 'calc(83vh - 4rem)' }}>
