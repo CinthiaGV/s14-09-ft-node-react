@@ -5,11 +5,11 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 ![Section 1](https://github.com/No-Country/s14-09-ft-node-react/assets/117502571/8b9dd2f8-6cca-43a8-b623-28a197f16b31)
 
 ## Video Presentacion
-
+https://www.canva.com/design/DAGDJ9mMNic/KsSAtQUQDCFxzmpCArZVYg/edit
 
 ## ¿Dónde puedo encontrar la web?
 
-
+https://noalone.vercel.app/
 
 
 
@@ -71,21 +71,15 @@ NOA una aplicación web construida con React y TypeScript que tiene como objetiv
 ****
 |||
 |:---:|:---:|
-| <img style="width: 100px; min-width: 100px" src="https://sigdeletras.com/images/blog/202004_react_leaflet/react.png">|Una biblioteca de JavaScript para construir interfaces de usuario|
+| <img style="width: 100px; min-width: 100px" src="https://qualitapps.com/wp-content/uploads/2023/02/102.png">| Node Expres|
 | <img style="width: 100px; min-width: 100px" src="https://cdn.neowin.com/news/images/uploaded/2024/03/1709760302_typescript_story.jpg">|Un superset de JavaScript tipado estáticamente que mejora la calidad del código y la productividad del desarrollador|
-| <img style="width: 100px; min-width: 100px" src="https://blog.appsignal.com/_next/image?url=%2Fimages%2Fblog%2F2022-12%2Ftop-5-nodejs-posts-in-2022.png&w=3840&q=50">|es una tecnología para programar sistemas en el lado del servidor|
-| <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1400/1*TVd_sNhpc7JDPBHAsAOQZg.jpeg">|Enrutamiento declarativo para aplicaciones React.|
-| <img style="width: 100px; min-width: 100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsPgbj3cubMDZPt8HwrkIBbf4AKUK1lY_ow&usqp=CAU">|Comunicación en tiempo real para funcionalidad de chat|
 
 ## Stacks de Equipo QA Tester
 ****
 |||
 |:---:|:---:|
-| <img style="width: 100px; min-width: 100px" src="https://sigdeletras.com/images/blog/202004_react_leaflet/react.png">|Una biblioteca de JavaScript para construir interfaces de usuario|
-| <img style="width: 100px; min-width: 100px" src="https://cdn.neowin.com/news/images/uploaded/2024/03/1709760302_typescript_story.jpg">|Un superset de JavaScript tipado estáticamente que mejora la calidad del código y la productividad del desarrollador|
-| <img style="width: 100px; min-width: 100px" src="https://blog.appsignal.com/_next/image?url=%2Fimages%2Fblog%2F2022-12%2Ftop-5-nodejs-posts-in-2022.png&w=3840&q=50">|es una tecnología para programar sistemas en el lado del servidor|
-| <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1400/1*TVd_sNhpc7JDPBHAsAOQZg.jpeg">|Enrutamiento declarativo para aplicaciones React.|
-| <img style="width: 100px; min-width: 100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsPgbj3cubMDZPt8HwrkIBbf4AKUK1lY_ow&usqp=CAU">|Comunicación en tiempo real para funcionalidad de chat|
+| <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1200/1*HJpcblBvD8MpqAEZZXWVgg.png">|Selenium con Python|
+| <img style="width: 100px; min-width: 100px" src="https://e7.pngegg.com/pngimages/187/698/png-clipart-software-testing-software-quality-assurance-software-development-computer-software-software-miscellaneous-people.png">|Pruebas Automatizadas|
 
 
 
