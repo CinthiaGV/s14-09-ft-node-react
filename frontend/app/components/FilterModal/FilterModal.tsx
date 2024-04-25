@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import './FilterModal.Module.css';
 
 interface ModalProps {
+  setIsOpen?:any
+  setFiltroActivo?:any
   isOpen: boolean;
+  filtroActivo?:any
+  resetFilters?:any
   toggleModal: () => void;
   setFilteredUsers: React.Dispatch<React.SetStateAction<any[]>>;
 }
@@ -11,7 +15,7 @@ const FilterModal: React.FC<ModalProps> = ({
   isOpen,
   toggleModal,
   setFilteredUsers,
-  filtrActivo,
+  filtroActivo,
   setFiltroActivo,
   resetFilters,
 }) => {
@@ -154,3 +158,4 @@ const FilterModal: React.FC<ModalProps> = ({
 };
 
 export { FilterModal };
+

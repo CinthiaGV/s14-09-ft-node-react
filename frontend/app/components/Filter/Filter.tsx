@@ -1,7 +1,16 @@
-import React from 'react';
 import Image from 'next/image';
 import { FilterModal } from '../FilterModal/FilterModal';
 import './FilterModule.css';
+
+interface FilterProps {
+  isOpen:any
+  setIsOpen:any
+  toggleModal:any
+  setFilteredUsers:any
+  filtroActivo: any
+  setFiltroActivo: any
+  resetFilters: any
+}
 
 function Filter({
   isOpen,
@@ -11,7 +20,7 @@ function Filter({
   filtroActivo,
   setFiltroActivo,
   resetFilters
-}) {
+}:FilterProps) {
   return (
     <>
       <div className="skewed-border" onClick={toggleModal}>
@@ -37,3 +46,4 @@ function Filter({
 }
 
 export { Filter };
+
