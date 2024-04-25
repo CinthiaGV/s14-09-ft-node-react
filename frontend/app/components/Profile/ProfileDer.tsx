@@ -69,7 +69,7 @@ const ProfileDer = ({
       <div className="mt-[80px]">
         <div className="w-full max-w-md mx-auto my-auto sticky top-[30px]">
           <h4 className="pb-[41px] font-[700] text-4xl">Mi Perfil</h4>
-          <div className="rounded-lg overflow-hidden shadow-lg">
+          <div className="rounded-lg min-w-[360px] overflow-hidden shadow-lg">
             {/* Imagen de fondo con información del usuario */}
             <div
               className="bg-cover bg-center h-[400px] relative flex items-end"
@@ -99,6 +99,7 @@ const ProfileDer = ({
                   {username || (userGet && userGet.username)}
                 </h2>
                 <p className="text-sm font-light">
+                  {/* {selectedDate && selectedDate.toLocaleDateString()} */}
                   {selectedDate > 0 && `${selectedDate} años`}
                 </p>
                 <p className="text-sm font-light">
