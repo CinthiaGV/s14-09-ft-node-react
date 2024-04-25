@@ -26,6 +26,7 @@ const ProfileForm = () => {
 
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
+  const [age, setAge] = useState();
 
   const platforms = [
     { value: 'mobile', Icon: ConsoleIcon, label: 'Mobile' },
@@ -60,6 +61,32 @@ const ProfileForm = () => {
         ? prevSelectedPlatforms.filter((platform) => platform !== value)
         : [...prevSelectedPlatforms, value]
     );
+  };
+
+  const calculateAge = (birthDate: Date) => {
+    const today = new Date();
+    const birthDateCopy = new Date(birthDate);
+    let age = today.getFullYear() - birthDateCopy.getFullYear();
+    const monthDiff = today.getMonth() - birthDateCopy.getMonth();
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDateCopy.getDate())
+    ) {
+      age--;
+    }
+    return age;
+  };
+
+  const handleDateChange = (date: Date | null) => {
+    setSelectedDate(date);
+    // Si se selecciona una fecha, calcula la edad y actualiza el estado
+    if (date) {
+      const age = calculateAge(date);
+      setAge(age);
+    } else {
+      // Si no se selecciona ninguna fecha, establece la edad en null
+      setAge(null);
+    }
   };
 
   return (
@@ -104,7 +131,8 @@ const ProfileForm = () => {
                     id="date"
                     className="polygon  h-12 pl-3 text-md"
                     selected={selectedDate}
-                    onChange={(date) => setSelectedDate(date)}
+                    // onChange={(date) => setSelectedDate(date)}¨
+                    onChange={handleDateChange}
                     placeholderText="mm/dd/aa"
                   />
                 </div>
@@ -195,7 +223,7 @@ const ProfileForm = () => {
         <ProfileDer
           username={username}
           description={description}
-          selectedDate={selectedDate}
+          selectedDate={age}
           selectedGenre={selectedGenre}
           selectedGames={selectedGames}
           selectedPlatforms={selectedPlatforms}
