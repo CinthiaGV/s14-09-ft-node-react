@@ -22,6 +22,9 @@ https://noalone.vercel.app/
 - **Invitaciones**: Los usuarios pueden enviar y recibir invitaciones para conectarse con otros jugadores.
 - **Funcionalidad de Chat**: Funcionalidad de chat en tiempo real que permite a los usuarios comunicarse con sus compañeros de juego y planificar sesiones de juego.
 
+## Archivo Figma
+https://www.figma.com/file/nJqaIrpq7y8bQQwYwCRBQv/S14-9-NodeJs-React?type=design&node-id=1%3A2&mode=design&t=HDSfIJmPfMkfAah5-1
+
 ## Autenticacion de Usuarios
 ![Autenticacion](https://github.com/No-Country/s14-09-ft-node-react/assets/117502571/d403bb85-2005-4549-b6b6-0e89a99d86e1)
 
