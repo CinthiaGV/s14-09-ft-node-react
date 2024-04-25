@@ -17,15 +17,15 @@ import GenreSelector from './GenreSelector';
 import ProfileDer from './ProfileDer';
 
 const ProfileForm = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [profilePic, setProfilePic] = useState<string | null>(null);
-  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
-
-  const [selectedGames, setSelectedGames] = useState<string[]>([]);
-  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
-
+  // Estados para guardar las selecciones del usuario
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [profilePic, setProfilePic] = useState(null);
+  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
+  const [selectedGames, setSelectedGames] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState(null);
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
+
 
   const platforms = [
     { value: 'mobile', Icon: ConsoleIcon, label: 'Mobile' },
@@ -45,6 +45,15 @@ const ProfileForm = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
+    console.log('Form data:', data);
+    console.log('Local state data:', {
+      username,
+      description,
+      selectedDate,
+      selectedGenre,
+      selectedGames,
+      selectedPlatforms,
+    });
     // Lógica para enviar los datos del formulario al backend
   };
 
