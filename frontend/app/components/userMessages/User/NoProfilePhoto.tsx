@@ -1,9 +1,9 @@
 import { INoProfilePhoto } from '../interfaces';
 
-export default function NoProfilePhoto({ name }: INoProfilePhoto) {
+export default function NoProfilePhoto({ username }: INoProfilePhoto) {
   return (
-    <div className="avatar-pseudo ">
-      <span className="initial text-[#da404c]">{name[0]}</span>
+    username && <div className="avatar-pseudo ">
+      <span className="initial text-[#da404c]">{username[0]}</span>
     </div>
   );
 }

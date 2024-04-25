@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { ReactNode, useState } from 'react';
 import ChatArea from './Chat/ChatArea';
 import ConversationArea from './Conversation/ConversationArea';
@@ -9,8 +9,8 @@ export default function UserConversations({
   user,
   conversations,
 }: IUserConversations): ReactNode {
-  const [selectedConversation, setSelectedConversation] = useState<Conversation | null>();
-
+  const [selectedConversation, setSelectedConversation] =
+    useState<Conversation | null>();
   return (
     <div className="w-1/3 grid grid-rows-3">
       {!selectedConversation ? (
@@ -24,7 +24,10 @@ export default function UserConversations({
           </div>
         </div>
       ) : (
-          <ChatArea conversation={selectedConversation} setSelectedConversation={setSelectedConversation}/>
+        <ChatArea
+          conversation={selectedConversation}
+          setSelectedConversation={setSelectedConversation}
+        />
       )}
     </div>
   );

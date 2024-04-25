@@ -3,13 +3,23 @@ import { signIn } from 'next-auth/react';
 import { ILogIn, IUser, Iregister } from '../../models/auth';
 import { endpoint } from './endpoint';
 
-export const registerUser = async (values: IUser) => {
+export const RegisterUser = async (values: IUser) => {
   try {
-    const info:Iregister = {userData:values}
+    const info: Iregister = { userData: values };
     const { data } = await axios.post(`${endpoint}/users/signup`, info);
-    alert('User created successfully!')
-    console.log('User created successfully!')
-    return data
+    alert('User created successfully!');
+    console.log('User created successfully!');
+    const loginValues = {
+      email: info.userData.email,
+      password: info.userData.password,
+    };
+    const result = await signIn('credentials', {
+      email: loginValues.email,
+      password: loginValues.password,
+      redirect: true,
+      callbackUrl: '/profile',
+    });
+    return data;
   } catch (error) {
     console.log('Unsucessful register!', error);
     // Aquí podrías manejar el error de alguna otra manera o lanzarlo de nuevo
@@ -17,7 +27,7 @@ export const registerUser = async (values: IUser) => {
   }
 };
 
-export let validToken:Boolean = false
+export let validToken: Boolean = false;
 
 /*export const LoginUser = async (values: ILogIn) => {
   try {
@@ -34,15 +44,14 @@ export let validToken:Boolean = false
   }
 };*/
 
-
-export const LoginUser = async (values:ILogIn) => {
+export const LoginUser = async (values: ILogIn) => {
   try {
-    const {email, password} = values
+    const { email, password } = values;
     const result = await signIn('credentials', {
       email,
       password,
-      redirect: false,
-      callbackUrl: '/',
+      redirect: true,
+      callbackUrl: '/filteruser',
     });
 
     /*if (result.error) {
