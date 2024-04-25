@@ -99,7 +99,7 @@ const ProfileDer = ({
                   {username || (userGet && userGet.username)}
                 </h2>
                 <p className="text-sm font-light">
-                  {selectedDate && selectedDate.toLocaleDateString()}
+                  {selectedDate > 0 && `${selectedDate} años`}
                 </p>
                 <p className="text-sm font-light">
                   {description || (userGet && userGet.bio) || 'Descripción'}
