@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const GameSelector = ({ onSelectGame, selectedGames }) => {
+interface Props {
+  onSelectGame: (game: any) => void;
+  selectedGames: any;
+}
+export const GameSelector = ({ onSelectGame, selectedGames }: Props) => {
   const gamesList = [
     {
       nameGame: 'The Legend of Zelda: Breath of the Wild',
