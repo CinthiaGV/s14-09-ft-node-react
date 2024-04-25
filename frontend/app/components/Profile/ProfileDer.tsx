@@ -21,7 +21,7 @@ const ProfileDer = ({
         try {
           const convos = await getProfile(session);
           setUserGet(convos.data);
-          console.log(userGet);
+          // console.log(userGet);
         } catch (error) {
           console.error(error);
         }
