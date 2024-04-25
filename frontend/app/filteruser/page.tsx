@@ -65,7 +65,7 @@ const FilterUser = () => {
     };
 
     fetchConversations();
-  }, [session]);
+  }, [session, conversations]);
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -93,6 +93,7 @@ const FilterUser = () => {
           setTarjetas(cards.data);
           setTarjetasFull(cards.data);
           console.log('cards', tarjetasFull);
+          return cards;
         } catch (error) {
           console.error('Error fetching cards:', error);
         }
@@ -100,7 +101,7 @@ const FilterUser = () => {
     };
 
     fetchCards();
-  }, [session, tarjetasFull]);
+  }, [session]);
 
   useEffect(() => {
     if (filtroActivo) {
@@ -110,7 +111,7 @@ const FilterUser = () => {
       setTarjetaSeleccionada(tarjetas[indice]);
       console.log('selectCard', tarjetaSeleccionada);
     }
-  }, [tarjetas, indice, session, filtroActivo, filteredUsers.data, tarjetaSeleccionada]);
+  }, [tarjetas, indice, session, filtroActivo]);
 
   useEffect(() => {
     if (tarjetaSeleccionada && typeof tarjetaSeleccionada.age === 'string') {
@@ -190,7 +191,7 @@ const FilterUser = () => {
           <div className="w-2/3 h-full flex items-center justify-center">
             <div className="h-screen w-screen flex  text-white">
               <div className="w-full max-w-md mx-auto my-auto ">
-                <div className="flex flex-col mb-5 mt-[20%] mr-[50%] ">
+                <div className="flex flex-col mb-5  mr-[50%] ">
                   <Filter
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
@@ -241,12 +242,16 @@ const FilterUser = () => {
                                   }
                                   alt="Juego"
                                   className="w-16 h-16"
+                                  width={100}
+                                  height={100}
                                 />
                                 <div className="flex mt-1">
                                   {[...Array(interest.skill)].map((e, i) => (
                                     <Image
                                       key={i}
-                                      src="assets/star.png"
+                                      src="https://i.pinimg.com/originals/41/38/96/41389654a309cd16fbc49259f3dce948.png"
+                                      height={100}
+                                      width={100}
                                       alt="Estrella"
                                       className="h-4 w-4"
                                     />
@@ -271,14 +276,17 @@ const FilterUser = () => {
                       {tarjetaSeleccionada?.favoritePlatform?.length ? (
                         tarjetaSeleccionada?.favoritePlatform?.map(
                           (platform, index) => (
-                            <div key={index} className="flex flex-col items-center gap-2">
-                              {platform === 'Mobile' && (
+                            <div
+                              key={index}
+                              className="flex flex-col items-center gap-2"
+                            >
+                              {platform === 'mobile' && (
                                 <>
                                   <RxMobile className="ml-8 h-8" />
                                   <p className="ml-8 text-xs">{platform}</p>
                                 </>
                               )}
-                              {platform === 'Pc' && (
+                              {platform === 'pc' && (
                                 <>
                                   <RiComputerLine className="ml-8 h-8" />
                                   <p className="ml-8 text-xs uppercase">
@@ -286,7 +294,7 @@ const FilterUser = () => {
                                   </p>
                                 </>
                               )}
-                              {platform === 'Console' && (
+                              {platform === 'console' && (
                                 <>
                                   <GiConsoleController className="ml-8 h-8" />
                                   <p className="ml-8 text-xs">{platform}</p>
@@ -343,7 +351,7 @@ const FilterUser = () => {
             </button>
           </div>
 
-          {/* <div className="w-1/3 h-full bg-blue-500 flex items-center justify-center"> */}
+          {/* <div className=""> */}
           {session && session.user && (
             <UserConversations
               user={session.user}
@@ -357,17 +365,6 @@ const FilterUser = () => {
   } else {
     return (
       <div role="status">
-        <div className="flex flex-col mb-5 mt-[50%] mr-[50%] ">
-          <Filter
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            toggleModal={toggleModal}
-            setFilteredUsers={setFilteredUsers}
-            setFiltroActivo={setFiltroActivo}
-            filtroActivo={filtroActivo}
-            resetFilters={resetFilters}
-          />
-        </div>
         <svg
           aria-hidden="true"
           className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

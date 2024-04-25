@@ -7,11 +7,15 @@ import LastSentMsg from './LastSentMsg';
 export default function LastConversation({
   conversation,
   setSelectedConversation,
-}: ILastConversation) {
+}: any) {
   const { data: session, status } = useSession();
 
   // Comprobaciones de nulabilidad para conversation y messages
-  if (!conversation || !conversation.messages || conversation.messages.length === 0) {
+  if (
+    !conversation ||
+    !conversation.messages ||
+    conversation.messages.length === 0
+  ) {
     return null; // o puedes retornar un mensaje de error u otro componente
   }
 
@@ -26,15 +30,20 @@ export default function LastConversation({
   }
 
   const profile_picture =
-    userEmisor.email === session?.user?.email ? userReceptor.image : userEmisor.image;
-  const name = userEmisor.id === session?.user?.id ? userReceptor.username : userEmisor.username;
+    userEmisor.email === session?.user?.email
+      ? userReceptor.image
+      : userEmisor.image;
+  const name =
+    userEmisor.id === session?.user?.id
+      ? userReceptor.username
+      : userEmisor.username;
 
   return (
     <div
-      className={clsx('msg', /*status === 'online' ? 'online' : ''*/)}
+      className={clsx('msg' /*status === 'online' ? 'online' : ''*/)}
       onClick={() => setSelectedConversation(conversation)}
     >
-      <Image className="msg-profile" src={profile_picture || ""} alt={name} />
+      <Image className="msg-profile" src={profile_picture || ''} alt={name} />
       <div className="msg-detail">
         <div className="msg-username">{name}</div>
         <LastSentMsg message={lastMsg} />

@@ -604,3 +604,59 @@ input {
 ::-webkit-scrollbar-track {
   background-color: #d1d5db;
 }
+
+.game-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.game-item {
+  width: 30%; /* Ajusta según la disposición deseada */
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.game-item:hover {
+  transform: scale(1.05);
+}
+
+.game-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.game-details {
+  padding: 10px;
+  background-color: rgb(0, 0, 0); /* Fondo para los detalles */
+  text-align: center;
+}
+
+.game-details h4 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.game-details p {
+  margin: 0;
+  font-size: 14px;
+  color: #0c0c0c;
+}
+
+.game-selector {
+  width: 100%;
+  max-width: 400px; /* Ajusta según necesidad */
+}
+
+.game-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #222222;
+}

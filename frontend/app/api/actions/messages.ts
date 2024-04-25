@@ -29,7 +29,7 @@ export const getProfile = async (session: any) => {
       },
     });
     const info = await response.json(); // Agregué el await para esperar la respuesta JSON
-    console.log(info);
+    // console.log(info);
     return info;
   } catch (error) {
     console.error(error); // Agregué la impresión del error para fines de depuración

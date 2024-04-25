@@ -24,10 +24,10 @@ export default function UserProfile({ user }: IUserProfile) {
     };
     console.log(userGet);
     fetchProfile();
-  }, [session, userGet]);
+  }, [session]);
 
   return (
-    <div className="flex justify-center items-center row-span-1 border-b-2 border-l-2 border-[#49454F] bg-[#131212] h-[18.75rem] ">
+    <div className="flex items-center row-span-1 border-b-2 border-l-2 border-[#49454F] bg-[#131212] h-[18.75rem] ">
       <div className="absolute right-0 top-0 mt-2 mr-2">
         <button
           className="btn yellowBtn"
@@ -37,11 +37,17 @@ export default function UserProfile({ user }: IUserProfile) {
         </button>
       </div>
       <a href="/profile">
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex ml-40 flex-col justify-center items-center">
           {!userGet?.image ? (
             <NoProfilePhoto username={user.username} />
           ) : (
-            <Image src={`${userGet.image}`} alt={`${user.username}`} />
+            <Image
+              src={`${userGet.image}`}
+              alt={`${user.username}`}
+              className="w-[150px]"
+              width={150}
+              height={150}
+            />
           )}
           <p className="text-[#FDF7F7] mt-5 text-[24px]">{user.username}</p>
         </div>

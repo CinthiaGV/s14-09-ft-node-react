@@ -6,6 +6,7 @@ import { IChatMsg, MsgTxt } from '../interfaces';
 export default function ChatMsg({ message }: IChatMsg) {
   const { data: session, status } = useSession();
   const owner = message.userId;
+  console.log(message, 'messssss');
 
   return (
     <div
@@ -15,9 +16,7 @@ export default function ChatMsg({ message }: IChatMsg) {
       )}
     >
       <div className="chat-msg-content">
-        {message?.content?.map((content:MsgTxt, index:Key)=>(
-          <div key={index} className="chat-msg-text">{content.text}</div>
-        ))}
+          <div className="chat-msg-text">{message.text}</div>
       </div>
     </div>
   );

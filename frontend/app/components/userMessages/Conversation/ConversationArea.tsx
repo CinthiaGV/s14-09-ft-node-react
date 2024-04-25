@@ -9,7 +9,14 @@ export default function ConversationArea({
 }: IConversationArea) {
   const sortedConversations = conversations.sort(
     (a: Conversation, b: Conversation) => {
-      return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+      // Sort conversations based on the updatedAt timestamp of the last message in each conversation
+      const aLastMessageTime = new Date(
+        a.messages?.[a.messages.length - 1]?.updatedAt || ''
+      ).getTime();
+      const bLastMessageTime = new Date(
+        b.messages?.[b.messages.length - 1]?.updatedAt || ''
+      ).getTime();
+      return bLastMessageTime - aLastMessageTime;
     }
   );
 
@@ -19,10 +26,14 @@ export default function ConversationArea({
       <div className="max-h-[calc(100vh-4rem)] max-w-full hover:overflow-y-auto">
         {sortedConversations.map(
           (conversation: Conversation, index: Key): ReactNode => {
+            // Pass the last message of each conversation to LastConversation component
+            const lastMessage =
+              conversation.messages?.[conversation.messages.length - 1] ?? null;
             return (
               <LastConversation
                 key={index}
                 conversation={conversation}
+                lastMessage={lastMessage} // Pass the last message as a prop
                 setSelectedConversation={setSelectedConversation}
               />
             );
