@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import '../styles.css';
 
 interface GameSelectorProps {
@@ -69,7 +69,7 @@ export const GameSelector = ({ id }: GameSelectorProps) => {
     // Agrega más URLs de imágenes de perfil aquí
   ];
 
-  const handleImageUpload = async (event) => {
+  const handleImageUpload = async (event:any) => {
     const file = event.target.files[0]; // Obtén el archivo del input
     if (file) {
       const formData = new FormData();
