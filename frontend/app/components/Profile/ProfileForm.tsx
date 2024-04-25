@@ -225,6 +225,7 @@ const ProfileForm = () => {
               />
             </div>
           </div>
+        <button type='submit' className="btn yellowBtn">Guardar</button>
         </form>
       </div>
 
