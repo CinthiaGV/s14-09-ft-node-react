@@ -2,6 +2,9 @@
 
 NOA una aplicación web construida con React y TypeScript que tiene como objetivo conectar a jugadores basados en sus intereses en los videojuegos. ¡Piensa en Tinder para jugadores! Los usuarios pueden iniciar sesión, navegar a través de perfiles de otros jugadores que comparten intereses similares en los videojuegos, enviar invitaciones y conectarse con ellos para iniciar conversaciones y potencialmente jugar juntos.
 
+![HU3withoutlogo](https://github.com/No-Country/s14-09-ft-node-react/assets/117502571/0bf9ccea-c71c-48e7-b6a8-c8bb84fa3816)
+
+
 # Presentacion del proyecto
 https://www.canva.com/design/DAGDJ9mMNic/KsSAtQUQDCFxzmpCArZVYg/edit
 
