@@ -61,7 +61,7 @@ https://www.figma.com/file/nJqaIrpq7y8bQQwYwCRBQv/S14-9-NodeJs-React?type=design
 
 
 
-## Stacks de Equipo Frontend
+## Stacks de Equipo Backend
 ****
 |||
 |:---:|:---:|
@@ -70,7 +70,7 @@ https://www.figma.com/file/nJqaIrpq7y8bQQwYwCRBQv/S14-9-NodeJs-React?type=design
 | <img style="width: 100px; min-width: 100px" src="https://miro.medium.com/v2/resize:fit:1400/1*TVd_sNhpc7JDPBHAsAOQZg.jpeg">|Enrutamiento declarativo para aplicaciones React.|
 | <img style="width: 100px; min-width: 100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsPgbj3cubMDZPt8HwrkIBbf4AKUK1lY_ow&usqp=CAU">|Comunicación en tiempo real para funcionalidad de chat|
 
-## Stacks de Equipo Backend
+## Stacks de Equipo Frontend 
 ****
 |||
 |:---:|:---:|
